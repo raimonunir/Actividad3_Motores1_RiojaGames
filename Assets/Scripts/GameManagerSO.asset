@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2106d9c631d05644a802a891250a032, type: 3}
+  m_Name: GameManagerSO
+  m_EditorClassIdentifier: 
+  secondsToQuitAppAffterWin: 3
+  maxHP: 100
+  initialHP: 100
+  spikeDamage: 14
+  fireDamage: 40
+  boulderDamage: 100
+  poisonDamage: 30
+  m_timerToGetDark: 94.1
