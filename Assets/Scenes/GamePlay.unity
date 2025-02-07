@@ -17013,6 +17013,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2130406347}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &56997150513930239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805243491755871594}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftToe0_LT01_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &88664152492866096
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17021,6 +17037,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3078260524171237278}
   m_CullTransparentMesh: 1
+--- !u!4 &108721627860796994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888343850349332639}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.24491349, y: 0.20415203, z: 0.19551669, w: 0.9274225}
+  m_LocalPosition: {x: -0.13494003, y: 0.0022048326, z: -0.034960914}
+  m_LocalScale: {x: 0.99999994, y: 0.9999998, z: 1.0000005}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6002948845380733481}
+  m_Father: {fileID: 1035163260625527582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &112646129090950656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7076796999534910196}
+  m_Layer: 0
+  m_Name: Sabrecat_Head__Head_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &140432985853896483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241510306415417180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.14646466, y: 0.1430101, z: 0.063214816, w: 0.97678053}
+  m_LocalPosition: {x: -0.14786601, y: -0.007122455, z: 0.053264003}
+  m_LocalScale: {x: 0.99999994, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3188284341587610807}
+  m_Father: {fileID: 1035163260625527582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &142103943296286810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584169141349475998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.027290102, y: -0.021762578, z: 0.20553444, w: 0.9780272}
+  m_LocalPosition: {x: -0.06472638, y: 0.0000000013898044, z: -0.0000000066213954}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4865915185117249066}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &164503933978946716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17057,6 +17136,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &216862713997159074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583493649002046536}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.007944987, y: -0.04076138, z: -0.019344522, w: 0.99895006}
+  m_LocalPosition: {x: -0.23503798, y: -0.000000030000006, z: 0.000000002847438}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 374868765742414616}
+  m_Father: {fileID: 1927262297614451581}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &289519620003377929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17073,6 +17168,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5621395174165790078}
   m_CullTransparentMesh: 1
+--- !u!4 &297483183484616013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736977539755329237}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.027289603, y: -0.018998956, z: 0.46702912, w: 0.8836165}
+  m_LocalPosition: {x: -0.07234039, y: 2.962835e-15, z: -0.000000010000002}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7892866094848346564}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &359275063186433803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17100,6 +17210,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3589841428134664042}
   m_CullTransparentMesh: 1
+--- !u!4 &374868765742414616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366019807854109124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0041453554, y: -0.022798715, z: -0.069777966, w: 0.9972934}
+  m_LocalPosition: {x: -0.23419802, y: 0.00000007814697, z: -1.5159801e-14}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2927704921757328219}
+  - {fileID: 2749231758913928257}
+  - {fileID: 717271050248665488}
+  - {fileID: 3795174437474208434}
+  m_Father: {fileID: 216862713997159074}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &390639999883642713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6912026601919320672}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0037997905, y: -0.016926356, z: -0.61625713, w: 0.78735393}
+  m_LocalPosition: {x: -0.264936, y: -0.00000003111828, z: 0.000000021661378}
+  m_LocalScale: {x: 0.99999976, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 852289878743613386}
+  - {fileID: 6190445496616412789}
+  m_Father: {fileID: 689924900167079850}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &400074161651005449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877430828714859914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2705697343822822886}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &400703804846078653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17170,6 +17331,22 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!1 &424864132117445205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3789664240415202224}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger0_RF00_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &425335621002574305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17248,6 +17425,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca32d6f9056de704b832565eb233fa12, type: 3}
+--- !u!4 &498839468660067569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6694388210323667905}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.006217839, y: -0.0017271739, z: 0.9510993, w: -0.308818}
+  m_LocalPosition: {x: 0.07944514, y: -0.09460626, z: 1.528504e-11}
+  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3073539270110414909}
+  m_Father: {fileID: 3401246291169967357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &512735506522388665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17276,6 +17469,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5617036033327560434}
   m_CullTransparentMesh: 1
+--- !u!1 &576733448725574249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960845944640757593}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFoot_RFot_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &580840296929524768
 GameObject:
   m_ObjectHideFlags: 0
@@ -17415,6 +17624,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &644537844585447641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2292936974851286056}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftCalf_LClf_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &669933677824759673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17525,6 +17750,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -100, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &689924900167079850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048721761258866808}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.03316174, y: -0.13921015, z: 0.47842848, w: 0.86638737}
+  m_LocalPosition: {x: -0.357317, y: 0.000000019073486, z: 0.000000010000001}
+  m_LocalScale: {x: 1.0000001, y: 1.0000005, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 390639999883642713}
+  m_Father: {fileID: 3795174437474208434}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &717271050248665488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018890734817461323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.16097285, y: 0.1799719, z: -0.6856901, w: 0.6866783}
+  m_LocalPosition: {x: 0.08608278, y: 0.441552, z: -0.0038104402}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 374868765742414616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &717626836710474640
 GameObject:
   m_ObjectHideFlags: 0
@@ -17648,6 +17904,53 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &797587203498287065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3782828411958680596}
+  m_Layer: 0
+  m_Name: Sabrecat_Head_LM01_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &805243491755871594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56997150513930239}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.032820396, y: -0.07081597, z: -0.37652442, w: 0.9231128}
+  m_LocalPosition: {x: -0.0921122, y: 0.022927092, z: -0.000000021172895}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7976455618549406696}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &807328768756638678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7271616892072769561}
+  m_Layer: 0
+  m_Name: Skin_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &821744601512057275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17694,6 +17997,26 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!4 &852289878743613386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315149210075164011}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.1447376, y: -0.03281632, z: -0.25389495, w: 0.955778}
+  m_LocalPosition: {x: -0.33691505, y: 0.00000001065485, z: 0.000000031853144}
+  m_LocalScale: {x: 1, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1519771657392735866}
+  - {fileID: 3789664240415202224}
+  - {fileID: 6188741573834221089}
+  - {fileID: 4865915185117249066}
+  - {fileID: 7892866094848346564}
+  m_Father: {fileID: 390639999883642713}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869800526163808624
 GameObject:
   m_ObjectHideFlags: 0
@@ -17729,6 +18052,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &916598235259265297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3415306108624519454}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.030398332, y: 0.108466834, z: 0.07219606, w: 0.99100894}
+  m_LocalPosition: {x: -0.14030598, y: 0.010625109, z: 0.0019476165}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8349289609200456916}
+  m_Father: {fileID: 1035163260625527582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &923328640572649603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426219459000153529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4822955230574683679}
+  m_Father: {fileID: 8030735474979166565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &942701323492822297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17753,6 +18108,42 @@ MonoBehaviour:
   panelCameraTarget: {fileID: 4712371681530475829}
   imagePointCameraTarget: {fileID: 8140726856609636607}
   textTargetInfo: {fileID: 6150772765828014041}
+--- !u!1 &1008062502841484706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398328620011976192}
+  m_Layer: 0
+  m_Name: Sabrecat_Head_EyeLid_HELT_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035163260625527582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478382481781172786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.11986645, y: -0.03903393, z: 0.46564746, w: 0.8759457}
+  m_LocalPosition: {x: -0.33692, y: -0.000000009808374, z: -0.0000000018530252}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6349371034238564128}
+  - {fileID: 140432985853896483}
+  - {fileID: 916598235259265297}
+  - {fileID: 108721627860796994}
+  - {fileID: 3158003059134686520}
+  m_Father: {fileID: 7885072194789464800}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1067016635040596844
 GameObject:
   m_ObjectHideFlags: 0
@@ -17793,6 +18184,38 @@ RectTransform:
   m_AnchoredPosition: {x: 560, y: -127.84547}
   m_SizeDelta: {x: 320, y: 255.69093}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1071884943729647894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892714706124057336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7271616892072769561}
+  m_Father: {fileID: 8030735474979166565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1137375800002175274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7237431816221321799}
+  m_Layer: 0
+  m_Name: SabreCat_RightEye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &1144736511186389109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17801,6 +18224,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3509898399194227637}
   m_CullTransparentMesh: 1
+--- !u!4 &1203760958361069518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248290358677844668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.02418057, y: 0.04041595, z: -0.06321475, w: 0.99688804}
+  m_LocalPosition: {x: -0.14598502, y: -3.748686e-15, z: -0.000000009536744}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3671507567422352151}
+  m_Father: {fileID: 2749231758913928257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1227244623619494068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8349289609200456916}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger1_LF11_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &1244601847454686318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17820,6 +18275,38 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: -430.99414}
   m_SizeDelta: {x: 800, y: 38.35364}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1248290358677844668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203760958361069518}
+  m_Layer: 0
+  m_Name: Sabrecat_Neck_Nek1_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1277939927992396506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5000938014788444836}
+  m_Layer: 0
+  m_Name: Sabrecat_Spine_Spn1_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &1333225271659106422
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17859,6 +18346,122 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!137 &1366271317309072860
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877430828714859914}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3407fbd69bf79e54bb2dcb500ab0a571, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 1960544099208130213, guid: 8326bd495549f8c4abadb7a4059bec20, type: 3}
+  m_Bones:
+  - {fileID: 3401246291169967357}
+  - {fileID: 3306972058276174836}
+  - {fileID: 2292936974851286056}
+  - {fileID: 4974644691579027873}
+  - {fileID: 7976455618549406696}
+  - {fileID: 805243491755871594}
+  - {fileID: 3964437133686376075}
+  - {fileID: 3875692582401546576}
+  - {fileID: 1960845944640757593}
+  - {fileID: 3856865897555989725}
+  - {fileID: 9112401199105558040}
+  - {fileID: 498839468660067569}
+  - {fileID: 3073539270110414909}
+  - {fileID: 8978838914612381058}
+  - {fileID: 7481486012043875301}
+  - {fileID: 5000938014788444836}
+  - {fileID: 1927262297614451581}
+  - {fileID: 216862713997159074}
+  - {fileID: 374868765742414616}
+  - {fileID: 717271050248665488}
+  - {fileID: 2749231758913928257}
+  - {fileID: 1203760958361069518}
+  - {fileID: 3671507567422352151}
+  - {fileID: 7076796999534910196}
+  - {fileID: 4953071824789755036}
+  - {fileID: 5436993476468386754}
+  - {fileID: 6531615933045644088}
+  - {fileID: 2044668177000893839}
+  - {fileID: 1398328620011976192}
+  - {fileID: 2706443281566599748}
+  - {fileID: 6615535405570733711}
+  - {fileID: 2066716468288800100}
+  - {fileID: 5339064414927603199}
+  - {fileID: 3782828411958680596}
+  - {fileID: 4386661638444879647}
+  - {fileID: 3795174437474208434}
+  - {fileID: 689924900167079850}
+  - {fileID: 390639999883642713}
+  - {fileID: 6190445496616412789}
+  - {fileID: 852289878743613386}
+  - {fileID: 7892866094848346564}
+  - {fileID: 297483183484616013}
+  - {fileID: 4865915185117249066}
+  - {fileID: 142103943296286810}
+  - {fileID: 1519771657392735866}
+  - {fileID: 6188741573834221089}
+  - {fileID: 6854779464294147278}
+  - {fileID: 3789664240415202224}
+  - {fileID: 7041548933525729211}
+  - {fileID: 2927704921757328219}
+  - {fileID: 8656140589800280939}
+  - {fileID: 7885072194789464800}
+  - {fileID: 1457874922078391736}
+  - {fileID: 1035163260625527582}
+  - {fileID: 6349371034238564128}
+  - {fileID: 916598235259265297}
+  - {fileID: 8349289609200456916}
+  - {fileID: 108721627860796994}
+  - {fileID: 6002948845380733481}
+  - {fileID: 3158003059134686520}
+  - {fileID: 4456455242303867122}
+  - {fileID: 140432985853896483}
+  - {fileID: 3188284341587610807}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 3401246291169967357}
+  m_AABB:
+    m_Center: {x: -0.6153929, y: 0.20443675, z: 0.04427439}
+    m_Extent: {x: 1.1294484, y: 0.64074266, z: 0.4173162}
+  m_DirtyAABB: 0
 --- !u!222 &1374798099134595623
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17867,6 +18470,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9211656220336885243}
   m_CullTransparentMesh: 1
+--- !u!4 &1398328620011976192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008062502841484706}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000008369556, y: -0.000000008892935, z: 0.35836813, w: 0.93358034}
+  m_LocalPosition: {x: -0.12563904, y: 0.009885406, z: -0.000000073424154}
+  m_LocalScale: {x: 1.0000004, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &1412792629642943519
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17893,6 +18511,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &1457874922078391736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891010262339727201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.124356434, y: -0.00000009129944, z: 0.000000083425874, w: 0.9922376}
+  m_LocalPosition: {x: -0.13229598, y: -0.0000000025879028, z: -0.000000010000004}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7885072194789464800}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490092239706315913
 GameObject:
   m_ObjectHideFlags: 0
@@ -17932,6 +18565,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &1519771657392735866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4746784125944022468}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.04905156, y: -0.33299989, z: 0.38792452, w: 0.8580324}
+  m_LocalPosition: {x: -0.01116666, y: 0.024909804, z: -0.06803649}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 852289878743613386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1541347817260357024
 GameObject:
   m_ObjectHideFlags: 0
@@ -18057,6 +18705,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 4
   m_LayoutPriority: 1
+--- !u!1 &1610801947068816491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3795174437474208434}
+  m_Layer: 0
+  m_Name: Sabrecat_RightClavicle_RClv_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &1670160787067895309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18254,6 +18918,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7887659801349839782}
   m_CullTransparentMesh: 1
+--- !u!4 &1927262297614451581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014942437316655814}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.01830814, y: -0.025562285, z: 0.015544579, w: 0.9993847}
+  m_LocalPosition: {x: -0.23450197, y: -0.000000040734857, z: -0.0000000023162667}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 216862713997159074}
+  m_Father: {fileID: 5000938014788444836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1932023534736993818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9112401199105558040}
+  m_Layer: 0
+  m_Name: Sabrecat_RightToe0_RT01_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &1938420156474512885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18292,6 +18988,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7888580965213047884}
   m_CullTransparentMesh: 1
+--- !u!4 &1960845944640757593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576733448725574249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0020725394, y: 0.023489734, z: -0.4131408, w: 0.9103618}
+  m_LocalPosition: {x: -0.21007, y: 0.00000000961669, z: -0.000000010926531}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3856865897555989725}
+  m_Father: {fileID: 3875692582401546576}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2023559861657370443
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18311,6 +19023,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &2044668177000893839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478668826404937673}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.4583929, y: 0.23455073, z: 0.6914202, w: 0.50675446}
+  m_LocalPosition: {x: -0.000000027575094, y: -0.0000000017204748, z: 0.100090995}
+  m_LocalScale: {x: 1.0000001, y: 0.99999976, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2066716468288800100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6225322054685175319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000007746964, y: 0.0000000032219758, z: 0.052335832, w: 0.99862957}
+  m_LocalPosition: {x: -0.12563904, y: 0.0098851435, z: 4.856315e-10}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2103738367178847122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18457,6 +19199,22 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: -153.41457}
   m_SizeDelta: {x: 320, y: 204.55275}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &2292936974851286056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644537844585447641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.003799744, y: 0.002763421, z: 0.51884437, w: 0.85485584}
+  m_LocalPosition: {x: -0.30440003, y: 0.000000027412113, z: -0.000000008146968}
+  m_LocalScale: {x: 1, y: 1.0000004, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4974644691579027873}
+  m_Father: {fileID: 3306972058276174836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2299519825487549353
 GameObject:
   m_ObjectHideFlags: 0
@@ -18470,6 +19228,22 @@ GameObject:
   - component: {fileID: 5156259882920591728}
   m_Layer: 5
   m_Name: Item Label
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &2309758383909879458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5339064414927603199}
+  m_Layer: 0
+  m_Name: Sabrecat_HeadRightEar_REar_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18516,6 +19290,22 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: -276.05002}
   m_SizeDelta: {x: 320, y: 59.281822}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2332560232905725171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8656140589800280939}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftUpperArm_LUar_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &2364923164017904853
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18544,6 +19334,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6519499202763817717}
   m_CullTransparentMesh: 1
+--- !u!1 &2437889387414690394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6002948845380733481}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger2_LF21_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &2462986514021968767
 GameObject:
   m_ObjectHideFlags: 0
@@ -18673,6 +19479,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &2665344946732962506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3188284341587610807}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger0_LF01_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &2684185717020485129
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18681,6 +19503,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5686012076180897410}
   m_CullTransparentMesh: 1
+--- !u!4 &2705697343822822886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370735184146507612}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.66, y: 0.004, z: -33.59}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 2734934891558779631}
+  - {fileID: 8030735474979166565}
+  - {fileID: 400074161651005449}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2706443281566599748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660274126011063373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.61729366, y: -0.24353188, z: 0.62840843, w: 0.40588638}
+  m_LocalPosition: {x: -0.20317902, y: -0.028197343, z: -0.06460779}
+  m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2734934891558779631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356071515390145244}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: -0.00000004230711, z: -0.0000000030340381}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3401246291169967357}
+  m_Father: {fileID: 2705697343822822886}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2749231758913928257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145497866702456731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.004490669, y: 0.0017271545, z: 0.012090292, w: 0.99991536}
+  m_LocalPosition: {x: 6.7501586e-16, y: 8.384402e-15, z: 0.0000000333786}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1203760958361069518}
+  m_Father: {fileID: 374868765742414616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2749772194914041142
 GameObject:
   m_ObjectHideFlags: 0
@@ -18965,6 +19852,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!4 &2927704921757328219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433605818712835820}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.9088787, y: -0.36685315, z: -0.10570237, w: -0.1678848}
+  m_LocalPosition: {x: 0.017958404, y: -0.08311429, z: 0.19314897}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8656140589800280939}
+  m_Father: {fileID: 374868765742414616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2961161023542311866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18984,6 +19887,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2978800462455375283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4822955230574683679}
+  m_Layer: 0
+  m_Name: Skin_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &3011166597421482015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18998,6 +19917,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!1 &3048721761258866808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689924900167079850}
+  m_Layer: 0
+  m_Name: Sabrecat_RightUpperArm_RUar_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &3049948684625048971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19028,6 +19963,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &3073539270110414909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308881442196617659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.039725117, y: 0.07461397, z: 0.0590695, w: 0.99466854}
+  m_LocalPosition: {x: -0.14293204, y: -0.00000014370605, z: 0.00000000629393}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8978838914612381058}
+  m_Father: {fileID: 498839468660067569}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3078260524171237278
 GameObject:
   m_ObjectHideFlags: 0
@@ -19099,6 +20050,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &3158003059134686520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169286791621085105}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.22626029, y: 0.08877642, z: 0.18653525, w: 0.95190847}
+  m_LocalPosition: {x: -0.10809399, y: -0.031257194, z: -0.06278313}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1.0000005}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4456455242303867122}
+  m_Father: {fileID: 1035163260625527582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3188284341587610807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2665344946732962506}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000002018367, y: -0.000000053304596, z: 0.17582631, w: 0.9844212}
+  m_LocalPosition: {x: -0.06749241, y: 0.0000000012539922, z: -0.0000000137060265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 140432985853896483}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3203303800608483643
 GameObject:
   m_ObjectHideFlags: 0
@@ -19159,6 +20141,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067016635040596844}
   m_CullTransparentMesh: 1
+--- !u!4 &3306972058276174836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652017361518924591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.8078083, y: -0.58447677, z: -0.0020743452, w: 0.076343775}
+  m_LocalPosition: {x: 0.00000007629394, y: -0.000000099999994, z: 0.17849998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2292936974851286056}
+  m_Father: {fileID: 3401246291169967357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &3327978175225372584
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19189,6 +20187,110 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2299519825487549353}
   m_CullTransparentMesh: 1
+--- !u!1 &3354865384917074040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3401246291169967357}
+  m_Layer: 0
+  m_Name: Sabrecat__pelv_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &3370735184146507612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2705697343822822886}
+  - component: {fileID: 3370735184146507614}
+  - component: {fileID: 3370735184146507613}
+  - component: {fileID: 3370735184146507615}
+  m_Layer: 0
+  m_Name: Enemy01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &3370735184146507613
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370735184146507612}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3370735184146507614
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370735184146507612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!95 &3370735184146507615
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370735184146507612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28d3305214021da48808ba054847cfdd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!224 &3386215177207395016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19209,6 +20311,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!4 &3401246291169967357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354865384917074040}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5202258, y: 0.4901734, z: -0.44388503, w: 0.5404269}
+  m_LocalPosition: {x: 0.023318209, y: -0.56936395, z: 0.681871}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3306972058276174836}
+  - {fileID: 3964437133686376075}
+  - {fileID: 7481486012043875301}
+  - {fileID: 498839468660067569}
+  m_Father: {fileID: 2734934891558779631}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &3401883841872004641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19230,6 +20351,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &3415306108624519454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916598235259265297}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger1_LF10_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &3433605818712835820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2927704921757328219}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftClavicle_LClv_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &3479307065401239075
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19437,6 +20590,118 @@ RectTransform:
   m_AnchoredPosition: {x: -15, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &3671507567422352151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580646032288278580}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.032816373, y: 0.06045116, z: -0.12124805, w: 0.99023616}
+  m_LocalPosition: {x: -0.14598604, y: 3.9642086e-15, z: 0.000000032384186}
+  m_LocalScale: {x: 1, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7076796999534910196}
+  m_Father: {fileID: 1203760958361069518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3782828411958680596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797587203498287065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.7114928e-10, y: -0.0000000011275627, z: 0.00000009473526,
+    w: 1}
+  m_LocalPosition: {x: -0.19293194, y: 0.029761499, z: 0.0646375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3789664240415202224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424864132117445205}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.1302292, y: -0.116411984, z: -0.29845607, w: 0.93830305}
+  m_LocalPosition: {x: -0.13950296, y: 0.010476397, z: -0.044210296}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7041548933525729211}
+  m_Father: {fileID: 852289878743613386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3795174437474208434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610801947068816491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7149163, y: -0.68396264, z: -0.11675649, w: 0.08635821}
+  m_LocalPosition: {x: 0.0025145402, y: -0.081846744, z: -0.20639096}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 689924900167079850}
+  m_Father: {fileID: 374868765742414616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3856865897555989725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773433719547434672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.111229874, y: 0.057687633, z: 0.2321328, w: 0.96457994}
+  m_LocalPosition: {x: -0.21315303, y: -0.000000015175784, z: -0.000000004632575}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9112401199105558040}
+  m_Father: {fileID: 1960845944640757593}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3875692582401546576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741386030226913526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000046701157, y: -0.0041451897, z: 0.79183036, w: 0.61072713}
+  m_LocalPosition: {x: -0.30439997, y: 0.0000000837061, z: -0.000000038146975}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1960845944640757593}
+  m_Father: {fileID: 3964437133686376075}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3964437133686376075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881630531951429530}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.8032118, y: -0.59242254, z: 0.04214086, w: -0.045939803}
+  m_LocalPosition: {x: 0.000000068146974, y: -0.000000068146974, z: -0.17850001}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3875692582401546576}
+  m_Father: {fileID: 3401246291169967357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4014161972079202653
 GameObject:
   m_ObjectHideFlags: 0
@@ -19448,6 +20713,22 @@ GameObject:
   - component: {fileID: 780711744525337551}
   m_Layer: 5
   m_Name: Handle Slide Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &4018890734817461323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717271050248665488}
+  m_Layer: 0
+  m_Name: Sabrecat_Ribcage_Spn1_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19604,6 +20885,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4177351137235174086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6854779464294147278}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger1_RF11_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &4248727217917709072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19660,6 +20957,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4308881442196617659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3073539270110414909}
+  m_Layer: 0
+  m_Name: Sabrecat_Tail1_Tal1_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &4312216888106147866
 GameObject:
   m_ObjectHideFlags: 0
@@ -19678,6 +20991,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &4315149210075164011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 852289878743613386}
+  m_Layer: 0
+  m_Name: Sabrecat_RightHand_RHnd_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4386661638444879647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6124914055527042869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.7114928e-10, y: -0.0000000011275627, z: 0.00000009473526,
+    w: 1}
+  m_LocalPosition: {x: -0.19333002, y: 0.029771898, z: -0.07376209}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &4391444522764051156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19787,6 +21132,68 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!4 &4456455242303867122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680770706754143548}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.032470874, y: 0.0072542117, z: 0.10121303, w: 0.9943083}
+  m_LocalPosition: {x: -0.07234048, y: -0.0000000025878626, z: -0.00000003013582}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3158003059134686520}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4473587634997932069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6190445496616412789}
+  m_Layer: 0
+  m_Name: Sabrecat_RightTwistBone_RFTB_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &4478382481781172786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035163260625527582}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftHand_LHnd_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4495092674469925100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7885130460946014585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7237431816221321799}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4501412807118943677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19849,6 +21256,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &4583493649002046536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 216862713997159074}
+  m_Layer: 0
+  m_Name: Sabrecat_Spine_Spn3_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &4599974468942549488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19894,6 +21317,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &4660274126011063373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2706443281566599748}
+  m_Layer: 0
+  m_Name: Sabrecat_Head__REye_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &4661696402905754512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19917,6 +21356,22 @@ RectTransform:
   m_AnchoredPosition: {x: 240, y: -127.84547}
   m_SizeDelta: {x: 320, y: 255.69093}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4681175526569572198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4865915185117249066}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger2_RF20_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &4712371681530475829
 GameObject:
   m_ObjectHideFlags: 0
@@ -20014,6 +21469,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4746784125944022468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519771657392735866}
+  m_Layer: 0
+  m_Name: Sabrecat_Finger4_RF04_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &4767234310907434522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20034,6 +21505,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 8
   m_LayoutPriority: 1
+--- !u!1 &4773433719547434672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3856865897555989725}
+  m_Layer: 0
+  m_Name: Sabrecat_RightToe0_RT00_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &4817359698006376072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20054,6 +21541,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 1, y: 1}
+--- !u!4 &4822955230574683679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978800462455375283}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 923328640572649603}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4865915185117249066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681175526569572198}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.01381816, y: 0.022108147, z: -0.3671987, w: 0.9297771}
+  m_LocalPosition: {x: -0.13677496, y: -0.010034898, z: 0.04361689}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 142103943296286810}
+  m_Father: {fileID: 852289878743613386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4879574080109709339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20122,6 +21640,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca141c219770a6041815e3c878e6bed1, type: 3}
+--- !u!4 &4953071824789755036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473766207146825475}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5958768, y: -0.29189262, z: 0.6524228, w: 0.36616123}
+  m_LocalPosition: {x: -0.20317903, y: -0.028197434, z: 0.0641359}
+  m_LocalScale: {x: 1.0000004, y: 0.9999999, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4974644691579027873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205410616959501874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0034543222, y: -0.03661619, z: -0.629384, w: 0.77622366}
+  m_LocalPosition: {x: -0.21007007, y: -0.00000005926521, z: -1.06071175e-14}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7976455618549406696}
+  m_Father: {fileID: 2292936974851286056}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4983912764393161722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20152,6 +21701,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &5000938014788444836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277939927992396506}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0162355, y: 0.009326683, z: -0.050433703, w: 0.9985519}
+  m_LocalPosition: {x: -0.23450194, y: -0.00000011073487, z: -0.0000000019209445}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6286361247350610348}
+  - {fileID: 1927262297614451581}
+  m_Father: {fileID: 7481486012043875301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5040585392832010725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6188741573834221089}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger1_RF10_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &5096910392983783561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20171,6 +21753,22 @@ RectTransform:
   m_AnchoredPosition: {x: 760, y: -127.84547}
   m_SizeDelta: {x: 80, y: 255.69093}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5145497866702456731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2749231758913928257}
+  m_Layer: 0
+  m_Name: Sabrecat_Neck_Nek0_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &5156259882920591728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20355,6 +21953,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &5339064414927603199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309758383909879458}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.30398327, y: -0.76719886, z: -0.25493237, w: 0.50399363}
+  m_LocalPosition: {x: -0.000000022966335, y: -0.000000030453876, z: -0.10009498}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5345875853176064180
 GameObject:
   m_ObjectHideFlags: 0
@@ -20367,6 +21980,22 @@ GameObject:
   - component: {fileID: 164503933978946716}
   m_Layer: 5
   m_Name: MarginBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &5361871118060625112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6349371034238564128}
+  m_Layer: 0
+  m_Name: Sabrecat_Finger4_LF04_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20410,6 +22039,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5426219459000153529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923328640572649603}
+  m_Layer: 0
+  m_Name: SabreCat_LeftEye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5436993476468386754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7113306914126903536}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0055269315, y: 0.012090166, z: 0.0735779, w: 0.9972009}
+  m_LocalPosition: {x: -0.173874, y: 0.08150657, z: -0.084876}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &5458579533153528967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20485,6 +22145,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 170, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5581116432455004436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8978838914612381058}
+  m_Layer: 0
+  m_Name: Sabrecat_Tail2_Tal2_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &5617036033327560434
 GameObject:
   m_ObjectHideFlags: 0
@@ -20568,6 +22244,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &5683244645811279768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397551287727711100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7851503098496992179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5686012076180897410
 GameObject:
   m_ObjectHideFlags: 0
@@ -20621,6 +22312,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9018938555071796944}
   m_CullTransparentMesh: 1
+--- !u!1 &5741386030226913526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3875692582401546576}
+  m_Layer: 0
+  m_Name: Sabrecat_RightCalf_RClf_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &5798480226582023823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20691,6 +22398,38 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5887214723453435482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6615535405570733711}
+  m_Layer: 0
+  m_Name: Sabrecat_Head_jaw_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &5888343850349332639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 108721627860796994}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger2_LF20_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &5889543550317342516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20758,6 +22497,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &6002948845380733481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2437889387414690394}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.030052887, y: 0.01761724, z: 0.06252388, w: 0.99743533}
+  m_LocalPosition: {x: -0.06472629, y: -0.0000000028474647, z: 0.000000104440915}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 108721627860796994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6032609245414140698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20867,6 +22621,22 @@ GameObject:
   - component: {fileID: 8754861825850295748}
   m_Layer: 5
   m_Name: LayoutGroupH_Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6124914055527042869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4386661638444879647}
+  m_Layer: 0
+  m_Name: Sabrecat_Head_RM01_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21010,6 +22780,38 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &6167845803772281567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7481486012043875301}
+  m_Layer: 0
+  m_Name: Sabrecat_Spine_Spn0_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6169286791621085105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3158003059134686520}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger3_RF30_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &6181099547309690334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21078,6 +22880,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 775be0a129ed6f04cbb2b6091d64c1f1, type: 3}
+--- !u!4 &6188741573834221089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040585392832010725}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.10052199, y: -0.053197086, z: -0.24491437, w: 0.96285117}
+  m_LocalPosition: {x: -0.146838, y: -0.0084041795, z: -0.0012094656}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6854779464294147278}
+  m_Father: {fileID: 852289878743613386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &6190445496616412789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473587634997932069}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.14819166, y: -0.00000009890975, z: -0.00000015759838, w: 0.98895866}
+  m_LocalPosition: {x: -0.131034, y: -0.0000000025878921, z: 0.000000020000051}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 390639999883642713}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6205410616959501874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4974644691579027873}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFoot_LFot_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &6218221613286791539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21108,6 +22957,53 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6225322054685175319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066716468288800100}
+  m_Layer: 0
+  m_Name: Sabrecat_HeadEyeLid__HELB_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6241510306415417180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140432985853896483}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger0_LF00_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6286361247350610348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947870760699307335}
+  serializedVersion: 2
+  m_LocalRotation: {x: -4.1776813e-10, y: 4.845446e-10, z: -0.000000003062461, w: 1}
+  m_LocalPosition: {x: -0.23450197, y: -0.00000019258788, z: -0.0000000023841706}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5000938014788444836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6304192139807289958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21128,6 +23024,70 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1.2
   m_LayoutPriority: 1
+--- !u!1 &6314955306681092569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7851503098496992179}
+  m_Layer: 0
+  m_Name: SabreCat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6349371034238564128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361871118060625112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000087230966, y: 4.7037606e-11, z: -0.000000008493406,
+    w: 1}
+  m_LocalPosition: {x: -0.010502981, y: 0.030555798, z: 0.06457441}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1035163260625527582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6356071515390145244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2734934891558779631}
+  m_Layer: 0
+  m_Name: Hips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6366019807854109124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374868765742414616}
+  m_Layer: 0
+  m_Name: Sabrecat_Ribcage_Spn4_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &6380570771255291876
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21136,6 +23096,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8604020629694029720}
   m_CullTransparentMesh: 1
+--- !u!1 &6397551287727711100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5683244645811279768}
+  m_Layer: 0
+  m_Name: Skin_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &6413839016179796779
 GameObject:
   m_ObjectHideFlags: 0
@@ -21187,6 +23163,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6105174709944860823}
   m_CullTransparentMesh: 1
+--- !u!1 &6478668826404937673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044668177000893839}
+  m_Layer: 0
+  m_Name: Sabrecat_HeadLeftEar_LEar_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &6489192892740763037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21262,6 +23254,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678777416592660903}
   m_CullTransparentMesh: 1
+--- !u!4 &6531615933045644088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412489161859806561}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0055269315, y: 0.012090166, z: 0.0735779, w: 0.9972009}
+  m_LocalPosition: {x: -0.17404903, y: 0.08180502, z: 0.09163499}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6534981520370132911
 GameObject:
   m_ObjectHideFlags: 0
@@ -21273,6 +23280,53 @@ GameObject:
   - component: {fileID: 9120575186013684456}
   m_Layer: 5
   m_Name: Handle Slide Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6580646032288278580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3671507567422352151}
+  m_Layer: 0
+  m_Name: Sabrecat_Neck_Nek2_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6615535405570733711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887214723453435482}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000009895895, y: -0.00000003486779, z: -0.6535641, w: 0.7568712}
+  m_LocalPosition: {x: 0.0039075143, y: 0.0673297, z: 3.120482e-10}
+  m_LocalScale: {x: 1.0000002, y: 0.9999996, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7076796999534910196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6652017361518924591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3306972058276174836}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftThigh_LThi_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21319,6 +23373,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6694388210323667905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498839468660067569}
+  m_Layer: 0
+  m_Name: Sabrecat_Tail0_Tal0_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &6716179897280513640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21369,6 +23439,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6736977539755329237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297483183484616013}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger3_RF31_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &6741528285867768517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21521,7 +23607,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.85
+  m_fontSize: 29.8
   m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -21571,6 +23657,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6497948691935202094}
   m_CullTransparentMesh: 1
+--- !u!4 &6854779464294147278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177351137235174086}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000021313427, y: 0.00000015232033, z: 0.16200945, w: 0.9867892}
+  m_LocalPosition: {x: -0.06576263, y: 0.000000055367433, z: -0.000000005694857}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6188741573834221089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6875149207310410247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21601,6 +23702,71 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6877430828714859914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400074161651005449}
+  - component: {fileID: 1366271317309072860}
+  m_Layer: 0
+  m_Name: U3DMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6887587674894728334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7885072194789464800}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftForearm_LFar_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6892714706124057336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071884943729647894}
+  m_Layer: 0
+  m_Name: SabrecatMane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6912026601919320672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390639999883642713}
+  m_Layer: 0
+  m_Name: Sabrecat_RightForearm_RFar_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &7011370773826061214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21631,6 +23797,47 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &7041548933525729211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594790388214335369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000036092234, y: 0.00000013281871, z: 0.46426558, w: 0.88569605}
+  m_LocalPosition: {x: -0.067492366, y: 0.000000049073492, z: -4.6324608e-10}
+  m_LocalScale: {x: 1.0000002, y: 0.9999997, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3789664240415202224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &7076796999534910196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112646129090950656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.021071572, y: 0.03005291, z: -0.09879463, w: 0.9944307}
+  m_LocalPosition: {x: -0.14598498, y: -0.000000070000006, z: -0.0000000023841797}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4953071824789755036}
+  - {fileID: 5436993476468386754}
+  - {fileID: 2706443281566599748}
+  - {fileID: 1398328620011976192}
+  - {fileID: 6531615933045644088}
+  - {fileID: 6615535405570733711}
+  - {fileID: 3782828411958680596}
+  - {fileID: 4386661638444879647}
+  - {fileID: 2066716468288800100}
+  - {fileID: 2044668177000893839}
+  - {fileID: 5339064414927603199}
+  m_Father: {fileID: 3671507567422352151}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &7079571254402148394
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21685,6 +23892,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1.5
   m_LayoutPriority: 1
+--- !u!1 &7113306914126903536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5436993476468386754}
+  m_Layer: 0
+  m_Name: Sabrecat_Head__RChk_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &7140915572515292471
 GameObject:
   m_ObjectHideFlags: 0
@@ -21722,6 +23945,53 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!4 &7237431816221321799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137375800002175274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4495092674469925100}
+  m_Father: {fileID: 8030735474979166565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &7271616892072769561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807328768756638678}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1071884943729647894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7272324496524941963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7976455618549406696}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftToe0_LT00_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &7356388734992687206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21792,6 +24062,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &7412489161859806561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6531615933045644088}
+  m_Layer: 0
+  m_Name: Sabrecat_Head_Head__LChk_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7481486012043875301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6167845803772281567}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0041452274, y: 0.03661623, z: 0.076341346, w: 0.9964006}
+  m_LocalPosition: {x: -0, y: 0, z: 0.0000000047683715}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5000938014788444836}
+  m_Father: {fileID: 3401246291169967357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &7551792140864654649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21832,6 +24134,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &7603185802885313005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7892866094848346564}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger3_RF30_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &7620515251561396013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22020,6 +24338,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &7851503098496992179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314955306681092569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5683244645811279768}
+  m_Father: {fileID: 8030735474979166565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &7866690879055022376
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22050,6 +24384,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -32.099995}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &7885072194789464800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887587674894728334}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.022107972, y: 0.031089073, z: -0.7702203, w: 0.636636}
+  m_LocalPosition: {x: -0.26494, y: -0.000000019073484, z: 9.265199e-10}
+  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1035163260625527582}
+  - {fileID: 1457874922078391736}
+  m_Father: {fileID: 8656140589800280939}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7885130460946014585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4495092674469925100}
+  m_Layer: 0
+  m_Name: Skin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &7887659801349839782
 GameObject:
   m_ObjectHideFlags: 0
@@ -22086,6 +24453,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &7892866094848346564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603185802885313005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.038689077, y: 0.12539276, z: -0.46219313, w: 0.8770161}
+  m_LocalPosition: {x: -0.10430096, y: -0.036760088, z: 0.0629559}
+  m_LocalScale: {x: 0.9999999, y: 0.9999997, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 297483183484616013}
+  m_Father: {fileID: 852289878743613386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!223 &7925049573351364614
 Canvas:
   m_ObjectHideFlags: 0
@@ -22109,6 +24492,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &7947870760699307335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6286361247350610348}
+  m_Layer: 0
+  m_Name: MagicEffectsNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &7952829645554162713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22157,6 +24556,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!4 &7976455618549406696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272324496524941963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.024871405, y: 0.0072540375, z: -0.068741724, w: 0.99729806}
+  m_LocalPosition: {x: -0.21315299, y: -0.000000005175778, z: 0.000000025367424}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 805243491755871594}
+  m_Father: {fileID: 4974644691579027873}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7999650609601376616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22187,6 +24602,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &8030735474979166565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8726620793282278785}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 0.49809396, z: 0.0061593596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7851503098496992179}
+  - {fileID: 923328640572649603}
+  - {fileID: 7237431816221321799}
+  - {fileID: 1071884943729647894}
+  m_Father: {fileID: 2705697343822822886}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8048202153754351540
 GameObject:
   m_ObjectHideFlags: 0
@@ -22475,6 +24909,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &8349289609200456916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227244623619494068}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000015395875, y: 0.000000012499455, z: 0.20000762, w: 0.9797943}
+  m_LocalPosition: {x: -0.06576263, y: -0.00000003722045, z: 0.000000018146984}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 916598235259265297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8351296576692297614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22567,6 +25016,22 @@ MonoBehaviour:
   m_FlexibleWidth: 4
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1 &8473766207146825475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4953071824789755036}
+  m_Layer: 0
+  m_Name: Sabrecat_Head__LEye_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &8494390943140385518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22792,6 +25257,38 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &8584169141349475998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142103943296286810}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger2_RF21_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &8594790388214335369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7041548933525729211}
+  m_Layer: 0
+  m_Name: Sabrecat_RightFinger0_RF01_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &8604020629694029720
 GameObject:
   m_ObjectHideFlags: 0
@@ -22952,6 +25449,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!4 &8656140589800280939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332560232905725171}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.059760105, y: 0.15993673, z: 0.7772756, w: 0.60555065}
+  m_LocalPosition: {x: -0.35731697, y: -0.000000076293944, z: -0.00000002000001}
+  m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7885072194789464800}
+  m_Father: {fileID: 2927704921757328219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!225 &8668684039540639723
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -22964,6 +25477,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &8680770706754143548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4456455242303867122}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftFinger3_RF31_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &8681692435250379467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23006,6 +25535,22 @@ GameObject:
   - component: {fileID: 1361077824220368056}
   m_Layer: 5
   m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &8726620793282278785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8030735474979166565}
+  m_Layer: 0
+  m_Name: Null
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23057,6 +25602,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &8881630531951429530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3964437133686376075}
+  m_Layer: 0
+  m_Name: Sabrecat_RightThigh_RThi_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &8891010262339727201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457874922078391736}
+  m_Layer: 0
+  m_Name: Sabrecat_LeftTwistBone_LFTB_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &8970852707298473490
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23077,6 +25654,21 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: -167.36667}
   m_SizeDelta: {x: 320, y: 158.08485}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &8978838914612381058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581116432455004436}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.07634131, y: 0.104667366, z: -0.17479062, w: 0.9760456}
+  m_LocalPosition: {x: -0.147822, y: -2.158185e-15, z: -0.00000008152558}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3073539270110414909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9002665461366631696
 GameObject:
   m_ObjectHideFlags: 0
@@ -23090,6 +25682,22 @@ GameObject:
   - component: {fileID: 2514364429177233356}
   m_Layer: 5
   m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &9014942437316655814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927262297614451581}
+  m_Layer: 0
+  m_Name: Sabrecat_Spine_Spn2_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23131,6 +25739,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!4 &9112401199105558040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932023534736993818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.092230886, y: -0.08117736, z: -0.08463194, w: 0.9888079}
+  m_LocalPosition: {x: -0.09211227, y: 0.02292707, z: 0.0000000013683139}
+  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3856865897555989725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &9120575186013684456
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23300,3 +25923,4 @@ SceneRoots:
   - {fileID: 8527487869822781403}
   - {fileID: 1810871058}
   - {fileID: 1104681094}
+  - {fileID: 2705697343822822886}
