@@ -12,9 +12,10 @@ public class GameManagerSO : ScriptableObject
 
     [SerializeField][Range(3f, 6f)] private float secondsToQuitAppAffterWin;
     [Header("HP & Damage")]
-    [SerializeField][Range(10f, 100f)] private float maxHP;
+    [SerializeField][Range(10f, 100f)] private float m_maxHP;
     [SerializeField][Range(10f, 100f)] private float initialHP;
-    [SerializeField][Range(1f, 100f)] private float spikeDamage;
+    [SerializeField][Range(1f, 100f)] private float minSpikeDamage;
+    [SerializeField][Range(1f, 100f)] private float maxSpikeDamage;
     [SerializeField][Range(1f, 100f)] private float fireDamage;
     [SerializeField][Range(1f, 100f)] private float boulderDamage;
     [SerializeField][Range(1f, 100f)] private float poisonDamage;
@@ -28,12 +29,34 @@ public class GameManagerSO : ScriptableObject
     public event Action OnDeath;
     public event Action <float> OnUpdateHP;
     public event Action <float, float, float> OnShake;
+    public event Action OnPlayerOnSpikes;
 
     private bool m_isAlive = true;
     private float currentHp;
 
     public bool isAlive {  get => m_isAlive;  }
     public float timerToDark { get => m_timerToGetDark; }
+    public float maxHP { get =>  m_maxHP; }
+
+    // validate inspector inputs
+    private void OnValidate()
+    {
+        if (m_maxHP < initialHP)
+        {
+            m_maxHP = initialHP;
+            Debug.LogWarning($" initialHP={initialHP} shouldn't be greater than maxH={maxHP}");
+        }
+
+        if(minSpikeDamage > maxSpikeDamage)
+        {
+            maxSpikeDamage = minSpikeDamage;
+        }
+    }
+
+    public void PlayerOnSpikes()
+    {
+        OnPlayerOnSpikes?.Invoke();
+    }
 
     // Switch has been activated
     public void SwitchActivated(int idSwitch)
@@ -56,6 +79,9 @@ public class GameManagerSO : ScriptableObject
         if (m_isAlive) {
             OnDeath?.Invoke();
             m_isAlive = false;
+            // update HP
+            currentHp = 0;
+            OnUpdateHP?.Invoke(currentHp);
         }
     }
 
@@ -69,17 +95,24 @@ public class GameManagerSO : ScriptableObject
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void SetAlive()
+    public void OnStart()
     {
         m_isAlive = true;
+
+        // hp
         currentHp = initialHP;
+        // update hp UI
+        OnUpdateHP?.Invoke(currentHp);
     }
 
     public void Damage(DamageType damageType)
     {
+        if (!m_isAlive) { return; }
+        // XXX exit here if player is death
+
         if (damageType == DamageType.spike)
         {
-            currentHp -= spikeDamage;
+            currentHp -= UnityEngine.Random.Range(minSpikeDamage, maxSpikeDamage);
         }else if(damageType == DamageType.boulder)
         {
             currentHp -= boulderDamage;
@@ -90,14 +123,15 @@ public class GameManagerSO : ScriptableObject
         { 
             currentHp -= poisonDamage; 
         }
-        Debug.Log($"currentHp={currentHp}");
-
-
-        // update current live
-        OnUpdateHP?.Invoke(currentHp);
         
         // gameover
-        if (currentHp <= 0f) { Death(); }
+        if (currentHp <= 0f) { 
+            currentHp = 0f;
+            Death(); 
+        }
+
+        // update current hp
+        OnUpdateHP?.Invoke(currentHp);
     }
 
 

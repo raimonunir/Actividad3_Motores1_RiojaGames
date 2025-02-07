@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private List<AudioClip> stepsAudioClips;
     [SerializeField] private List<AudioClip> jumpStartAudioClips;
     [SerializeField] private List<AudioClip> jumpLandAudioClips;
+    [SerializeField] private List<AudioClip> auchAudioClips;
 
 
     private CharacterController characterController;
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         cameraPlayer = GetComponentInChildren<Camera>();
         //audioSourceWick.Play();
 
-        gameManagerSO.SetAlive();
+        gameManagerSO.OnStart();
     }
 
     // Update is called once per frame
@@ -68,6 +69,32 @@ public class PlayerMovement : MonoBehaviour
         // user input
         if (gameManagerSO.isAlive) {
             CheckInputUser();
+        }
+    }
+
+    private void OnEnable()
+    {
+        gameManagerSO.OnPlayerOnSpikes += GameManagerSO_OnPlayerOnSpikes;
+    }
+
+    private void OnDisable()
+    {
+        gameManagerSO.OnPlayerOnSpikes -= GameManagerSO_OnPlayerOnSpikes;
+    }
+    private void GameManagerSO_OnPlayerOnSpikes()
+    {
+        StartCoroutine(ReactToPain());
+    }
+
+    private IEnumerator ReactToPain()
+    {
+        audioSource.PlayOneShot(auchAudioClips[Random.Range(0, auchAudioClips.Count)]);
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        while (true)
+        {
+            characterController.Move(-movementSpeed/3f * Time.deltaTime * transform.forward);
+            yield return null;
+            if (isGrounded) break;
         }
     }
 

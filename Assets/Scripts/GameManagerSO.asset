@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: GameManagerSO
   m_EditorClassIdentifier: 
   secondsToQuitAppAffterWin: 3
-  maxHP: 100
+  m_maxHP: 100
   initialHP: 100
-  spikeDamage: 14
-  fireDamage: 40
+  minSpikeDamage: 7
+  maxSpikeDamage: 16.4
+  fireDamage: 65.9
   boulderDamage: 100
   poisonDamage: 30
   m_timerToGetDark: 94.1

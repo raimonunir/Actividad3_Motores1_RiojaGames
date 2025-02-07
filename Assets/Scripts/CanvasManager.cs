@@ -15,6 +15,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject panelMiniMap;
     [SerializeField] private GameObject panelDeath;
     [SerializeField] private TextMeshProUGUI textRestartIn;
+    [SerializeField] private Image HealthBar;
+    [SerializeField] private Text HealthBarValueText;
 
     [Header("Camera Target UI")]
     [SerializeField] private GameObject panelCameraTarget;
@@ -62,13 +64,23 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnInteractuableObjectDetected += GameManagerSO_OnInteractuableObjectDetected;
         gameManagerSO.OnVictory += GameManagerSO_OnVictory;
         gameManagerSO.OnDeath += GameManagerSO_OnDeath;
+        gameManagerSO.OnUpdateHP += GameManagerSO_OnUpdateHP;
     }
+
     private void OnDisable()
     {
         gameManagerSO.OnInteractuableObjectDetected -= GameManagerSO_OnInteractuableObjectDetected;
         gameManagerSO.OnVictory -= GameManagerSO_OnVictory;
         gameManagerSO.OnDeath -= GameManagerSO_OnDeath;
+        gameManagerSO.OnUpdateHP -= GameManagerSO_OnUpdateHP;
     }
+
+    private void GameManagerSO_OnUpdateHP(float hp)
+    {
+        HealthBar.fillAmount = hp / gameManagerSO.maxHP;
+        HealthBarValueText.text = "" + hp.ToString("f0");
+    }
+
 
     private void GameManagerSO_OnDeath()
     {
