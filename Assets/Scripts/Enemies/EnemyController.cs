@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//TODO RageState: Te ve pero no puede alcanzarte
+//TODO AlertState: Te acaba de perder de vista
+//TODO DeathState: Ce murio
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private LayerMask targetMask;
