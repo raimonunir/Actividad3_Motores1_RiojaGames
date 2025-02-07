@@ -140,6 +140,7 @@ public class CanvasManager : MonoBehaviour
     }
     private void GameManagerSO_OnScoreUpdated(int newScore)
     {
+        Debug.Log($"Updating Score UI: {newScore}");
         if (scoreText != null)
             scoreText.text = "Puntuación: " + newScore;
     }

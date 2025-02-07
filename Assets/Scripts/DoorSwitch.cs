@@ -27,6 +27,7 @@ public class DoorSwitch : MonoBehaviour
     {
         if (isActive)
         {
+            isActive = false; // Desactiva inmediatamente el switch para evitar múltiples llamadas
             StartCoroutine(AnimateSwitch());
         }
     }

@@ -84,6 +84,7 @@ public class GameManagerSO : ScriptableObject
         {
             switchScore += points;
         }
+        Debug.Log($"SwitchActivated called! Score: {generalScore}, Added: {points}, Switch ID: {idSwitch}");
     }
 
     public void InfoUI(InteractuableObjectType interactuableObject)
@@ -118,6 +119,8 @@ public class GameManagerSO : ScriptableObject
     {
         m_isAlive = true;
         currentHp = initialHP;
+        generalScore = 0; // Asegurar que la puntuación inicia correctamente
+        Debug.Log("GameManagerSO initialized, Score: " + generalScore);
     }
 
     public void Damage(DamageType damageType)
