@@ -15,7 +15,6 @@ public class ChaseState : EnemyState<EnemyController>
 
         controller.Agent.speed = chaseVelocity;
         controller.Agent.stoppingDistance = controller.AttackDistance;
-        controller.Agent.acceleration = 1000000; //Para que siempre se detenga a la misma distancia ¿No esta funcionando?
     }
 
     public override void OnUpdateState()

@@ -14,6 +14,8 @@ public class AttackState : EnemyState<EnemyController>
         base.OnEnterState(controller);
 
         timer = timeBetweenAttack;
+
+        //controller.Agent.isStopped = true;
         controller.Agent.stoppingDistance = controller.AttackDistance;
     }
 
@@ -21,7 +23,7 @@ public class AttackState : EnemyState<EnemyController>
     {
         controller.Agent.SetDestination(controller.Target.position);
 
-        if (!controller.Agent.pathPending && controller.Agent.remainingDistance <= controller.Agent.stoppingDistance)
+        if (!controller.Agent.pathPending && controller.Agent.remainingDistance <= controller.AttackDistance)
         {
             timer += Time.deltaTime;
 
