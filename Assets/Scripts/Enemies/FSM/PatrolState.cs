@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class PatrolState : EnemyState<EnemyController>
 {
+    private const float PATROL_VELOCITY = 3.5f;
+    private const float WAITING_TIME = 2.5f;
+
     [SerializeField] private Transform patrolRoute;
-    [SerializeField] private float patrolVelocity;
-    [SerializeField] private float waitingTime;
 
     private List<Vector3> waypoints = new List<Vector3>();
     private Vector3 currentWaypoint;
@@ -24,10 +25,10 @@ public class PatrolState : EnemyState<EnemyController>
 
         currentWaypoint = waypoints[indexCurrentWaypoint];
 
-        controller.Agent.speed = patrolVelocity;
+        controller.Agent.speed = PATROL_VELOCITY;
         controller.Agent.stoppingDistance = 0;
 
-        StartCoroutine(PatrullarYEsperar());
+        StartCoroutine(PatrolAndWait());
     }
 
     public override void OnUpdateState()
@@ -41,9 +42,9 @@ public class PatrolState : EnemyState<EnemyController>
             {
                 if (Vector3.Angle(transform.forward, directionATarget) <= controller.ViewAngle / 2)
                 {
-                    Debug.Log("Player detectado.");
                     controller.Target = collsDetectados[0].transform;
-                    controller.ChangeState(controller.ChaseState);
+                    controller.Animator.SetBool("EN01Walking", false);
+                    controller.ChangeState(controller.AlertState);
                 }
             }
         }
@@ -54,13 +55,18 @@ public class PatrolState : EnemyState<EnemyController>
         StopAllCoroutines();
     }
 
-    private IEnumerator PatrullarYEsperar()
+    private IEnumerator PatrolAndWait()
     {
         while (true)
         {
+            //going destination
             controller.Agent.SetDestination(currentWaypoint);
+            controller.Animator.SetBool("EN01Walking", true);
             yield return new WaitUntil(() => !controller.Agent.pathPending && controller.Agent.remainingDistance <= 0.2f);
-            yield return new WaitForSeconds(waitingTime);
+
+            //waiting
+            controller.Animator.SetBool("EN01Walking", false);
+            yield return new WaitForSeconds(WAITING_TIME);
             CalcularNuevoDestino();
         }
     }

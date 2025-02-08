@@ -13,29 +13,40 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float viewAngle;
     [SerializeField] private float viewRange ;
     [SerializeField] private float attackDistance;
+    [SerializeField] private float maxVelocity;
 
     private NavMeshAgent agent;
+    private Animator animator;
     private Transform target;
     private EnemyState<EnemyController> currentState;
     private PatrolState patrolState;
+    private AlertState alertState;
     private ChaseState chaseState;
     private AttackState attackState;
 
     public NavMeshAgent Agent { get => agent; }
     public Transform Target { get => target; set => target = value; }
+    public Animator Animator { get => animator; }
     public LayerMask TargetMask { get => targetMask; }
     public LayerMask ObstacleMask { get => obstacleMask; }
+    public PatrolState PatrolState { get => patrolState; }
+    public AlertState AlertState { get => alertState; }
+    public ChaseState ChaseState { get => chaseState; }
+    public AttackState AttackState { get => attackState; }
     public float ViewAngle { get => viewAngle; }
     public float ViewRange { get => viewRange; }
     public float AttackDistance { get => attackDistance; }
-    public PatrolState PatrolState { get => patrolState; }
-    public ChaseState ChaseState { get => chaseState; }
-    public AttackState AttackState { get => attackState; }
+    public float MaxVelocity { get => maxVelocity; }
+
+    
+
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
         patrolState = GetComponent<PatrolState>();
+        alertState = GetComponent<AlertState>();
         chaseState = GetComponent<ChaseState>();
         attackState = GetComponent<AttackState>();
 

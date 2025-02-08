@@ -6,15 +6,16 @@ using UnityEngine.AI;
 
 public class ChaseState : EnemyState<EnemyController>
 {
-    [SerializeField] private float chaseVelocity;
     [SerializeField] private float timeBeforeBackToPatrol;
 
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
 
-        controller.Agent.speed = chaseVelocity;
+        controller.Agent.speed = controller.MaxVelocity;
         controller.Agent.stoppingDistance = controller.AttackDistance;
+
+        controller.Animator.SetBool("EN01Running", true);
     }
 
     public override void OnUpdateState()

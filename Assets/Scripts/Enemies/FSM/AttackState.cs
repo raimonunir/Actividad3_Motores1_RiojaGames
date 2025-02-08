@@ -4,43 +4,50 @@ using UnityEngine;
 
 public class AttackState : EnemyState<EnemyController>
 {
-    [SerializeField] private float timeBetweenAttack;
     [SerializeField] private float baseAttackDamage;
-
-    private float timer;
 
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
 
-        timer = timeBetweenAttack;
-
         //controller.Agent.isStopped = true;
         controller.Agent.stoppingDistance = controller.AttackDistance;
+        controller.Animator.SetBool("EN01Attacking", true);
     }
 
     public override void OnUpdateState()
     {
-        controller.Agent.SetDestination(controller.Target.position);
+        /*controller.Agent.SetDestination(controller.Target.position);
 
         if (!controller.Agent.pathPending && controller.Agent.remainingDistance <= controller.AttackDistance)
         {
-            timer += Time.deltaTime;
-
-            if (timer >= timeBetweenAttack)
-            {
-                Debug.Log("Ataque");
-                timer = 0;
-            }
+            
         }
         else 
         {
             controller.ChangeState(controller.PatrolState);
-        }
+        }*/
     }
 
     public override void OnExitState()
     {
+        
+    }
 
+    public void faceTarget()
+    {
+        Vector3 directionToTarget = (controller.Target.position - transform.position).normalized;
+        directionToTarget.y = 0;
+        transform.rotation = Quaternion.LookRotation(directionToTarget);
+    }
+
+    public void CheckTarget() 
+    {
+        if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.AttackDistance)
+        {
+            controller.Animator.SetBool("EN01Attacking", false);
+            controller.ChangeState(controller.ChaseState);
+        }
     }
 }
+
