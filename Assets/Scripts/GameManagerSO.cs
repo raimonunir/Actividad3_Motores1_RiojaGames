@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,6 +36,12 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private bool enableEnemyDestructionScoring = true;
     [SerializeField] private bool enableEnemyDamageScoring = true;
 
+    [Header("Idol Settings")]
+    [SerializeField] private GameObject collectiblePrefab; // Prefab of the collectible
+    public GameObject CollectiblePrefab => collectiblePrefab;
+
+
+
     // events
     public event Action<int> OnSwitchActivated;
     public event Action<InteractuableObjectType> OnInteractuableObjectDetected;
@@ -44,6 +51,9 @@ public class GameManagerSO : ScriptableObject
     public event Action <float, float, float> OnShake;
     // Event to update the score UI (triggered when the general score changes)
     public event Action<int> OnScoreUpdated;
+    public event Action<int,int> OnCollectibleScoring;
+    private int collectedCollectibles = 0; // Contador de coleccionables recogidos
+    private int totalCollectibles = 0;
 
     private bool m_isAlive = true;
     private float currentHp;
@@ -61,7 +71,7 @@ public class GameManagerSO : ScriptableObject
     public bool isAlive {  get => m_isAlive;  }
     public float timerToDark { get => m_timerToGetDark; }
     // Public properties to access the scores
-    public int GeneralScore { get => generalScore; }
+    public int GeneralScore => CollectibleScore + SwitchScore + TrapScore + EnemyDamageScore + EnemyDestructionScore;
     public int CollectibleScore { get => collectibleScore; }
     public int SwitchScore { get => switchScore; }
     public int TrapScore { get => trapScore; }
@@ -69,6 +79,26 @@ public class GameManagerSO : ScriptableObject
     public int EnemyDamageScore { get => enemyDamageScore; }
 
 
+    public bool EnableGeneralScoring => enableGeneralScoring;
+    public bool EnableCollectibleScoring => enableCollectibleScoring;
+    public bool EnableSwitchScoring => enableSwitchScoring;
+    public bool EnableTrapScoring => enableTrapScoring;
+    public bool EnableEnemyDamageScoring => enableEnemyDamageScoring;
+    public bool EnableEnemyDestructionScoring => enableEnemyDestructionScoring;
+
+    public void SetTotalCollectibles(int total)
+    {
+        totalCollectibles = total;
+        collectedCollectibles = 0; // Reinicia el contador de recogidos
+        generalScore = 0;
+        collectibleScore = 0;
+        switchScore = 0;
+        trapScore = 0;
+        enemyDamageScore = 0;
+        enemyDestructionScore = 0;
+        // Llamar al evento para actualizar la UI al iniciar el juego
+        OnCollectibleScoring?.Invoke(collectedCollectibles, totalCollectibles);
+    }
 
     // Switch has been activated
     public void SwitchActivated(int idSwitch)
@@ -199,14 +229,22 @@ public class GameManagerSO : ScriptableObject
         {
             generalScore += points;
             OnScoreUpdated?.Invoke(generalScore);
+            
         }
         if (enableCollectibleScoring)
         {
             collectibleScore += points;
         }
+
+        // Incrementar el contador de coleccionables recogidos
+        collectedCollectibles++;
+
+        // Invocar el evento pasando el número de recogidos y el total
+        OnCollectibleScoring?.Invoke(collectedCollectibles, totalCollectibles);
+
+        Debug.Log($"Collected: {collectedCollectibles} / {totalCollectibles}");
     }
     #endregion
-
 
     public void Exit()
     {

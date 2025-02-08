@@ -31,3 +31,5 @@ MonoBehaviour:
   enableTrapScoring: 1
   enableEnemyDestructionScoring: 1
   enableEnemyDamageScoring: 1
+  collectiblePrefab: {fileID: 6206409382498591067, guid: 5ac14cfd664ff464380747856bd0b0c1,
+    type: 3}
