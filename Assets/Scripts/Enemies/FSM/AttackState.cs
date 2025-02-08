@@ -11,22 +11,13 @@ public class AttackState : EnemyState<EnemyController>
         base.OnEnterState(controller);
 
         //controller.Agent.isStopped = true;
-        controller.Agent.stoppingDistance = controller.AttackDistance;
+        controller.Agent.stoppingDistance = (controller.BodyLength / 2);
         controller.Animator.SetBool("EN01Attacking", true);
     }
 
     public override void OnUpdateState()
     {
-        /*controller.Agent.SetDestination(controller.Target.position);
-
-        if (!controller.Agent.pathPending && controller.Agent.remainingDistance <= controller.AttackDistance)
-        {
-            
-        }
-        else 
-        {
-            controller.ChangeState(controller.PatrolState);
-        }*/
+        faceTarget();
     }
 
     public override void OnExitState()
@@ -43,10 +34,24 @@ public class AttackState : EnemyState<EnemyController>
 
     public void CheckTarget() 
     {
-        if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.AttackDistance)
+        if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.Agent.stoppingDistance)
         {
             controller.Animator.SetBool("EN01Attacking", false);
             controller.ChangeState(controller.ChaseState);
+        }
+        else
+        {
+            //TODO Controlar vida de enemigo: controller.target...
+            controller.Animator.SetBool("EN01Attacking", false);
+            controller.ChangeState(controller.TargetDestroyedState);
+        }
+    }
+
+    public void HitTarget()
+    {
+        if (Vector3.Distance(transform.position, controller.Target.transform.position) <= controller.Agent.stoppingDistance)
+        {
+            Debug.Log("Target receives damage."); //TODO
         }
     }
 }

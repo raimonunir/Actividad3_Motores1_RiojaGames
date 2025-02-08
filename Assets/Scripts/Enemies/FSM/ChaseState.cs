@@ -6,16 +6,14 @@ using UnityEngine.AI;
 
 public class ChaseState : EnemyState<EnemyController>
 {
-    [SerializeField] private float timeBeforeBackToPatrol;
-
+    private const float CHASE_SPEED = 12;
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
 
-        controller.Agent.speed = controller.MaxVelocity;
-        controller.Agent.stoppingDistance = controller.AttackDistance;
-
         controller.Animator.SetBool("EN01Running", true);
+        controller.Agent.speed = CHASE_SPEED;
+        controller.Agent.stoppingDistance = controller.BodyLength / 2;
     }
 
     public override void OnUpdateState()
@@ -26,18 +24,21 @@ public class ChaseState : EnemyState<EnemyController>
 
             if (!controller.Agent.pathPending && controller.Agent.remainingDistance < controller.Agent.stoppingDistance)
             {
+                controller.Animator.SetBool("EN01Running", false);
                 controller.ChangeState(controller.AttackState);
             }
         }
         else 
         {
+            controller.Animator.SetBool("EN01Running", false);
             StartCoroutine(StopAndReturn());
         }
     }
 
     private IEnumerator StopAndReturn()
     {
-        yield return new WaitForSeconds(timeBeforeBackToPatrol);
+        yield return new WaitForSeconds(1);
+        controller.Animator.SetBool("EN01Running", false);
         controller.ChangeState(controller.PatrolState);
     }
 

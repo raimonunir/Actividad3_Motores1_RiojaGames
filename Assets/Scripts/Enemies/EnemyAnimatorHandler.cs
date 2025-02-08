@@ -13,12 +13,17 @@ public class EnemyAnimatorHandler : MonoBehaviour
         attackState = transform.parent.GetComponent<AttackState>();
     }
 
-    private void OnFinishAttackAnimation()
+    public void OnFinishAttackAnimation()
     {
         attackState.CheckTarget();
     }
 
-    private void OnFinishAlertAnimation()
+    public void OnHitTargetAttackAnimation()
+    {
+        attackState.HitTarget();
+    }
+
+    public void OnFinishAlertAnimation()
     {
         alertState.ChaseTarget();
     }

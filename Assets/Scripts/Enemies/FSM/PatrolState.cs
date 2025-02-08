@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.Rendering.HableCurve;
 
 public class PatrolState : EnemyState<EnemyController>
 {
@@ -9,6 +11,7 @@ public class PatrolState : EnemyState<EnemyController>
     private const float WAITING_TIME = 2.5f;
 
     [SerializeField] private Transform patrolRoute;
+    [SerializeField] private Boolean showDetectionZone;
 
     private List<Vector3> waypoints = new List<Vector3>();
     private Vector3 currentWaypoint;
@@ -33,7 +36,10 @@ public class PatrolState : EnemyState<EnemyController>
 
     public override void OnUpdateState()
     {
+        if (showDetectionZone) ShowDetectionZone();
+
         Collider[] collsDetectados = Physics.OverlapSphere(transform.position, controller.ViewRange, controller.TargetMask);
+
         if (collsDetectados.Length > 0)
         {
             Vector3 directionATarget = (collsDetectados[0].transform.position - transform.position).normalized;
@@ -43,8 +49,12 @@ public class PatrolState : EnemyState<EnemyController>
                 if (Vector3.Angle(transform.forward, directionATarget) <= controller.ViewAngle / 2)
                 {
                     controller.Target = collsDetectados[0].transform;
-                    controller.Animator.SetBool("EN01Walking", false);
-                    controller.ChangeState(controller.AlertState);
+
+                    if(controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
+                    {
+                        controller.Animator.SetBool("EN01Walking", false);
+                        controller.ChangeState(controller.AlertState);
+                    }
                 }
             }
         }
@@ -76,5 +86,36 @@ public class PatrolState : EnemyState<EnemyController>
         indexCurrentWaypoint++;
         if (indexCurrentWaypoint >= waypoints.Count) indexCurrentWaypoint = 0;
         currentWaypoint = waypoints[indexCurrentWaypoint];
+    }
+
+    private void ShowDetectionZone()
+    {
+        Vector3 center = transform.position;
+        const int segments = 36;
+
+        //draw overlap sphere
+        for (int i = 0; i < 36; i++)
+        {
+            float angle1 = Mathf.Deg2Rad * (i * 360f / segments);
+            float angle2 = Mathf.Deg2Rad * ((i + 1) * 360f / segments);
+
+            Vector3 point1 = center + new Vector3(Mathf.Sin(angle1), 0, Mathf.Cos(angle1)) * controller.ViewRange;
+            Vector3 point2 = center + new Vector3(Mathf.Sin(angle2), 0, Mathf.Cos(angle2)) * controller.ViewRange;
+
+            Debug.DrawLine(point1, point2, Color.red);
+        }
+
+        //draw vision cone
+        float angleStep = controller.ViewAngle / segments;
+        Vector3 startDirection = transform.forward;
+
+        for (int i = 0; i <= segments; i++)
+        {
+            float angle = (i * angleStep) - (controller.ViewAngle / 2);
+            Vector3 direction = Quaternion.Euler(0, angle, 0) * startDirection;
+            Vector3 endPoint = center + direction * controller.ViewRange;
+
+            Debug.DrawLine(center, endPoint, Color.red);
+        }
     }
 }
