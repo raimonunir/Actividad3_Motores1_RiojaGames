@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,6 +29,11 @@ public class EnemyController : MonoBehaviour
     private float bodyLength = 10;
     private int currentHealthPoints;
 
+    //Clips de audio
+    [SerializeField] public AudioClip tigerDamage;
+
+    private AudioSource fuenteSonido;
+
     #region setters & getters
     public NavMeshAgent Agent { get => agent; }
     public Transform Target { get => target; set => target = value; }
@@ -44,6 +50,7 @@ public class EnemyController : MonoBehaviour
     public float ViewAngle { get => viewAngle; }
     public float ViewRange { get => viewRange; }
     public float BodyLength { get => bodyLength; }
+    public int HealthPoints { get => healthPoints;}
     #endregion
 
     private void OnEnable()
@@ -69,6 +76,9 @@ public class EnemyController : MonoBehaviour
         currentHealthPoints = healthPoints;
 
         ChangeState(patrolState);
+
+        fuenteSonido = GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -90,6 +100,11 @@ public class EnemyController : MonoBehaviour
         if (enemyId == this.enemyId) {
             currentHealthPoints -= damage;
 
+            //llamamos a una corrutina para tintar al enemigo
+            //StartCoroutine(DamageBlink(0.25f));
+
+            fuenteSonido.PlayOneShot(tigerDamage);
+
             animator.SetTrigger("EN01GetHurt");
 
             if (currentHealthPoints <= 0) Die();
@@ -100,5 +115,28 @@ public class EnemyController : MonoBehaviour
     {
         animator.SetBool("EN01Dying", true);
         this.enabled = false;
+    }
+
+    private IEnumerator DamageBlink(float tiempoBlink)
+    {
+
+        //Declaramos un elemento de tipo Renderer
+        Renderer enemyRender = GetComponent<Renderer>();
+
+        //Como en el enemigo hay varios materiales vamos a iterar entre todos ellos
+        foreach (Material mat in enemyRender.materials)
+        {
+            mat.color = Color.red;
+        }
+
+        //Hacemos un yield return que aguardará durante el tiempo indicado en tiempoBlink
+        yield return new WaitForSeconds(tiempoBlink);
+
+        //y volvermos a poner los colores originales
+        //Como en el enemigo hay varios materiales vamos a iterar entre todos ellos
+        foreach (Material mat in enemyRender.materials)
+        {
+            mat.color = Color.white;
+        }
     }
 }

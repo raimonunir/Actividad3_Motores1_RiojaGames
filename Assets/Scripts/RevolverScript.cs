@@ -9,7 +9,7 @@ public class RevolverScript : MonoBehaviour
     [SerializeField] private GameManagerSO gameManagerSO;       //Serializamos el GameManager de Raimon. Esto lo hago con más fe que conocimiento
 
     [SerializeField] public float rangoRevolver = 100f;         //Rango efectivo del revolver
-    [SerializeField] public float damageRevolver = 15f;         //Daño efectivo del revolver
+    [SerializeField] public int damageRevolver = 15;         //Daño efectivo del revolver
     [SerializeField] public int balasActuales = 3;              //Cuantas balas tengo actualmente en el tambor
     [SerializeField] public int balasReserva = 180;             //Cuantas balas tengo en mi inventario
     [SerializeField] private int maxCapacidad = 6;              //A priori esto no va a cambiar a no ser que metamos en algún momento mejoras de la capacidad en el tambor del revolver
@@ -147,10 +147,19 @@ public class RevolverScript : MonoBehaviour
             //el cual almacenaremos en la variable objetivo
             GameObject objetivo = impacto.collider.gameObject;
 
-            //Vamos a reproducir la animación de daño en el enemigo poniendo a true el parámetro adecuado
-            objetivo.GetComponent<Animator>().SetBool("EN01GetHurt",true);
+            int vida = objetivo.GetComponent<EnemyController>().HealthPoints;
 
-            
+            if (vida > 0) { 
+
+                int indiceEnemigo = objetivo.GetComponent<EnemyController>().EnemyId;
+
+                objetivo.GetComponent<EnemyController>().TakeDamage(indiceEnemigo, damageRevolver);
+            }
+
+            //Vamos a reproducir la animación de daño en el enemigo poniendo a true el parámetro adecuado
+            //objetivo.GetComponent<Animator>().SetBool("EN01GetHurt",true);
+
+
         }
     }
 
