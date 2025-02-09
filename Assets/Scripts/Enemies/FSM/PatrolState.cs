@@ -52,11 +52,9 @@ public class PatrolState : EnemyState<EnemyController>
                 if (Vector3.Angle(transform.forward, directionATarget) <= controller.ViewAngle / 2)
                 {
                     controller.Target = collsDetectados[0].transform;
-
+                    
                     if(controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
                     {
-                        StopAllCoroutines();
-
                         controller.Animator.SetBool("EN01Walking", false);
                         controller.ChangeState(controller.AlertState);
                     }
