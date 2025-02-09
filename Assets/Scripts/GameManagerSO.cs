@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,26 @@ public class GameManagerSO : ScriptableObject
     [SerializeField][Range(1f, 100f)] private float poisonDamage;
     [SerializeField][Range(5f, 120f)][Tooltip("Seconds to sunset")] private float m_timerToGetDark;
 
+    [Header("Scoring Values")]
+    [SerializeField] private int pointsPerCollectible = 20;
+    [SerializeField] private int pointsPerSwitch = 10;
+    [SerializeField] private int pointsPerTrap = 15;
+    [SerializeField] private int pointsPerEnemyDestruction = 30;
+    [SerializeField] private int pointsPerEnemyDamage = 10;
+
+    [Header("Scoring Options")]
+    [SerializeField] private bool enableGeneralScoring = true;
+    [SerializeField] private bool enableCollectibleScoring = true;
+    [SerializeField] private bool enableSwitchScoring = true;
+    [SerializeField] private bool enableTrapScoring = true;
+    [SerializeField] private bool enableEnemyDestructionScoring = true;
+    [SerializeField] private bool enableEnemyDamageScoring = true;
+
+    [Header("Idol Settings")]
+    [SerializeField] private GameObject collectiblePrefab; // Prefab of the collectible
+    public GameObject CollectiblePrefab => collectiblePrefab;
+
+
 
     // events
     public event Action<int> OnSwitchActivated;
@@ -28,17 +49,72 @@ public class GameManagerSO : ScriptableObject
     public event Action OnDeath;
     public event Action <float> OnUpdateHP;
     public event Action <float, float, float> OnShake;
+    // Event to update the score UI (triggered when the general score changes)
+    public event Action<int> OnScoreUpdated;
+    public event Action<int,int> OnCollectibleScoring;
+    private int collectedCollectibles = 0; // Contador de coleccionables recogidos
+    private int totalCollectibles = 0;
 
     private bool m_isAlive = true;
     private float currentHp;
 
+    // General score and individual scores
+    private int generalScore = 0;
+    private int collectibleScore = 0;
+    private int switchScore = 0;
+    private int trapScore = 0;
+    private int enemyDestructionScore = 0;
+    private int enemyDamageScore = 0;
+
+
+
     public bool isAlive {  get => m_isAlive;  }
     public float timerToDark { get => m_timerToGetDark; }
+    // Public properties to access the scores
+    public int GeneralScore => CollectibleScore + SwitchScore + TrapScore + EnemyDamageScore + EnemyDestructionScore;
+    public int CollectibleScore { get => collectibleScore; }
+    public int SwitchScore { get => switchScore; }
+    public int TrapScore { get => trapScore; }
+    public int EnemyDestructionScore { get => enemyDestructionScore; }
+    public int EnemyDamageScore { get => enemyDamageScore; }
+
+
+    public bool EnableGeneralScoring => enableGeneralScoring;
+    public bool EnableCollectibleScoring => enableCollectibleScoring;
+    public bool EnableSwitchScoring => enableSwitchScoring;
+    public bool EnableTrapScoring => enableTrapScoring;
+    public bool EnableEnemyDamageScoring => enableEnemyDamageScoring;
+    public bool EnableEnemyDestructionScoring => enableEnemyDestructionScoring;
+
+    public void SetTotalCollectibles(int total)
+    {
+        totalCollectibles = total;
+        collectedCollectibles = 0; // Reinicia el contador de recogidos
+        generalScore = 0;
+        collectibleScore = 0;
+        switchScore = 0;
+        trapScore = 0;
+        enemyDamageScore = 0;
+        enemyDestructionScore = 0;
+        // Llamar al evento para actualizar la UI al iniciar el juego
+        OnCollectibleScoring?.Invoke(collectedCollectibles, totalCollectibles);
+    }
 
     // Switch has been activated
     public void SwitchActivated(int idSwitch)
     {
         OnSwitchActivated?.Invoke(idSwitch);
+        int points = pointsPerSwitch;
+        if (enableGeneralScoring)
+        {
+            generalScore += points;
+            OnScoreUpdated?.Invoke(generalScore);
+        }
+        if (enableSwitchScoring)
+        {
+            switchScore += points;
+        }
+        Debug.Log($"SwitchActivated called! Score: {generalScore}, Added: {points}, Switch ID: {idSwitch}");
     }
 
     public void InfoUI(InteractuableObjectType interactuableObject)
@@ -73,6 +149,8 @@ public class GameManagerSO : ScriptableObject
     {
         m_isAlive = true;
         currentHp = initialHP;
+        generalScore = 0; // Asegurar que la puntuación inicia correctamente
+        Debug.Log("GameManagerSO initialized, Score: " + generalScore);
     }
 
     public void Damage(DamageType damageType)
@@ -95,11 +173,78 @@ public class GameManagerSO : ScriptableObject
 
         // update current live
         OnUpdateHP?.Invoke(currentHp);
-        
+
+        // Penalize for trap damage (-pointsPerTrap)
+        int penalty = pointsPerTrap;
+        if (enableGeneralScoring)
+        {
+            generalScore -= penalty;
+            OnScoreUpdated?.Invoke(generalScore);
+        }
+        if (enableTrapScoring)
+        {
+            trapScore -= penalty;
+        }
+
         // gameover
         if (currentHp <= 0f) { Death(); }
     }
 
+    #region Scoring Methods
+    // Called when the player receives damage from an enemy (-pointsPerEnemyDamage)
+    public void DamageFromEnemy()
+    {
+        int penalty = pointsPerEnemyDamage;
+        if (enableGeneralScoring)
+        {
+            generalScore -= penalty;
+            OnScoreUpdated?.Invoke(generalScore);
+        }
+        if (enableEnemyDamageScoring)
+        {
+            enemyDamageScore -= penalty;
+        }
+    }
+
+    // Called when an enemy is destroyed (+pointsPerEnemyDestruction)
+    public void EnemyDestroyed()
+    {
+        int points = pointsPerEnemyDestruction;
+        if (enableGeneralScoring)
+        {
+            generalScore += points;
+            OnScoreUpdated?.Invoke(generalScore);
+        }
+        if (enableEnemyDestructionScoring)
+        {
+            enemyDestructionScore += points;
+        }
+    }
+
+    // Called when a gem or collectible is collected (+pointsPerCollectible)
+    public void GemCollected()
+    {
+        int points = pointsPerCollectible;
+        if (enableGeneralScoring)
+        {
+            generalScore += points;
+            OnScoreUpdated?.Invoke(generalScore);
+            
+        }
+        if (enableCollectibleScoring)
+        {
+            collectibleScore += points;
+        }
+
+        // Incrementar el contador de coleccionables recogidos
+        collectedCollectibles++;
+
+        // Invocar el evento pasando el número de recogidos y el total
+        OnCollectibleScoring?.Invoke(collectedCollectibles, totalCollectibles);
+
+        Debug.Log($"Collected: {collectedCollectibles} / {totalCollectibles}");
+    }
+    #endregion
 
     public void Exit()
     {

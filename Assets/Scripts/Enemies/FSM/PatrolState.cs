@@ -13,7 +13,6 @@ public class PatrolState : EnemyState<EnemyController>
     private Vector3 currentWaypoint;
     private int indexCurrentWaypoint = 0;
 
-
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
@@ -27,7 +26,6 @@ public class PatrolState : EnemyState<EnemyController>
 
         controller.Agent.speed = patrolVelocity;
         controller.Agent.stoppingDistance = 0;
-        controller.Agent.acceleration = 8;
 
         StartCoroutine(PatrullarYEsperar());
     }
