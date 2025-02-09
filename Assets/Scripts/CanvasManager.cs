@@ -16,6 +16,12 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject panelMiniMap;
     [SerializeField] private GameObject panelDeath;
     [SerializeField] private TextMeshProUGUI textRestartIn;
+    [SerializeField] private Image HealthBar;
+    [SerializeField] private Text HealthBarValueText;
+    [SerializeField] private GameObject panelInjured;
+    [SerializeField][Range(1f, 5f)] private float secondsShowingPanelInjured;
+    [SerializeField] private GameObject panelSeriouslyInjured;
+
 
     [Header("Score UI")]
     [SerializeField] private GameObject panelScore;
@@ -44,6 +50,8 @@ public class CanvasManager : MonoBehaviour
         panelStartUI.SetActive(true);
         panelCameraTarget.SetActive(false);
         panelEndGameUI.SetActive(false);
+        panelInjured.SetActive(false);
+        panelSeriouslyInjured.SetActive(false);
         panelDeath.SetActive(false);
         panelScore.SetActive(false);
         CollectableUI.SetActive(false);
@@ -80,6 +88,9 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnDeath += GameManagerSO_OnDeath;
         gameManagerSO.OnScoreUpdated += GameManagerSO_OnScoreUpdated;
         gameManagerSO.OnCollectibleScoring += GameManagerSO_OnCollectibleScoring;
+        gameManagerSO.OnUpdateHP += GameManagerSO_OnUpdateHP;
+        gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnInjured += GameManagerSO_OnInjured;
     }
     private void OnDisable()
     {
@@ -88,7 +99,36 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnDeath -= GameManagerSO_OnDeath;
         gameManagerSO.OnScoreUpdated -= GameManagerSO_OnScoreUpdated;
         gameManagerSO.OnCollectibleScoring -= GameManagerSO_OnCollectibleScoring;
+        gameManagerSO.OnUpdateHP -= GameManagerSO_OnUpdateHP;
+        gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
     }
+
+    private void GameManagerSO_OnInjured()
+    {
+        if ( !gameManagerSO.IsSeriouslyInjured)
+        {
+            StartCoroutine(showInjuredPanelForSeconds());
+        }   
+    }
+
+    private IEnumerator showInjuredPanelForSeconds()
+    {
+        panelInjured.SetActive(true);
+        yield return new WaitForSeconds(secondsShowingPanelInjured);
+        panelInjured.SetActive(false);
+    }
+    private void GameManagerSO_OnSeriouslyInjured()
+    {
+        panelSeriouslyInjured.SetActive(true);
+    }
+
+    private void GameManagerSO_OnUpdateHP(float hp)
+    {
+        HealthBar.fillAmount = hp / gameManagerSO.MaxHP;
+        HealthBarValueText.text = "" + hp.ToString("f0");
+    }
+
 
     private void GameManagerSO_OnDeath()
     {

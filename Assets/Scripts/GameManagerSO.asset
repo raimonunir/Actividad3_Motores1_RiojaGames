@@ -12,16 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2106d9c631d05644a802a891250a032, type: 3}
   m_Name: GameManagerSO
   m_EditorClassIdentifier: 
-  secondsToQuitAppAffterWin: 3
   maxHP: 100
   initialHP: 100
-  spikeDamage: 14
+  seriouslyInjured: 29
+  initialLives: 3
+  initialRespawnPosition: {x: 0, y: 0, z: 0}
+  currentRespawnPosition: {x: 0, y: 0, z: 0}
+  minSpikeDamage: 7.2
+  maxSpikeDamage: 23.4
+  minSabreDamage: 19
+  maxSabreDamage: 39.7
   fireDamage: 40
   boulderDamage: 100
   poisonDamage: 30
-  minSabreDamage: 1
-  maxSabreDamage: 1
-  m_timerToGetDark: 94.1
+  secondsToQuitAppAffterWin: 3
+  timerToGetDark: 92.9
   pointsPerCollectible: 20
   pointsPerSwitch: 10
   pointsPerTrap: 15

@@ -24,7 +24,7 @@ public class CollectibleSpawner : MonoBehaviour
         SpawnCollectibles();
 
         //int total = collectibleParent.childCount;
-        //gameManagerSO.SetTotalCollectibles(total); // Esto activará el evento y actualizará la UI
+        //gameManagerSO.SetTotalCollectibles(total); // Esto activarï¿½ el evento y actualizarï¿½ la UI
         //SpawnCollectibles();
 
     }

@@ -31,7 +31,7 @@ public class AttackState : EnemyState<EnemyController>
 
     public void CheckTarget() 
     {
-        if (!controller.GameManagerSO.isAlive)
+        if (!controller.GameManagerSO.IsAlive)
         {
             controller.Animator.SetBool("EN01Attacking", false);
             controller.ChangeState(controller.TargetDestroyedState);
