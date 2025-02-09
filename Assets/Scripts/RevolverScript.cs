@@ -1,0 +1,197 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+
+public class RevolverScript : MonoBehaviour
+{
+    [SerializeField] private GameManagerSO gameManagerSO;       //Serializamos el GameManager de Raimon. Esto lo hago con más fe que conocimiento
+
+    [SerializeField] public float rangoRevolver = 100f;         //Rango efectivo del revolver
+    [SerializeField] public float damageRevolver = 15f;         //Daño efectivo del revolver
+    [SerializeField] public int balasActuales = 3;              //Cuantas balas tengo actualmente en el tambor
+    [SerializeField] public int balasReserva = 180;             //Cuantas balas tengo en mi inventario
+    [SerializeField] private int maxCapacidad = 6;              //A priori esto no va a cambiar a no ser que metamos en algún momento mejoras de la capacidad en el tambor del revolver
+    public int balasPorRecargar;                                // Cantidad real de balas a cargar
+
+    public Animator revolverAnimator;                           //Animator para las balas del revolver
+
+    [SerializeField] TMP_Text textoDebug;
+
+    [SerializeField] AudioClip revolverDisparo;
+    [SerializeField] AudioClip revolverDisparoSinBalas;
+    [SerializeField] AudioClip revolverVaciaCargador;
+    [SerializeField] AudioClip revolverCargaBala;
+    [SerializeField] AudioClip revolverCierraCargador;
+
+    public AudioSource fuenteSonido;
+
+    public Camera camaraFPS;    //Es la cámara que nos servirá de punto de origen para cada disparo. Vamos a usar nuestra "WeaponCamera" de primeras pero como sólo
+                                //renderiza el revolver y las manos no sé yo si funcionará con el raycasting...probemos
+
+    [SerializeField] LayerMask capaEnemigo;                     //Sólo haremos el impacto del disparo sobre aquellas entidades en la capa "enemigo"
+
+    [SerializeField] ParticleSystem muzzleFlash;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        revolverAnimator= GetComponent<Animator>();
+        fuenteSonido= GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        GetRevolverInputs();
+        MuestraDatosDebug();
+    }
+
+    public void MuestraDatosDebug()
+    {
+        string mensaje = "";
+        mensaje += "\nBalas actuales:"+balasActuales;
+        mensaje += "\nBalas en reserva:" + balasReserva;
+        mensaje += "\nBalas por recargar:" + balasPorRecargar;
+        
+        textoDebug.text = mensaje;
+
+    }
+
+    //Aquí metemos todo lo relacionado con los inputs del revolver, como disparar o recargar
+    public void GetRevolverInputs()
+    {
+        
+        //Si pulsamos la recla R (recarga)...
+        if (Input.GetKeyDown(KeyCode.R)){
+            
+            //Llamamos al método ComienzaRecarga();
+            ComienzaRecarga();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            //Sólo podremos volver a disparar si no hay una animación de disparo en curso
+            //así que, ¿El parámetro "RevolverShooting" está a false?
+            if (!revolverAnimator.GetBool("RevolverShooting"))
+            {
+                //Tenemos balas para disparar?
+                if (balasActuales > 0)
+                {
+                    //Debug.Log("DISPARAMOS");
+                    DisparoRevolver();
+                }
+                else
+                {
+                    //Sonido de click al intentar disparar sin tener balas    
+                    fuenteSonido.PlayOneShot(revolverDisparoSinBalas);
+                }
+            }
+            
+        }
+    }
+
+
+    //Llamamos a la animación de recarga
+    public void ComienzaRecarga()
+    {
+        //Se cumplen los requisitos para recargar?
+        if (balasActuales < maxCapacidad && balasReserva > 0)
+        {
+            
+            //Tomamos el mínimo entre dos valores; las balas que me faltan para llegar a tener el tambor lleno y las balas que tengo en reserva
+            //Así evitamos cargar balas si no nos quedan balas en el inventario
+            balasPorRecargar = Mathf.Min(maxCapacidad - balasActuales, balasReserva);
+
+
+            fuenteSonido.PlayOneShot(revolverVaciaCargador);
+
+            //Llamamos a la animación pertinente poniendo a true el parámetro que corresponde
+            revolverAnimator.SetBool("RevolverRecharging", true);
+        }
+    }
+
+    public void DisparoRevolver()
+    {
+        //Debug.Log("PIUM!!");
+        
+        //Reproducimos el sonido de disparo
+        fuenteSonido.PlayOneShot(revolverDisparo);
+        
+        //Reproducimos la animación de disparo
+        revolverAnimator.SetBool("RevolverShooting", true);
+
+        
+
+        //Restamos una unidad de las balas del cargador
+        balasActuales--;
+
+        // shake camera. De nuevo un copy-pega de Raimon. Si no me equivoco sólo necesito llamar al evento Shake del GameManager y la cámara se moverá...
+        //gameManagerSO.Shake(0.15f, 1f, 0.15f);
+
+        //Llamamos a un método propio para el camera Shake porque el del GameManager me bloquea el movimiento
+        TemblorDeCamara();
+
+        //reproducimos el sistema de partículas para mostrar el muzzleFlash
+        muzzleFlash.Play();
+
+        //Y vamos a pelearnos con el raycast
+        RaycastHit impacto;
+
+        //Lanzamos nuestro rayo
+        if(Physics.Raycast(camaraFPS.transform.position, camaraFPS.transform.forward, out impacto, rangoRevolver, capaEnemigo))
+        {
+            //Impactamos, así que vamos a ir tomando info de impacto a través de su componente GameObject
+            //el cual almacenaremos en la variable objetivo
+            GameObject objetivo = impacto.collider.gameObject;
+
+            //Vamos a reproducir la animación de daño en el enemigo poniendo a true el parámetro adecuado
+            objetivo.GetComponent<Animator>().SetBool("EN01GetHurt",true);
+
+            
+        }
+    }
+
+    public void TemblorDeCamara()
+    {
+        //transform.localPosition = 
+    }
+
+
+    //En lugar de poner "RevolverShooting" a false con una corrutina he preferido hacerlo con un evento de animación
+    //por si en el futuro hubiese una mejora de disparo rápido, por ejemplo
+    public void FinDisparoRevolver()
+    {
+        revolverAnimator.SetBool("RevolverShooting", false);
+    }
+
+    //Si todo va bien este método debería ser llamado desde los eventos de la animación "revolverRecharging.anim"
+    public void RecargaBala()
+    {
+        
+        
+        //Si las balas en el tambor son menos de la capacidad máxima y nos quedan balas en el inventario...
+        if(balasActuales<maxCapacidad && balasReserva > 0)
+        {
+           
+            //Actualizamos el número de balas según el caso 
+            balasActuales++;
+            balasReserva--;
+            balasPorRecargar--;
+            fuenteSonido.PlayOneShot(revolverCargaBala);
+
+
+            if (balasPorRecargar <= 0)
+            {
+                //Ya no tenemos por qué seguir ejecutando la animación de recarga así que la interrumpimos
+                
+                revolverAnimator.SetBool("RevolverRecharging", false);   //Ahora entiendo lo que decía Fernando de los nombres largos. Espero no haber cometido ningún "typo"
+                revolverAnimator.SetTrigger("RevolverRechargeInterrupt");
+                fuenteSonido.PlayOneShot(revolverCierraCargador);
+            }
+        }
+    }
+
+}
