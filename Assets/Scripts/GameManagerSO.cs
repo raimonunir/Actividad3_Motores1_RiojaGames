@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(menuName = "GameManagerSO")]
 public class GameManagerSO : ScriptableObject
 {
-
     public enum InteractuableObjectType {doorSwitch, nothing};
-    public enum DamageType {spike, fire, boulder, poison}
+    public enum DamageType {spike, fire, boulder, poison, sabre}
 
 
     [SerializeField][Range(3f, 6f)] private float secondsToQuitAppAffterWin;
@@ -19,6 +18,8 @@ public class GameManagerSO : ScriptableObject
     [SerializeField][Range(1f, 100f)] private float fireDamage;
     [SerializeField][Range(1f, 100f)] private float boulderDamage;
     [SerializeField][Range(1f, 100f)] private float poisonDamage;
+    [SerializeField][Range(1f, 100f)] private float minSabreDamage;
+    [SerializeField][Range(1f, 100f)] private float maxSabreDamage;
     [SerializeField][Range(5f, 120f)][Tooltip("Seconds to sunset")] private float m_timerToGetDark;
 
     [Header("Scoring Values")]
@@ -44,6 +45,7 @@ public class GameManagerSO : ScriptableObject
 
     // events
     public event Action<int> OnSwitchActivated;
+    public event Action<int,int> OnDamageEnemy;
     public event Action<InteractuableObjectType> OnInteractuableObjectDetected;
     public event Action OnVictory;
     public event Action OnDeath;
@@ -117,6 +119,11 @@ public class GameManagerSO : ScriptableObject
         Debug.Log($"SwitchActivated called! Score: {generalScore}, Added: {points}, Switch ID: {idSwitch}");
     }
 
+    public void DamageEnemy(int enemyId, int damage)
+    {
+        OnDamageEnemy?.Invoke(enemyId, damage);
+    }
+
     public void InfoUI(InteractuableObjectType interactuableObject)
     {
         OnInteractuableObjectDetected?.Invoke(interactuableObject);
@@ -168,6 +175,11 @@ public class GameManagerSO : ScriptableObject
         { 
             currentHp -= poisonDamage; 
         }
+        else if (damageType == DamageType.sabre)
+        {
+            currentHp -= UnityEngine.Random.Range(minSabreDamage, maxSabreDamage);
+        }
+
         Debug.Log($"currentHp={currentHp}");
 
 
