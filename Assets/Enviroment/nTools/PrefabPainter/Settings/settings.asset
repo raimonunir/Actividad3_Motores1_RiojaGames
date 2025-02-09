@@ -5214,7 +5214,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 0
+      selected: 1
       colorTag: 0
       customPreviewImage: {fileID: 0}
     - name: Common_Hemp_Nettle_xh1kdfbqx_Mid_xh1kdfbqx_VarA_LOD0
@@ -6794,7 +6794,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
       customPreviewImage: {fileID: 0}
     - name: 1911_07_0002 (quetzalcoatl)
@@ -18511,7 +18511,7 @@ MonoBehaviour:
   pinSnapScale: 0
   placeAngleStep: 15
   placeScaleStep: 0.1
-  eraseBrushRadius: 0.23
+  eraseBrushRadius: 1.32
   eraseByLayer: 1
   eraseLayers:
     serializedVersion: 2
