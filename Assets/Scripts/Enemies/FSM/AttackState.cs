@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class AttackState : EnemyState<EnemyController>
 {
-    [SerializeField] private float baseAttackDamage;
-
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
 
-        //controller.Agent.isStopped = true;
         controller.Agent.stoppingDistance = (controller.BodyLength / 2);
         controller.Animator.SetBool("EN01Attacking", true);
     }
@@ -34,7 +31,7 @@ public class AttackState : EnemyState<EnemyController>
 
     public void CheckTarget() 
     {
-        if (false) //TODO Controlar vida de taget: if (controller.target.GetHealth <= 0)...
+        if (!controller.GameManagerSO.isAlive)
         {
             controller.Animator.SetBool("EN01Attacking", false);
             controller.ChangeState(controller.TargetDestroyedState);
@@ -51,10 +48,12 @@ public class AttackState : EnemyState<EnemyController>
 
     public void HitTarget()
     {
+        Debug.Log("HitTarget");
         if (Vector3.Distance(transform.position, controller.Target.transform.position) <= controller.Agent.stoppingDistance)
         {
-            //TODO quitar vida a enemigo
-            //controller.TakeDamage(51); //Quitar (es para pruebas) 
+            Debug.Log("Attack succesful");
+
+            controller.GameManagerSO.Damage(GameManagerSO.DamageType.sabre);
         }
     }
 }

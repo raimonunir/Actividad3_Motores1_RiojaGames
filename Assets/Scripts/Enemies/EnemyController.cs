@@ -8,6 +8,7 @@ using UnityEngine.AI;
 //TODO DeathState: Ce murio
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private GameManagerSO gameManagerSO;
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private int healthPoints;
@@ -24,7 +25,7 @@ public class EnemyController : MonoBehaviour
     private AttackState attackState;
     private TargetDestroyedState targetDestroyedState;
 
-    private float bodyLength = 8;
+    private float bodyLength = 17;
     private int currentHealthPoints;
 
     public NavMeshAgent Agent { get => agent; }
@@ -40,6 +41,17 @@ public class EnemyController : MonoBehaviour
     public float ViewAngle { get => viewAngle; }
     public float ViewRange { get => viewRange; }
     public float BodyLength { get => bodyLength; }
+    public GameManagerSO GameManagerSO { get => gameManagerSO; }
+
+    private void OnEnable()
+    {
+        gameManagerSO.OnDamageEnemy += TakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        gameManagerSO.OnDamageEnemy -= TakeDamage;
+    }
 
     private void Awake()
     {
