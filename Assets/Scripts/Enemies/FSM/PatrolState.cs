@@ -75,7 +75,6 @@ public class PatrolState : EnemyState<EnemyController>
         while (true)
         {
             //going destination
-            Debug.Log(currentWaypoint);
             controller.Agent.SetDestination(currentWaypoint);
             controller.Animator.SetBool("EN01Walking", true);
             yield return new WaitUntil(() => (!controller.Agent.pathPending && controller.Agent.remainingDistance <= 0.2f));
