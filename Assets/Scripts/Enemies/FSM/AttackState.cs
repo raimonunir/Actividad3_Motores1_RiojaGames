@@ -34,16 +34,18 @@ public class AttackState : EnemyState<EnemyController>
 
     public void CheckTarget() 
     {
-        if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.Agent.stoppingDistance)
+        if (false) //TODO Controlar vida de taget: if (controller.target.GetHealth <= 0)...
         {
-            controller.Animator.SetBool("EN01Attacking", false);
-            controller.ChangeState(controller.ChaseState);
-        }
-        else
-        {
-            //TODO Controlar vida de enemigo: controller.target...
             controller.Animator.SetBool("EN01Attacking", false);
             controller.ChangeState(controller.TargetDestroyedState);
+        }
+        else 
+        {
+            if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.Agent.stoppingDistance)
+            {
+                controller.Animator.SetBool("EN01Attacking", false);
+                controller.ChangeState(controller.ChaseState);
+            }
         }
     }
 
