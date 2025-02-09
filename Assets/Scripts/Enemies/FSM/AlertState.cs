@@ -18,7 +18,6 @@ public class AlertState : EnemyState<EnemyController>
 
     public override void OnExitState()
     {
-
     }
 
     public void ChaseTarget() {

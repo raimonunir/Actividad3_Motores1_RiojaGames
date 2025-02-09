@@ -63,6 +63,7 @@ public class EnemyController : MonoBehaviour
 
     public void ChangeState(EnemyState<EnemyController> newState)
     {
+        Debug.Log("ChangeState: " + newState.ToString());
         if (currentState != null) currentState.OnExitState();
 
         currentState = newState;

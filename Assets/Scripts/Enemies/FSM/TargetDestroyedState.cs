@@ -8,8 +8,12 @@ public class TargetDestroyedState : EnemyState<EnemyController>
     {
         base.OnEnterState(controller);
 
-        controller.Agent.isStopped = true;
         controller.Animator.SetBool("EN01Roaring", true);
+
+        controller.Target.gameObject.SetActive(false); //TODO esto habria que quitarlo al integrar con player
+        controller.Target = null;
+
+        StartCoroutine(returnToPatrol());
     }
 
     public override void OnUpdateState()
@@ -18,5 +22,12 @@ public class TargetDestroyedState : EnemyState<EnemyController>
 
     public override void OnExitState()
     {
+    }
+
+    private IEnumerator returnToPatrol()
+    {
+        yield return new WaitForSeconds(1.5f);
+        controller.Animator.SetBool("EN01Roaring", false);
+        controller.ChangeState(controller.PatrolState);
     }
 }

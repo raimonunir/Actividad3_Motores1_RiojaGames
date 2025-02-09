@@ -51,7 +51,8 @@ public class AttackState : EnemyState<EnemyController>
     {
         if (Vector3.Distance(transform.position, controller.Target.transform.position) <= controller.Agent.stoppingDistance)
         {
-            Debug.Log("Target receives damage."); //TODO
+            //TODO quitar vida a enemigo
+            //controller.TakeDamage(51); //Quitar (es para pruebas) 
         }
     }
 }

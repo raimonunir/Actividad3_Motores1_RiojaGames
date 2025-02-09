@@ -21,15 +21,18 @@ public class PatrolState : EnemyState<EnemyController>
     {
         base.OnEnterState(controller);
 
-        foreach (Transform point in patrolRoute)
+        controller.Agent.speed = PATROL_VELOCITY;
+        controller.Agent.stoppingDistance = 0;
+
+        if (waypoints.Count == 0)
         {
-            waypoints.Add(point.position);
+            foreach (Transform point in patrolRoute)
+            {
+                waypoints.Add(point.position);
+            }
         }
 
         currentWaypoint = waypoints[indexCurrentWaypoint];
-
-        controller.Agent.speed = PATROL_VELOCITY;
-        controller.Agent.stoppingDistance = 0;
 
         StartCoroutine(PatrolAndWait());
     }
@@ -52,6 +55,8 @@ public class PatrolState : EnemyState<EnemyController>
 
                     if(controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
                     {
+                        StopAllCoroutines();
+
                         controller.Animator.SetBool("EN01Walking", false);
                         controller.ChangeState(controller.AlertState);
                     }
@@ -70,9 +75,10 @@ public class PatrolState : EnemyState<EnemyController>
         while (true)
         {
             //going destination
+            Debug.Log(currentWaypoint);
             controller.Agent.SetDestination(currentWaypoint);
             controller.Animator.SetBool("EN01Walking", true);
-            yield return new WaitUntil(() => !controller.Agent.pathPending && controller.Agent.remainingDistance <= 0.2f);
+            yield return new WaitUntil(() => (!controller.Agent.pathPending && controller.Agent.remainingDistance <= 0.2f));
 
             //waiting
             controller.Animator.SetBool("EN01Walking", false);
