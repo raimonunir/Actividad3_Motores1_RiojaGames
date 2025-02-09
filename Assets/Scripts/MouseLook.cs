@@ -14,7 +14,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(!gameManagerSO.isAlive) { return; }
+        //if(!gameManagerSO.IsAlive) { return; }
         //XXX return XXXX
 
         // read mouse X and Y 

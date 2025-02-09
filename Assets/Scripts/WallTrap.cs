@@ -52,7 +52,7 @@ public class WallTrap : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!gameManagerSO.isAlive) {
+        if (!gameManagerSO.IsAlive) {
             return;
         }
 

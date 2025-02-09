@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSourceHeartBeat;
     [SerializeField][Range(0f, 0.1f)][Tooltip("Under this value in input aixis there will be no step sound")] 
     private float soundMovementMaring;
     [SerializeField] private List<AudioClip> stepsAudioClips;
@@ -45,11 +46,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSourceHeartBeat.Stop();
         characterController = GetComponent<CharacterController>();
         cameraPlayer = GetComponentInChildren<Camera>();
         //audioSourceWick.Play();
 
-        gameManagerSO.OnStart();
+        gameManagerSO.Start();
     }
 
     // Update is called once per frame
@@ -67,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(velocity * Time.deltaTime);
 
         // user input
-        if (gameManagerSO.isAlive) {
+        if (gameManagerSO.IsAlive) {
             CheckInputUser();
         }
     }
@@ -75,20 +77,35 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         gameManagerSO.OnPlayerOnSpikes += GameManagerSO_OnPlayerOnSpikes;
+        gameManagerSO.OnInjured += GameManagerSO_OnInjured;
+        gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
     }
 
     private void OnDisable()
     {
         gameManagerSO.OnPlayerOnSpikes -= GameManagerSO_OnPlayerOnSpikes;
-    }
-    private void GameManagerSO_OnPlayerOnSpikes()
-    {
-        StartCoroutine(ReactToPain());
+        gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
+        gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
+
     }
 
-    private IEnumerator ReactToPain()
+    private void GameManagerSO_OnSeriouslyInjured()
+    {
+        audioSourceHeartBeat.Play();
+    }
+
+    private void GameManagerSO_OnInjured()
     {
         audioSource.PlayOneShot(auchAudioClips[Random.Range(0, auchAudioClips.Count)]);
+    }
+
+    private void GameManagerSO_OnPlayerOnSpikes()
+    {
+        StartCoroutine(ReactToSpikes());
+    }
+
+    private IEnumerator ReactToSpikes()
+    {
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         while (true)
         {
@@ -145,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         //XXX rotation is in cameraPlayer MouseLook component
 
         // raycast
-        if (Input.GetKeyDown(KeyCode.E)) //Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E)) 
         {
             if (Physics.Raycast(cameraPlayer.transform.position, cameraPlayer.transform.forward, out RaycastHit hitInfo, maxRaycastDistance, layermaskRaycast))
             {
@@ -165,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManagerSO.isAlive && Physics.Raycast(cameraPlayer.transform.position, cameraPlayer.transform.forward, out RaycastHit hitInfo, maxRaycastDistance, layermaskRaycast))
+        if (gameManagerSO.IsAlive && Physics.Raycast(cameraPlayer.transform.position, cameraPlayer.transform.forward, out RaycastHit hitInfo, maxRaycastDistance, layermaskRaycast))
         {
             if (hitInfo.collider.TryGetComponent(out DoorSwitch doorSwitch))
             {

@@ -13,6 +13,9 @@ public class CanvasManager : MonoBehaviour
     [SerializeField][Range(0.5f, 1.5f)] private float minimumSecondsShowingStartMenu;
     [SerializeField] private GameObject panelEndGameUI;
     [SerializeField] private GameObject panelMiniMap;
+    [SerializeField] private GameObject panelInjured;
+    [SerializeField][Range(1f, 5f)] private float secondsShowingPanelInjured;
+    [SerializeField] private GameObject panelSeriouslyInjured;
     [SerializeField] private GameObject panelDeath;
     [SerializeField] private TextMeshProUGUI textRestartIn;
     [SerializeField] private Image HealthBar;
@@ -37,6 +40,8 @@ public class CanvasManager : MonoBehaviour
         panelStartUI.SetActive(true);
         panelCameraTarget.SetActive(false);
         panelEndGameUI.SetActive(false);
+        panelInjured.SetActive(false);
+        panelSeriouslyInjured.SetActive(false);
         panelDeath.SetActive(false);
         panelStartUIanimator = panelStartUI.GetComponent<Animator>();
         imagePointCameraTarget.enabled = false;
@@ -65,6 +70,8 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnVictory += GameManagerSO_OnVictory;
         gameManagerSO.OnDeath += GameManagerSO_OnDeath;
         gameManagerSO.OnUpdateHP += GameManagerSO_OnUpdateHP;
+        gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnInjured += GameManagerSO_OnInjured;
     }
 
     private void OnDisable()
@@ -73,11 +80,30 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnVictory -= GameManagerSO_OnVictory;
         gameManagerSO.OnDeath -= GameManagerSO_OnDeath;
         gameManagerSO.OnUpdateHP -= GameManagerSO_OnUpdateHP;
+        gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
+    }
+
+    private void GameManagerSO_OnInjured()
+    {
+        StartCoroutine(showInjuredPanelForSeconds());
+    }
+
+    private IEnumerator showInjuredPanelForSeconds()
+    {
+        panelInjured.SetActive(true);
+        yield return new WaitForSeconds(secondsShowingPanelInjured);
+        panelInjured.SetActive(false);
+    }
+
+    private void GameManagerSO_OnSeriouslyInjured()
+    {
+        panelSeriouslyInjured.SetActive(true);
     }
 
     private void GameManagerSO_OnUpdateHP(float hp)
     {
-        HealthBar.fillAmount = hp / gameManagerSO.maxHP;
+        HealthBar.fillAmount = hp / gameManagerSO.MaxHP;
         HealthBarValueText.text = "" + hp.ToString("f0");
     }
 
@@ -87,7 +113,6 @@ public class CanvasManager : MonoBehaviour
         panelMiniMap.SetActive(false);
         panelCameraTarget.SetActive(false);
         panelDeath.SetActive(true);
-        Debug.Log("CanvasONDEAAAATH");
         StartCoroutine(RestartCountdown());
     }
 
