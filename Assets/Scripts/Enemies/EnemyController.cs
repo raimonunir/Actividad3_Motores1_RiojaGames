@@ -31,6 +31,10 @@ public class EnemyController : MonoBehaviour
 
     //Clips de audio
     [SerializeField] public AudioClip tigerDamage;
+    [SerializeField] public AudioClip tigerDeath;
+    [SerializeField] public AudioClip tigerRunning;
+    [SerializeField] public AudioClip tigerBite;
+    [SerializeField] public AudioClip tigerRoar;
 
     private AudioSource fuenteSonido;
 
@@ -52,6 +56,10 @@ public class EnemyController : MonoBehaviour
     public float BodyLength { get => bodyLength; }
     public int HealthPoints { get => healthPoints;}
     #endregion
+
+    public SkinnedMeshRenderer enemyRender;
+
+    public BoxCollider enemyCollider;
 
     private void OnEnable()
     {
@@ -78,7 +86,8 @@ public class EnemyController : MonoBehaviour
         ChangeState(patrolState);
 
         fuenteSonido = GetComponent<AudioSource>();
-
+        enemyRender = GetComponentInChildren<SkinnedMeshRenderer>();
+        enemyCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
@@ -101,7 +110,7 @@ public class EnemyController : MonoBehaviour
             currentHealthPoints -= damage;
 
             //llamamos a una corrutina para tintar al enemigo
-            //StartCoroutine(DamageBlink(0.25f));
+            StartCoroutine(DamageBlink(0.15f));
 
             fuenteSonido.PlayOneShot(tigerDamage);
 
@@ -113,16 +122,16 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
+        fuenteSonido.PlayOneShot(tigerDeath);
         animator.SetBool("EN01Dying", true);
         this.enabled = false;
+        enemyCollider.enabled = false;
     }
 
     private IEnumerator DamageBlink(float tiempoBlink)
     {
 
-        //Declaramos un elemento de tipo Renderer
-        Renderer enemyRender = GetComponent<Renderer>();
-
+   
         //Como en el enemigo hay varios materiales vamos a iterar entre todos ellos
         foreach (Material mat in enemyRender.materials)
         {
