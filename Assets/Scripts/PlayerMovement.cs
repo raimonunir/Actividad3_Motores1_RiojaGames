@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         //XXX rotation is in cameraPlayer MouseLook component
 
         // raycast
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E)) //Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(cameraPlayer.transform.position, cameraPlayer.transform.forward, out RaycastHit hitInfo, maxRaycastDistance, layermaskRaycast))
             {
