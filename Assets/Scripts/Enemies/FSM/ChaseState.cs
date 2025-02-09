@@ -35,15 +35,15 @@ public class ChaseState : EnemyState<EnemyController>
         }
     }
 
+    public override void OnExitState()
+    {
+        StopAllCoroutines();
+    }
+
     private IEnumerator StopAndReturn()
     {
         yield return new WaitForSeconds(1);
         controller.Animator.SetBool("EN01Running", false);
         controller.ChangeState(controller.PatrolState);
-    }
-
-    public override void OnExitState()
-    {
-        StopAllCoroutines();
     }
 }

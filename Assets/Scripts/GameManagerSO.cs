@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(menuName = "GameManagerSO")]
 public class GameManagerSO : ScriptableObject
 {
-
     public enum InteractuableObjectType {doorSwitch, nothing};
     public enum DamageType {spike, fire, boulder, poison, sabre}
 
@@ -25,7 +24,7 @@ public class GameManagerSO : ScriptableObject
 
     // events
     public event Action<int> OnSwitchActivated;
-    public event Action<int> OnDamageEnemy;
+    public event Action<int,int> OnDamageEnemy;
     public event Action<InteractuableObjectType> OnInteractuableObjectDetected;
     public event Action OnVictory;
     public event Action OnDeath;
@@ -44,9 +43,9 @@ public class GameManagerSO : ScriptableObject
         OnSwitchActivated?.Invoke(idSwitch);
     }
 
-    public void DamageEnemy(int damage)
+    public void DamageEnemy(int enemyId, int damage)
     {
-        OnDamageEnemy?.Invoke(damage);
+        OnDamageEnemy?.Invoke(enemyId, damage);
     }
 
     public void InfoUI(InteractuableObjectType interactuableObject)

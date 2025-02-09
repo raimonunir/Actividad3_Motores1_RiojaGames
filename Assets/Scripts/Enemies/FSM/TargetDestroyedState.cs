@@ -9,20 +9,14 @@ public class TargetDestroyedState : EnemyState<EnemyController>
         base.OnEnterState(controller);
 
         controller.Animator.SetBool("EN01Roaring", true);
-
-        controller.Target.gameObject.SetActive(false); //TODO esto habria que quitarlo al integrar con player
         controller.Target = null;
 
         StartCoroutine(returnToPatrol());
     }
 
-    public override void OnUpdateState()
-    {
-    }
+    public override void OnUpdateState() {}
 
-    public override void OnExitState()
-    {
-    }
+    public override void OnExitState() {}
 
     private IEnumerator returnToPatrol()
     {

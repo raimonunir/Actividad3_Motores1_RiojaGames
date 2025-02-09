@@ -12,13 +12,9 @@ public class AlertState : EnemyState<EnemyController>
         controller.Animator.SetBool("EN01Alert", true);
     }
 
-    public override void OnUpdateState()
-    {
-    }
+    public override void OnUpdateState() {}
 
-    public override void OnExitState()
-    {
-    }
+    public override void OnExitState() {}
 
     public void ChaseTarget() {
         controller.Agent.isStopped = false;

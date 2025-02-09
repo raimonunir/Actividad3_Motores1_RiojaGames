@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class AttackState : EnemyState<EnemyController>
 {
+    private float targetWidth;
+
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
 
         controller.Agent.stoppingDistance = (controller.BodyLength / 2);
         controller.Animator.SetBool("EN01Attacking", true);
+        targetWidth = controller.Target.GetComponent<Renderer>().bounds.size.x;
     }
 
     public override void OnUpdateState()
@@ -17,10 +20,7 @@ public class AttackState : EnemyState<EnemyController>
         faceTarget();
     }
 
-    public override void OnExitState()
-    {
-        
-    }
+    public override void OnExitState() {}
 
     public void faceTarget()
     {
@@ -38,7 +38,7 @@ public class AttackState : EnemyState<EnemyController>
         }
         else 
         {
-            if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.Agent.stoppingDistance)
+            if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.Agent.stoppingDistance + (targetWidth / 2))
             {
                 controller.Animator.SetBool("EN01Attacking", false);
                 controller.ChangeState(controller.ChaseState);
@@ -48,13 +48,9 @@ public class AttackState : EnemyState<EnemyController>
 
     public void HitTarget()
     {
-        Debug.Log("HitTarget");
-        if (Vector3.Distance(transform.position, controller.Target.transform.position) <= controller.Agent.stoppingDistance)
+        if (Vector3.Distance(transform.position, controller.Target.transform.position) <= controller.Agent.stoppingDistance + (targetWidth/2))
         {
-            Debug.Log("Attack succesful");
-
             controller.GameManagerSO.Damage(GameManagerSO.DamageType.sabre);
         }
     }
 }
-
