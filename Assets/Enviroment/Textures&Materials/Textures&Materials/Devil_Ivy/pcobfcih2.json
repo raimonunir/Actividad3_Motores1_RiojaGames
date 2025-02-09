@@ -1,0 +1,469 @@
+{
+    "averageColor": "#808080",
+    "categories": [
+        "atlas",
+        "vine",
+        "leaf"
+    ],
+    "description": "",
+    "environment": {
+        "biome": "undefined",
+        "region": "South West Australia"
+    },
+    "id": "pcobfcih2",
+    "json": {
+        "uri": "pcobfcih2.json"
+    },
+    "meta": [
+        {
+            "key": "scanArea",
+            "name": "Scan Area",
+            "value": "0.41x0.41 m"
+        },
+        {
+            "key": "height",
+            "name": "Height",
+            "value": "0.004 m"
+        },
+        {
+            "key": "tileable",
+            "name": "Tileable",
+            "value": false
+        },
+        {
+            "key": "texelDensity",
+            "name": "Texel Density",
+            "value": "9917 px/m"
+        },
+        {
+            "key": "calibration",
+            "name": "Calibration",
+            "value": "X-Rite ColorChecker Classic"
+        },
+        {
+            "key": "scanner",
+            "name": "Scanner",
+            "value": "AUM-MKII-Stable-V2-Yellow"
+        }
+    ],
+    "name": "Devil's Ivy",
+    "points": 1,
+    "previews": {
+        "images": [
+            {
+                "contentLength": 604555,
+                "resolution": "840x840",
+                "uri": "pcobfcih2_Grid_840.png",
+                "tags": [
+                    "thumb",
+                    "retina"
+                ]
+            },
+            {
+                "contentLength": 2077632,
+                "resolution": "1760x1760",
+                "uri": "pcobfcih2_Popup_1760.png",
+                "tags": [
+                    "preview",
+                    "retina"
+                ]
+            }
+        ],
+        "relativeSize": "1x1"
+    },
+    "properties": [],
+    "semanticTags": {
+        "subject_matter": "nature",
+        "name": "Devil's Ivy",
+        "latin_name": "Epipremnum Aureum",
+        "asset_type": "atlas",
+        "contains": [
+            "Pothos",
+            "Leaves",
+            "stem",
+            "golden pothos",
+            "Ceylon creeper",
+            "hunter's robe",
+            "ivy arum",
+            "house plant",
+            "money plant",
+            "silver vine",
+            "Solomon Islands ivy",
+            "marble queen",
+            "taro vine",
+            "devil's vine",
+            "debris"
+        ],
+        "country": "Australia",
+        "region": "Oceania",
+        "color": [
+            "Green",
+            "Brown",
+            "White"
+        ],
+        "locations": {
+            "Oceania": {
+                "Australia": {}
+            }
+        },
+        "maxSize": 0.41,
+        "minSize": 0.41,
+        "theme": [
+            "House plants",
+            "archviz",
+            "temperate",
+            "subtropical",
+            "tropical",
+            "forests",
+            "jungles",
+            "grasslands",
+            "gardens"
+        ],
+        "descriptive": [
+            "decorative",
+            "climber",
+            "growing",
+            "evergreen",
+            "dry",
+            "dead",
+            "wilting"
+        ],
+        "environment": [
+            "grassland biome",
+            "forest biome",
+            "urban"
+        ],
+        "interior_exterior": [
+            "interior"
+        ],
+        "state": [
+            "old",
+            "damaged"
+        ],
+        "industry": [
+            "archviz",
+            "games",
+            "VFX"
+        ],
+        "architectural_style": {},
+        "resolution": 4096
+    },
+    "tags": [
+        "green",
+        "brown",
+        "white",
+        "pothos",
+        "tropical",
+        "jungle",
+        "house plant",
+        "archviz"
+    ],
+    "version": 2,
+    "maps": [
+        {
+            "averageColor": "#373737",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Opacity",
+            "type": "opacity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Opacity.exr"
+        },
+        {
+            "averageColor": "#373737",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Opacity",
+            "type": "opacity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Opacity.jpg"
+        },
+        {
+            "averageColor": "#8180FF",
+            "colorSpace": "Linear",
+            "maxIntensity": 167,
+            "minIntensity": 117,
+            "name": "Normal",
+            "type": "normal",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Normal.exr"
+        },
+        {
+            "averageColor": "#8180FF",
+            "colorSpace": "Linear",
+            "maxIntensity": 167,
+            "minIntensity": 117,
+            "name": "Normal",
+            "type": "normal",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Normal.jpg"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Bump",
+            "type": "bump",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Bump.exr"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Bump",
+            "type": "bump",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Bump.jpg"
+        },
+        {
+            "averageColor": "#232323",
+            "colorSpace": "Linear",
+            "maxIntensity": 88,
+            "minIntensity": 19,
+            "name": "Gloss",
+            "type": "gloss",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Gloss.exr"
+        },
+        {
+            "averageColor": "#232323",
+            "colorSpace": "Linear",
+            "maxIntensity": 88,
+            "minIntensity": 19,
+            "name": "Gloss",
+            "type": "gloss",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Gloss.jpg"
+        },
+        {
+            "averageColor": "#818181",
+            "colorSpace": "Linear",
+            "maxIntensity": 139,
+            "minIntensity": 118,
+            "name": "Displacement",
+            "type": "displacement",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Displacement.exr"
+        },
+        {
+            "averageColor": "#818181",
+            "colorSpace": "Linear",
+            "maxIntensity": 139,
+            "minIntensity": 118,
+            "name": "Displacement",
+            "type": "displacement",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Displacement.jpg"
+        },
+        {
+            "averageColor": "#FCFCFC",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 224,
+            "name": "Ao",
+            "type": "ao",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_AO.exr"
+        },
+        {
+            "averageColor": "#FCFCFC",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 224,
+            "name": "Ao",
+            "type": "ao",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_AO.jpg"
+        },
+        {
+            "averageColor": "#DCDCDC",
+            "colorSpace": "Linear",
+            "maxIntensity": 236,
+            "minIntensity": 167,
+            "name": "Roughness",
+            "type": "roughness",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Roughness.exr"
+        },
+        {
+            "averageColor": "#DCDCDC",
+            "colorSpace": "Linear",
+            "maxIntensity": 236,
+            "minIntensity": 167,
+            "name": "Roughness",
+            "type": "roughness",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Roughness.jpg"
+        },
+        {
+            "averageColor": "#F5F5F5",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 205,
+            "name": "Cavity",
+            "type": "cavity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Cavity.exr"
+        },
+        {
+            "averageColor": "#F5F5F5",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 205,
+            "name": "Cavity",
+            "type": "cavity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Cavity.jpg"
+        },
+        {
+            "averageColor": "#353535",
+            "colorSpace": "sRGB",
+            "maxIntensity": 45.1,
+            "minIntensity": 56.1,
+            "name": "Specular",
+            "type": "specular",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Specular.exr"
+        },
+        {
+            "averageColor": "#353535",
+            "colorSpace": "sRGB",
+            "maxIntensity": 45.1,
+            "minIntensity": 56.1,
+            "name": "Specular",
+            "type": "specular",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Specular.jpg"
+        },
+        {
+            "averageColor": "#463F14",
+            "colorSpace": "sRGB",
+            "maxIntensity": 148,
+            "minIntensity": 0,
+            "name": "Translucency",
+            "type": "translucency",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Translucency.exr"
+        },
+        {
+            "averageColor": "#463F14",
+            "colorSpace": "sRGB",
+            "maxIntensity": 148,
+            "minIntensity": 0,
+            "name": "Translucency",
+            "type": "translucency",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Translucency.jpg"
+        },
+        {
+            "averageColor": "#797239",
+            "colorSpace": "sRGB",
+            "maxIntensity": 202,
+            "minIntensity": 47,
+            "name": "Albedo",
+            "type": "albedo",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pcobfcih2_4K_Albedo.exr"
+        },
+        {
+            "averageColor": "#797239",
+            "colorSpace": "sRGB",
+            "maxIntensity": 202,
+            "minIntensity": 47,
+            "name": "Albedo",
+            "type": "albedo",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pcobfcih2_4K_Albedo.jpg"
+        }
+    ],
+    "texelDensity": 9990,
+    "physicalSize": "0.41x0.41",
+    "displacementScale": 0.239723,
+    "displacementBias": 0.47169,
+    "displacementCalibrationAccuracy": 0.989367,
+    "process_date": "2024-04-17 20:59:54",
+    "texture_type": "basic",
+    "highest_available_res": 4096,
+    "models": [],
+    "assetCategories": {
+        "atlas": {
+            "vine": {
+                "leaf": {},
+                "stem": {}
+            }
+        }
+    },
+    "pack": null,
+    "comp_version": 1
+}
