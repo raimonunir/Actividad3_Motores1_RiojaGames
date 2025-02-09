@@ -172,6 +172,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (doorSwitch.IsSwitchActive)
                     {
+                        Debug.Log("DoorSwitch activated!");
                         doorSwitch.ActivateAnimation();
                         gameManagerSO.SwitchActivated(doorSwitch.IdDoorSwitch);
                     }

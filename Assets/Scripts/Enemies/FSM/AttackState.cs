@@ -4,41 +4,53 @@ using UnityEngine;
 
 public class AttackState : EnemyState<EnemyController>
 {
-    [SerializeField] private float timeBetweenAttack;
-    [SerializeField] private float baseAttackDamage;
-
-    private float timer;
+    private float targetWidth;
 
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
 
-        timer = timeBetweenAttack;
-        controller.Agent.stoppingDistance = controller.AttackDistance;
+        controller.Agent.stoppingDistance = (controller.BodyLength / 2);
+        controller.Animator.SetBool("EN01Attacking", true);
+        targetWidth = controller.Target.GetComponent<Renderer>().bounds.size.x;
     }
 
     public override void OnUpdateState()
     {
-        controller.Agent.SetDestination(controller.Target.position);
+        faceTarget();
+    }
 
-        if (!controller.Agent.pathPending && controller.Agent.remainingDistance <= controller.Agent.stoppingDistance)
+    public override void OnExitState() {}
+
+    public void faceTarget()
+    {
+        Vector3 directionToTarget = (controller.Target.position - transform.position).normalized;
+        directionToTarget.y = 0;
+        transform.rotation = Quaternion.LookRotation(directionToTarget);
+    }
+
+    public void CheckTarget() 
+    {
+        if (!controller.GameManagerSO.isAlive)
         {
-            timer += Time.deltaTime;
-
-            if (timer >= timeBetweenAttack)
-            {
-                Debug.Log("Ataque");
-                timer = 0;
-            }
+            controller.Animator.SetBool("EN01Attacking", false);
+            controller.ChangeState(controller.TargetDestroyedState);
         }
         else 
         {
-            controller.ChangeState(controller.PatrolState);
+            if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.Agent.stoppingDistance + (targetWidth / 2))
+            {
+                controller.Animator.SetBool("EN01Attacking", false);
+                controller.ChangeState(controller.ChaseState);
+            }
         }
     }
 
-    public override void OnExitState()
+    public void HitTarget()
     {
-
+        if (Vector3.Distance(transform.position, controller.Target.transform.position) <= controller.Agent.stoppingDistance + (targetWidth/2))
+        {
+            controller.GameManagerSO.Damage(GameManagerSO.DamageType.sabre);
+        }
     }
 }
