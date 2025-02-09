@@ -12,9 +12,18 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject panelStartUI;
     [SerializeField][Range(0.5f, 1.5f)] private float minimumSecondsShowingStartMenu;
     [SerializeField] private GameObject panelEndGameUI;
+    [SerializeField] private TextMeshProUGUI statsScoreText; // Texto donde se mostrarán las estadísticas;
     [SerializeField] private GameObject panelMiniMap;
     [SerializeField] private GameObject panelDeath;
     [SerializeField] private TextMeshProUGUI textRestartIn;
+
+    [Header("Score UI")]
+    [SerializeField] private GameObject panelScore;
+    [SerializeField] private TextMeshProUGUI scoreText;
+
+    [Header("Collectable UI")]
+    [SerializeField] private GameObject CollectableUI;
+    [SerializeField] private TextMeshProUGUI collectibleText;
 
     [Header("Camera Target UI")]
     [SerializeField] private GameObject panelCameraTarget;
@@ -36,10 +45,15 @@ public class CanvasManager : MonoBehaviour
         panelCameraTarget.SetActive(false);
         panelEndGameUI.SetActive(false);
         panelDeath.SetActive(false);
+        panelScore.SetActive(false);
+        CollectableUI.SetActive(false);
         panelStartUIanimator = panelStartUI.GetComponent<Animator>();
         imagePointCameraTarget.enabled = false;
         textTargetInfo.enabled = false;
         textTargetInfo.text = "";
+        scoreText.text = "0";
+        //collectibleText.text = "";
+
     }
 
     private void Update()
@@ -48,12 +62,14 @@ public class CanvasManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             panelMiniMap.SetActive(!panelMiniMap.activeSelf);
+            CollectableUI.SetActive(!CollectableUI.activeSelf);
         }
 
         // hide start panel UI on first click
         if (!firstClick && Input.GetKeyDown(KeyCode.Mouse0)) {
             firstClick = true;
             StartCoroutine(FadeOutStartPanelUI());
+
         }
     }
 
@@ -62,17 +78,23 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnInteractuableObjectDetected += GameManagerSO_OnInteractuableObjectDetected;
         gameManagerSO.OnVictory += GameManagerSO_OnVictory;
         gameManagerSO.OnDeath += GameManagerSO_OnDeath;
+        gameManagerSO.OnScoreUpdated += GameManagerSO_OnScoreUpdated;
+        gameManagerSO.OnCollectibleScoring += GameManagerSO_OnCollectibleScoring;
     }
     private void OnDisable()
     {
         gameManagerSO.OnInteractuableObjectDetected -= GameManagerSO_OnInteractuableObjectDetected;
         gameManagerSO.OnVictory -= GameManagerSO_OnVictory;
         gameManagerSO.OnDeath -= GameManagerSO_OnDeath;
+        gameManagerSO.OnScoreUpdated -= GameManagerSO_OnScoreUpdated;
+        gameManagerSO.OnCollectibleScoring -= GameManagerSO_OnCollectibleScoring;
     }
 
     private void GameManagerSO_OnDeath()
     {
         panelMiniMap.SetActive(false);
+        panelScore.SetActive(false);
+        CollectableUI.SetActive(false);
         panelCameraTarget.SetActive(false);
         panelDeath.SetActive(true);
         Debug.Log("CanvasONDEAAAATH");
@@ -100,9 +122,40 @@ public class CanvasManager : MonoBehaviour
         // hide minimap, show UI end game
         panelMiniMap.SetActive(false);
         panelCameraTarget.SetActive(false);
+        panelScore.SetActive(false);
+        CollectableUI.SetActive(false);
         panelEndGameUI.SetActive(true);
         StartCoroutine(ExitAppAfterSeconds(secondsToQuitAppAffterWin));
         Time.timeScale = 0f;
+        ShowStats();
+    }
+
+    private void ShowStats()
+    {
+        if (statsScoreText != null)
+        {
+            string statsText = "FINAL SCORE\n\n";
+
+            if (gameManagerSO.EnableGeneralScoring)
+                statsText += $"General Score: {gameManagerSO.GeneralScore}\n";
+
+            if (gameManagerSO.EnableCollectibleScoring)
+                statsText += $"Collectible Score: {gameManagerSO.CollectibleScore}\n";
+
+            if (gameManagerSO.EnableSwitchScoring)
+                statsText += $"Switch Score: {gameManagerSO.SwitchScore}\n";
+
+            if (gameManagerSO.EnableTrapScoring)
+                statsText += $"Trap Penalty: {gameManagerSO.TrapScore}\n";
+
+            if (gameManagerSO.EnableEnemyDamageScoring)
+                statsText += $"Enemy Damage Penalty: {gameManagerSO.EnemyDamageScore}\n";
+
+            if (gameManagerSO.EnableEnemyDestructionScoring)
+                statsText += $"Enemies Eliminated Score: {gameManagerSO.EnemyDestructionScore}\n";
+
+            statsScoreText.text = statsText;
+        }
     }
 
     private void GameManagerSO_OnInteractuableObjectDetected(GameManagerSO.InteractuableObjectType obj)
@@ -126,11 +179,23 @@ public class CanvasManager : MonoBehaviour
 
             targetUIwasShowingSomething = false;
         }
-
-
-
         
     }
+    private void GameManagerSO_OnScoreUpdated(int newScore)
+    {
+        Debug.Log($"Updating Score UI: {newScore}");
+        if (scoreText != null)
+            scoreText.text = "" + newScore;
+    }
+
+    private void GameManagerSO_OnCollectibleScoring(int collected, int total)
+    {
+        if (collectibleText != null)
+        {
+            collectibleText.text = $"{collected} / {total}";
+        }
+    }
+
 
     private IEnumerator DesactivateTargetInfo()
     {
@@ -165,6 +230,12 @@ public class CanvasManager : MonoBehaviour
 
         // show minimap
         panelMiniMap.SetActive(true);
+
+        // show ScoreUI
+        panelScore.SetActive(true);
+
+        //show CollectableUI
+        CollectableUI.SetActive(true);
 
         // show camera target cross
         panelCameraTarget.SetActive(true);

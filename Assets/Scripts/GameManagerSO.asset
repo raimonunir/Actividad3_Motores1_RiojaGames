@@ -19,4 +19,19 @@ MonoBehaviour:
   fireDamage: 40
   boulderDamage: 100
   poisonDamage: 30
+  minSabreDamage: 1
+  maxSabreDamage: 1
   m_timerToGetDark: 94.1
+  pointsPerCollectible: 20
+  pointsPerSwitch: 10
+  pointsPerTrap: 15
+  pointsPerEnemyDestruction: 30
+  pointsPerEnemyDamage: 10
+  enableGeneralScoring: 1
+  enableCollectibleScoring: 1
+  enableSwitchScoring: 1
+  enableTrapScoring: 1
+  enableEnemyDestructionScoring: 1
+  enableEnemyDamageScoring: 1
+  collectiblePrefab: {fileID: 8992254690458989293, guid: 6fcc28d7569d7694cbe21e739becf8d7,
+    type: 3}
