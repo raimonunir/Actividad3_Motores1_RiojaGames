@@ -17,7 +17,7 @@ public class RevolverScript : MonoBehaviour
 
     public Animator revolverAnimator;                           //Animator para las balas del revolver
 
-    [SerializeField] TMP_Text textoDebug;
+    //[SerializeField] TMP_Text textoDebug;
 
     [SerializeField] AudioClip revolverDisparo;
     [SerializeField] AudioClip revolverDisparoSinBalas;
@@ -55,7 +55,7 @@ public class RevolverScript : MonoBehaviour
         mensaje += "\nBalas en reserva:" + balasReserva;
         mensaje += "\nBalas por recargar:" + balasPorRecargar;
         
-        textoDebug.text = mensaje;
+        //textoDebug.text = mensaje;
 
     }
 
