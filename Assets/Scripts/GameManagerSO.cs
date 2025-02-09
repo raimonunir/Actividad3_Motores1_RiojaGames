@@ -92,6 +92,7 @@ public class GameManagerSO : ScriptableObject
     {
         totalCollectibles = total;
         collectedCollectibles = 0; // Reinicia el contador de recogidos
+        Debug.Log($" SetTotalCollectibles() called! Total: {total}");
         generalScore = 0;
         collectibleScore = 0;
         switchScore = 0;

@@ -10,12 +10,23 @@ public class CollectibleSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (gameManagerSO != null)
+        if (gameManagerSO == null || collectibleParent == null)
         {
-            totalCollectibles = collectibleParent.childCount; // Count collectibles
-            gameManagerSO.SetTotalCollectibles(totalCollectibles);
-            SpawnCollectibles();
+            Debug.LogWarning("GameManagerSO or CollectibleParent is missing in CollectibleSpawner!");
+            return;
         }
+
+        totalCollectibles = collectibleParent.childCount;
+
+        Debug.Log($"CollectibleSpawner detected {totalCollectibles} collectibles in parent.");
+
+        gameManagerSO.SetTotalCollectibles(totalCollectibles); // Esto actualiza el total en GameManagerSO
+        SpawnCollectibles();
+
+        //int total = collectibleParent.childCount;
+        //gameManagerSO.SetTotalCollectibles(total); // Esto activará el evento y actualizará la UI
+        //SpawnCollectibles();
+
     }
 
     private void SpawnCollectibles()

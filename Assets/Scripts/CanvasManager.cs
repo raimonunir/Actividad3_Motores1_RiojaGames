@@ -23,7 +23,7 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Collectable UI")]
     [SerializeField] private GameObject CollectableUI;
-    [SerializeField] private TextMeshProUGUI Count;
+    [SerializeField] private TextMeshProUGUI collectibleText;
 
     [Header("Camera Target UI")]
     [SerializeField] private GameObject panelCameraTarget;
@@ -52,6 +52,7 @@ public class CanvasManager : MonoBehaviour
         textTargetInfo.enabled = false;
         textTargetInfo.text = "";
         scoreText.text = "0";
+        //collectibleText.text = "";
 
     }
 
@@ -189,11 +190,12 @@ public class CanvasManager : MonoBehaviour
 
     private void GameManagerSO_OnCollectibleScoring(int collected, int total)
     {
-        if (Count != null)
+        if (collectibleText != null)
         {
-            Count.text = $"{collected} / {total}";
+            collectibleText.text = $"{collected} / {total}";
         }
     }
+
 
     private IEnumerator DesactivateTargetInfo()
     {
