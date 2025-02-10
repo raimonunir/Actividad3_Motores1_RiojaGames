@@ -51,7 +51,7 @@ public class RevolverScript : MonoBehaviour
     void Update()
     {
         GetRevolverInputs();
-        MuestraMunicion();
+        //MuestraMunicion();
         //MuestraDatosDebug();
 
     }
@@ -183,7 +183,7 @@ public class RevolverScript : MonoBehaviour
         {
 
             //Vamos a instanciar el VFX de impacto de bala
-            Instantiate(bulletImpactMiss, impacto.point, Quaternion.LookRotation(impacto.normal));  //Esto ha salido del tutorial de FPS de Brackeys
+            //Instantiate(bulletImpactMiss, impacto.point, Quaternion.LookRotation(impacto.normal));  //Esto ha salido del tutorial de FPS de Brackeys
         }
 
         if (Physics.Raycast(camaraFPS.transform.position, camaraFPS.transform.forward, out impacto, rangoRevolver, capaEnemigo))
@@ -202,7 +202,7 @@ public class RevolverScript : MonoBehaviour
             }
 
             //Vamos a instanciar el VFX de sangre para enfatizar que le hemos acertado a un enemigo
-            Instantiate(bulletImpactSuccess, impacto.point, Quaternion.LookRotation(impacto.normal));  //Esto ha salido del tutorial de FPS de Brackeys
+            //Instantiate(bulletImpactSuccess, impacto.point, Quaternion.LookRotation(impacto.normal));  //Esto ha salido del tutorial de FPS de Brackeys
 
         }
 
