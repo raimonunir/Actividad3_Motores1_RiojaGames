@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(CharacterController))] 
 public class PlayerMovement : MonoBehaviour
@@ -81,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         gameManagerSO.OnInjured += GameManagerSO_OnInjured;
         gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
         gameManagerSO.OnSetPlayerPosition += GameManagerSO_OnSetPlayerPosition;
+        gameManagerSO.OnResetLevel += GameManagerSO_OnResetLevel;
     }
 
     private void OnDisable()
@@ -89,8 +87,14 @@ public class PlayerMovement : MonoBehaviour
         gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
         gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
         gameManagerSO.OnSetPlayerPosition -= GameManagerSO_OnSetPlayerPosition;
-
+        gameManagerSO.OnResetLevel -= GameManagerSO_OnResetLevel;
     }
+
+    private void GameManagerSO_OnResetLevel()
+    {
+        audioSourceHeartBeat.Stop();
+    }
+
     private void GameManagerSO_OnSetPlayerPosition(Transform newTransform)
     {
         characterController.enabled = false;
@@ -206,8 +210,9 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (hitInfo.collider.TryGetComponent(out RespawnPoint respawnPoint))
             {
-                if ( !respawnPoint.IsActive)
+                if (respawnPoint.IsActive == false)
                 {
+                    Debug.Log("Vemos la hoguera");
                     gameManagerSO.InfoUI(GameManagerSO.InteractuableObjectType.respawnPoint);
                 }
                 Debug.DrawRay(cameraPlayer.transform.position, cameraPlayer.transform.forward * maxRaycastDistance, Color.yellow);

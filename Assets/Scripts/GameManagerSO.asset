@@ -15,7 +15,6 @@ MonoBehaviour:
   maxHP: 100
   initialHP: 100
   seriouslyInjured: 29
-  initialLives: 3
   initialRespawnPosition: {x: 0, y: 0, z: 0}
   currentRespawnPosition: {x: 0, y: 0, z: 0}
   minSpikeDamage: 7.2
@@ -29,16 +28,16 @@ MonoBehaviour:
     type: 3}
   secondsToQuitAppAffterWin: 3
   timerToGetDark: 92.9
-  pointsPerCollectible: 20
-  pointsPerSwitch: 10
+  pointsPerCollectible: 50
+  pointsPerSwitch: 30
   pointsPerTrap: 15
-  pointsPerEnemyDestruction: 30
-  pointsPerEnemyDamage: 10
+  pointsPerEnemyDestruction: 20
+  pointsPerEnemyDamage: 5
   enableGeneralScoring: 1
   enableCollectibleScoring: 1
   enableSwitchScoring: 1
-  enableTrapScoring: 1
+  enableTrapScoring: 0
   enableEnemyDestructionScoring: 1
-  enableEnemyDamageScoring: 1
+  enableEnemyDamageScoring: 0
   collectiblePrefab: {fileID: 8992254690458989293, guid: 6fcc28d7569d7694cbe21e739becf8d7,
     type: 3}
