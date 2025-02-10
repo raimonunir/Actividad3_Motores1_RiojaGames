@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(CharacterController))] 
 public class PlayerMovement : MonoBehaviour
