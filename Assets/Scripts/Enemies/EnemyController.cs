@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 public class EnemyController : MonoBehaviour
@@ -12,9 +13,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private int enemyId;
-    [SerializeField] private int healthPoints;
+    [SerializeField] private float healthPoints;
     [SerializeField] private float viewAngle;
     [SerializeField] private float viewRange;
+    [SerializeField] private Slider healthBarSlider;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -27,7 +29,7 @@ public class EnemyController : MonoBehaviour
     private TargetDestroyedState targetDestroyedState;
 
     private float bodyLength = 10;
-    private int currentHealthPoints;
+    private float currentHealthPoints;
 
     //Clips de audio
     [SerializeField] public AudioClip tigerDamage;
@@ -54,7 +56,7 @@ public class EnemyController : MonoBehaviour
     public float ViewAngle { get => viewAngle; }
     public float ViewRange { get => viewRange; }
     public float BodyLength { get => bodyLength; }
-    public int HealthPoints { get => healthPoints;}
+    public float HealthPoints { get => healthPoints;}
     #endregion
 
     public SkinnedMeshRenderer enemyRender;
@@ -82,6 +84,7 @@ public class EnemyController : MonoBehaviour
         targetDestroyedState = GetComponent<TargetDestroyedState>();
 
         currentHealthPoints = healthPoints;
+        healthBarSlider.value = currentHealthPoints / healthPoints;
 
         ChangeState(patrolState);
 
@@ -104,10 +107,12 @@ public class EnemyController : MonoBehaviour
         currentState.OnEnterState(this);
     }
 
-    public void TakeDamage(int enemyId, int damage)
+    public void TakeDamage(int enemyId, float damage)
     {
         if (enemyId == this.enemyId) {
             currentHealthPoints -= damage;
+
+            healthBarSlider.value = currentHealthPoints / healthPoints;
 
             //llamamos a una corrutina para tintar al enemigo
             StartCoroutine(DamageBlink(0.15f));

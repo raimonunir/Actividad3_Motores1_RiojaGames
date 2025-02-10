@@ -147,7 +147,7 @@ public class RevolverScript : MonoBehaviour
             //el cual almacenaremos en la variable objetivo
             GameObject objetivo = impacto.collider.gameObject;
 
-            int vida = objetivo.GetComponent<EnemyController>().HealthPoints;
+            float vida = objetivo.GetComponent<EnemyController>().HealthPoints;
 
             if (vida > 0) { 
 

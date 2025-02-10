@@ -52,7 +52,7 @@ public class GameManagerSO : ScriptableObject
 
     // events
     public event Action<int> OnSwitchActivated;
-    public event Action<int,int> OnDamageEnemy;
+    public event Action<int,float> OnDamageEnemy;
     public event Action<InteractuableObjectType> OnInteractuableObjectDetected;
     public event Action OnVictory;
     public event Action OnDeath;
@@ -157,7 +157,7 @@ public class GameManagerSO : ScriptableObject
         Debug.Log($"SwitchActivated called! Score: {generalScore}, Added: {points}, Switch ID: {idSwitch}");
     }
 
-    public void DamageEnemy(int enemyId, int damage)
+    public void DamageEnemy(int enemyId, float damage)
     {
         OnDamageEnemy?.Invoke(enemyId, damage);
     }
