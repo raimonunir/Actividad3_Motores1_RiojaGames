@@ -31,8 +31,14 @@ public class RevolverScript : MonoBehaviour
                                 //renderiza el revolver y las manos no sé yo si funcionará con el raycasting...probemos
 
     [SerializeField] LayerMask capaEnemigo;                     //Sólo haremos el impacto del disparo sobre aquellas entidades en la capa "enemigo"
+    [SerializeField] LayerMask capaEntorno;                     //Si le damos a algún otro elemento que no sea el enemigo habremos fallado
 
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] GameObject bulletImpactSuccess;            //Vamos a instanciar esto donde de impacte nuestro raycast sobre un enemigo
+    [SerializeField] GameObject bulletImpactMiss;               //Vamos a instanciar esto donde de impacte nuestro raycast y así mostrar el imapacto de bala en las paredes y suelo
+    [SerializeField] TMP_Text CurrentAmmo;
+    [SerializeField] TMP_Text TotalAmmo;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +51,9 @@ public class RevolverScript : MonoBehaviour
     void Update()
     {
         GetRevolverInputs();
-        MuestraDatosDebug();
+        MuestraMunicion();
+        //MuestraDatosDebug();
+
     }
 
     public void MuestraDatosDebug()
@@ -57,6 +65,36 @@ public class RevolverScript : MonoBehaviour
         
         //textoDebug.text = mensaje;
 
+    }
+
+    public void MuestraMunicion()
+    {
+        Color colorBlanco = Color.white;
+        Color colorRojo = Color.red;
+
+        if (balasActuales <= 0)
+        {
+            CurrentAmmo.color = colorRojo;
+        }
+        else
+        {
+            CurrentAmmo.color = colorBlanco;
+        }
+
+        if (balasReserva <= 0)
+        {
+            TotalAmmo.color = colorRojo;
+            
+        }
+        else
+        {
+            TotalAmmo.color = colorBlanco;
+            
+        }
+
+        CurrentAmmo.text = balasActuales.ToString();
+        TotalAmmo.text = "/"+balasReserva.ToString();
+        
     }
 
     //Aquí metemos todo lo relacionado con los inputs del revolver, como disparar o recargar
@@ -131,7 +169,7 @@ public class RevolverScript : MonoBehaviour
         // shake camera. De nuevo un copy-pega de Raimon. Si no me equivoco sólo necesito llamar al evento Shake del GameManager y la cámara se moverá...
         //gameManagerSO.Shake(0.15f, 1f, 0.15f);
 
-        //Llamamos a un método propio para el camera Shake porque el del GameManager me bloquea el movimiento
+        //Llamamos a un método propio para el recoil
         StartCoroutine(WeaponRecoil());
 
         //reproducimos el sistema de partículas para mostrar el muzzleFlash
@@ -141,7 +179,14 @@ public class RevolverScript : MonoBehaviour
         RaycastHit impacto;
 
         //Lanzamos nuestro rayo
-        if(Physics.Raycast(camaraFPS.transform.position, camaraFPS.transform.forward, out impacto, rangoRevolver, capaEnemigo))
+        if (Physics.Raycast(camaraFPS.transform.position, camaraFPS.transform.forward, out impacto, rangoRevolver, capaEntorno))
+        {
+
+            //Vamos a instanciar el VFX de impacto de bala
+            Instantiate(bulletImpactMiss, impacto.point, Quaternion.LookRotation(impacto.normal));  //Esto ha salido del tutorial de FPS de Brackeys
+        }
+
+        if (Physics.Raycast(camaraFPS.transform.position, camaraFPS.transform.forward, out impacto, rangoRevolver, capaEnemigo))
         {
             //Impactamos, así que vamos a ir tomando info de impacto a través de su componente GameObject
             //el cual almacenaremos en la variable objetivo
@@ -156,11 +201,12 @@ public class RevolverScript : MonoBehaviour
                 objetivo.GetComponent<EnemyController>().TakeDamage(indiceEnemigo, damageRevolver);
             }
 
-            //Vamos a reproducir la animación de daño en el enemigo poniendo a true el parámetro adecuado
-            //objetivo.GetComponent<Animator>().SetBool("EN01GetHurt",true);
-
+            //Vamos a instanciar el VFX de sangre para enfatizar que le hemos acertado a un enemigo
+            Instantiate(bulletImpactSuccess, impacto.point, Quaternion.LookRotation(impacto.normal));  //Esto ha salido del tutorial de FPS de Brackeys
 
         }
+
+        
     }
 
     IEnumerator WeaponRecoil()
