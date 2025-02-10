@@ -55,7 +55,8 @@ public class GameManagerSO : ScriptableObject
     private bool isAlive = true;
     private bool isSeriouslyInjured = false;
     private float currentHp;
-    private int currentLives = 3;
+    private const int initialLives = 3;
+    private int currentLives;
 
 
     // General score and individual scores
@@ -184,32 +185,33 @@ public class GameManagerSO : ScriptableObject
     {
         if (isAlive)
         {
-            OnDeath?.Invoke();
+            //OnDeath?.Invoke();
             isAlive = false;
             // update HP
             currentHp = 0;
+            currentLives--;
+            Debug.Log($"currentLives=>{currentLives}");
+            OnUpdateLives?.Invoke(currentLives);
             OnUpdateHP?.Invoke(currentHp);
+
+            if (currentLives == 0)
+            {
+                GameOver();
+            }
+            else
+            {
+                ResetLevel();
+            }
+
         }
-
-        currentLives--;
-
-        if (currentLives == 0)
-        {
-            GameOver();
-        }
-
-        ResetLevel();
     }
 
     private void GameOver()
     {
+        lastRespawnTransform = null;
         OnGameOver?.Invoke();
     }
 
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
 
     public void Shake(float shakeAmount = 0.7f, float shakeDecreaseFactor = 0.01f, float shakeDuration = 1.5f)
     {
@@ -219,11 +221,12 @@ public class GameManagerSO : ScriptableObject
     public void ResetLevel()
     {
         OnResetLevel?.Invoke();
-        Start();
+        GeneralSettings();
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void Start()
+
+    private void GeneralSettings()
     {
         isAlive = true;
         isSeriouslyInjured = false;
@@ -232,6 +235,7 @@ public class GameManagerSO : ScriptableObject
         currentHp = initialHP;
         // update hp UI & lives
         OnUpdateHP?.Invoke(currentHp);
+        Debug.Log($"Desde Start() GM currentLives=>{currentLives}");
         OnUpdateLives?.Invoke(currentLives);
 
 
@@ -241,6 +245,13 @@ public class GameManagerSO : ScriptableObject
             lastRespawnTransform = initialPlayerTransform;
         }
         OnSetPlayerPosition(lastRespawnTransform);
+    }
+
+
+    public void Start()
+    {
+        currentLives = initialLives;
+        GeneralSettings();
     }
 
     public void SetAlive()
@@ -312,7 +323,14 @@ public class GameManagerSO : ScriptableObject
         }
 
         // gameover
-        if (currentHp <= 0f) { Death(); }
+        if (currentHp <= 0f) {
+
+            Debug.Log($"Antes de llamar a DeathcurrentLives=>{currentLives}");
+            Death();
+            Debug.Log($"Después de llamar a DeathcurrentLives=>{currentLives}");
+
+
+        }
     }
 
     #region Scoring Methods
