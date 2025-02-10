@@ -7,9 +7,12 @@ using UnityEngine.AI;
 public class ChaseState : EnemyState<EnemyController>
 {
     private const float CHASE_SPEED = 12;
+
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
+        
+        if (!controller.FuenteSonidoCorrer.isPlaying) controller.FuenteSonidoCorrer.Play();
 
         controller.Animator.SetBool("EN01Running", true);
         controller.Agent.speed = CHASE_SPEED;
@@ -18,18 +21,21 @@ public class ChaseState : EnemyState<EnemyController>
 
     public override void OnUpdateState()
     {
-        if (!controller.Agent.pathPending && controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
+        //if (!controller.Agent.pathPending && controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
+        if (!controller.Agent.pathPending)
         {
             controller.Agent.SetDestination(controller.Target.position);
 
             if (!controller.Agent.pathPending && controller.Agent.remainingDistance < controller.Agent.stoppingDistance)
             {
+                controller.FuenteSonidoCorrer.Pause();
                 controller.Animator.SetBool("EN01Running", false);
                 controller.ChangeState(controller.AttackState);
             }
         }
         else 
         {
+            controller.FuenteSonidoCorrer.Pause();
             controller.Animator.SetBool("EN01Running", false);
             StartCoroutine(StopAndReturn());
         }
@@ -43,7 +49,6 @@ public class ChaseState : EnemyState<EnemyController>
     private IEnumerator StopAndReturn()
     {
         yield return new WaitForSeconds(1);
-        controller.Animator.SetBool("EN01Running", false);
         controller.ChangeState(controller.PatrolState);
     }
 }

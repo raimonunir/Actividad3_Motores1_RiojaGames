@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     private float bodyLength = 10;
     private float currentHealthPoints;
+    private bool isDead;
+    private bool targetIsDead;
 
     //Clips de audio
     [SerializeField] public AudioClip tigerDamage;
@@ -39,6 +41,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public AudioClip tigerRoar;
 
     private AudioSource fuenteSonido;
+    private AudioSource fuenteSonidoCorrer;
 
     #region setters & getters
     public NavMeshAgent Agent { get => agent; }
@@ -57,20 +60,25 @@ public class EnemyController : MonoBehaviour
     public float ViewRange { get => viewRange; }
     public float BodyLength { get => bodyLength; }
     public float HealthPoints { get => healthPoints;}
+    public AudioSource FuenteSonido { get => fuenteSonido; }
+    public AudioSource FuenteSonidoCorrer { get => fuenteSonidoCorrer; }
+    public bool TargetIsDead { get => targetIsDead; set => targetIsDead = value; }
     #endregion
 
     public SkinnedMeshRenderer enemyRender;
-
     public BoxCollider enemyCollider;
 
     private void OnEnable()
     {
         gameManagerSO.OnDamageEnemy += TakeDamage;
+        gameManagerSO.OnDeath += TargetEliminated;
     }
 
     private void OnDisable()
     {
         gameManagerSO.OnDamageEnemy -= TakeDamage;
+        gameManagerSO.OnDeath -= TargetEliminated;
+
     }
 
     private void Awake()
@@ -88,23 +96,29 @@ public class EnemyController : MonoBehaviour
 
         ChangeState(patrolState);
 
-        fuenteSonido = GetComponent<AudioSource>();
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        fuenteSonido = audioSources[0];
+        fuenteSonidoCorrer = audioSources[1];
+
         enemyRender = GetComponentInChildren<SkinnedMeshRenderer>();
         enemyCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
     {
-        if (currentState != null) currentState.OnUpdateState();
+        if (currentState != null && !isDead) currentState.OnUpdateState();
     }
 
     public void ChangeState(EnemyState<EnemyController> newState)
     {
-        Debug.Log("EnemyID: " + enemyId + ". ChangeState: " + newState.ToString());
-        if (currentState != null) currentState.OnExitState();
+        if (!isDead)
+        {
+            Debug.Log("EnemyID: " + enemyId + ". ChangeState: " + newState.ToString());
+            if (currentState != null) currentState.OnExitState();
 
-        currentState = newState;
-        currentState.OnEnterState(this);
+            currentState = newState;
+            currentState.OnEnterState(this);
+        }
     }
 
     public void TakeDamage(int enemyId, float damage)
@@ -129,6 +143,9 @@ public class EnemyController : MonoBehaviour
     {
         fuenteSonido.PlayOneShot(tigerDeath);
         animator.SetBool("EN01Dying", true);
+
+        isDead = true;
+        agent.isStopped = true;
         this.enabled = false;
         enemyCollider.enabled = false;
     }
@@ -152,5 +169,10 @@ public class EnemyController : MonoBehaviour
         {
             mat.color = Color.white;
         }
+    }
+
+    private void TargetEliminated()
+    {
+        targetIsDead = true;
     }
 }

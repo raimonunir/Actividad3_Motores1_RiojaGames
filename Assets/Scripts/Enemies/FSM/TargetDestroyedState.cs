@@ -7,7 +7,7 @@ public class TargetDestroyedState : EnemyState<EnemyController>
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
-
+        controller.FuenteSonido.PlayOneShot(controller.tigerRunning);
         controller.Animator.SetBool("EN01Roaring", true);
         controller.Target = null;
 

@@ -10,6 +10,7 @@ public class AlertState : EnemyState<EnemyController>
 
         controller.Agent.isStopped = true;
         controller.Animator.SetBool("EN01Alert", true);
+        controller.TargetIsDead = false;
     }
 
     public override void OnUpdateState() {}
