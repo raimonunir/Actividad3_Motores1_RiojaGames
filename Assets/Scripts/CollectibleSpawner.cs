@@ -40,7 +40,7 @@ public class CollectibleSpawner : MonoBehaviour
         foreach (Transform spawnPoint in collectibleParent)
         {
             Vector3 globalPosition = spawnPoint.position; // Use world position
-            Instantiate(gameManagerSO.CollectiblePrefab, globalPosition, Quaternion.identity);
+            Instantiate(gameManagerSO.CollectiblePrefab, globalPosition, Quaternion.Euler(new Vector3(-90f, 0f, 0f)));//Quaternion.identity);
         }
     }
 }

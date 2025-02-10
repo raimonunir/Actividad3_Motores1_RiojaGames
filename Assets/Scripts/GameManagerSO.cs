@@ -65,6 +65,7 @@ public class GameManagerSO : ScriptableObject
     public event Action OnInjured;
     public event Action OnSeriouslyInjured;
     public event Action OnResetLevel;
+    public event Action<Transform> OnSetPlayerPosition;
 
 
     private int collectedCollectibles = 0; // Contador de coleccionables recogidos
@@ -119,6 +120,10 @@ public class GameManagerSO : ScriptableObject
         }
     }
 
+    public void SetPlayerPosition(Transform transform)
+    {
+        OnSetPlayerPosition?.Invoke(transform);
+    }
 
     public void SetTotalCollectibles(int total)
     {

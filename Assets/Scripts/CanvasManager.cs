@@ -21,6 +21,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject panelInjured;
     [SerializeField][Range(1f, 5f)] private float secondsShowingPanelInjured;
     [SerializeField] private GameObject panelSeriouslyInjured;
+    [SerializeField] private GameObject panelDebug;
 
 
     [Header("Score UI")]
@@ -35,6 +36,12 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject panelCameraTarget;
     [SerializeField] private Image imagePointCameraTarget;
     [SerializeField] private TextMeshProUGUI textTargetInfo;
+
+    [Header("Debug Positions")]
+    [SerializeField] private Transform debugPositionInitial;
+    [SerializeField] private Transform debugPositionMid1;
+    [SerializeField] private Transform debugPositionMid2;
+    [SerializeField] private Transform debugPositionFinal;
 
     private Animator panelStartUIanimator;
     private bool firstClick = false;
@@ -55,6 +62,7 @@ public class CanvasManager : MonoBehaviour
         panelDeath.SetActive(false);
         panelScore.SetActive(false);
         CollectableUI.SetActive(false);
+        panelDebug.SetActive(false);
         panelStartUIanimator = panelStartUI.GetComponent<Animator>();
         imagePointCameraTarget.enabled = false;
         textTargetInfo.enabled = false;
@@ -77,7 +85,37 @@ public class CanvasManager : MonoBehaviour
         if (!firstClick && Input.GetKeyDown(KeyCode.Mouse0)) {
             firstClick = true;
             StartCoroutine(FadeOutStartPanelUI());
+        }
 
+        // test console
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.C))
+        {
+            panelDebug.SetActive(!panelDebug.activeSelf);
+        }
+
+        if (panelDebug.activeSelf) {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                gameManagerSO.Damage(GameManagerSO.DamageType.spike);
+            }            
+            
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionInitial);
+            }            
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionMid1);
+            }            
+            if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionMid2);
+            }            
+            if (Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionFinal);
+            }
+            
         }
     }
 

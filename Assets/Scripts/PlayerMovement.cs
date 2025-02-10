@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(CharacterController))] 
 public class PlayerMovement : MonoBehaviour
@@ -79,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         gameManagerSO.OnPlayerOnSpikes += GameManagerSO_OnPlayerOnSpikes;
         gameManagerSO.OnInjured += GameManagerSO_OnInjured;
         gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnSetPlayerPosition += GameManagerSO_OnSetPlayerPosition;
     }
 
     private void OnDisable()
@@ -86,7 +88,15 @@ public class PlayerMovement : MonoBehaviour
         gameManagerSO.OnPlayerOnSpikes -= GameManagerSO_OnPlayerOnSpikes;
         gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
         gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnSetPlayerPosition -= GameManagerSO_OnSetPlayerPosition;
 
+    }
+    private void GameManagerSO_OnSetPlayerPosition(Transform newTransform)
+    {
+        characterController.enabled = false;
+        characterController.transform.position = newTransform.position;
+        characterController.transform.rotation = newTransform.rotation;
+        characterController.enabled = true;
     }
 
     private void GameManagerSO_OnSeriouslyInjured()
@@ -133,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CheckInputUser()
-    {
+    {   
         // walk movement
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -147,11 +157,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = (transform.right * x + transform.forward * z).normalized;
         characterController.Move(movementSpeed * Time.deltaTime * direction);
 
-        #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.K)) {
-            gameManagerSO.Damage(GameManagerSO.DamageType.spike);
-        }
-        #endif
 
         // jump
         if (Input.GetButtonDown("Jump") && isGrounded)
