@@ -18,7 +18,8 @@ public class ChaseState : EnemyState<EnemyController>
 
     public override void OnUpdateState()
     {
-        if (!controller.Agent.pathPending && controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
+        //if (!controller.Agent.pathPending && controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
+        if (!controller.Agent.pathPending)
         {
             controller.Agent.SetDestination(controller.Target.position);
 
