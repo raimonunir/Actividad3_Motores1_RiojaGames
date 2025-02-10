@@ -48,7 +48,7 @@ public class AttackState : EnemyState<EnemyController>
 
     public void HitTarget()
     {
-        if (Vector3.Distance(transform.position, controller.Target.transform.position) <= controller.Agent.stoppingDistance + (targetWidth/2))
+        if (Vector3.Distance(transform.position, controller.Target.transform.position) <= (controller.Agent.stoppingDistance + (targetWidth/2) + 0.5))
         {
             controller.GameManagerSO.Damage(GameManagerSO.DamageType.sabre);
         }

@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
 
     private float bodyLength = 10;
     private float currentHealthPoints;
+    private bool isDead;
 
     //Clips de audio
     [SerializeField] public AudioClip tigerDamage;
@@ -95,16 +96,19 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (currentState != null) currentState.OnUpdateState();
+        if (currentState != null && !isDead) currentState.OnUpdateState();
     }
 
     public void ChangeState(EnemyState<EnemyController> newState)
     {
-        Debug.Log("EnemyID: " + enemyId + ". ChangeState: " + newState.ToString());
-        if (currentState != null) currentState.OnExitState();
+        if (!isDead)
+        {
+            Debug.Log("EnemyID: " + enemyId + ". ChangeState: " + newState.ToString());
+            if (currentState != null) currentState.OnExitState();
 
-        currentState = newState;
-        currentState.OnEnterState(this);
+            currentState = newState;
+            currentState.OnEnterState(this);
+        }
     }
 
     public void TakeDamage(int enemyId, float damage)
@@ -129,6 +133,9 @@ public class EnemyController : MonoBehaviour
     {
         fuenteSonido.PlayOneShot(tigerDeath);
         animator.SetBool("EN01Dying", true);
+
+        isDead = true;
+        agent.isStopped = true;
         this.enabled = false;
         enemyCollider.enabled = false;
     }
