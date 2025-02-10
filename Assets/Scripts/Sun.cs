@@ -21,11 +21,11 @@ public class Sun : MonoBehaviour
     {
         if (gameManagerSO == null) { Debug.LogError("You need a gameManager"); }
         myLight = GetComponent<Light>();
-        rotationInterval = Mathf.Abs((transform.rotation.eulerAngles.x - rotationXwhenDark)) / (gameManagerSO.timerToDark / updateFrequency);
+        rotationInterval = Mathf.Abs((transform.rotation.eulerAngles.x - rotationXwhenDark)) / (gameManagerSO.TimerToDark / updateFrequency);
         if (transform.rotation.eulerAngles.x > rotationXwhenDark) rotationInterval *= -1f;
 
-        lightIntensityInterval = Mathf.Abs((myLight.intensity - lightIntensityWhenDark)) / (gameManagerSO.timerToDark / updateFrequency);
-        lightKelvinsInterval = Mathf.Abs((myLight.colorTemperature - lightKelvinsWhenDark)) / (gameManagerSO.timerToDark / updateFrequency);
+        lightIntensityInterval = Mathf.Abs((myLight.intensity - lightIntensityWhenDark)) / (gameManagerSO.TimerToDark / updateFrequency);
+        lightKelvinsInterval = Mathf.Abs((myLight.colorTemperature - lightKelvinsWhenDark)) / (gameManagerSO.TimerToDark / updateFrequency);
 
 
         StartCoroutine(RotateSun());

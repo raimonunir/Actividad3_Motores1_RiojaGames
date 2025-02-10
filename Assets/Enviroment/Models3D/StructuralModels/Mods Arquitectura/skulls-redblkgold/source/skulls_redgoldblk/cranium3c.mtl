@@ -1,0 +1,42 @@
+# Blender MTL File: 'craneo2_326.blend'
+# Material Count: 3
+
+newmtl Orotres
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.030000 0.030000 0.030000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump H:\\Mnolo\\2022\\waxskull\\ororojonegro\\RedGold_Normal.jpg
+map_Kd H:\\Mnolo\\2022\\waxskull\\ororojonegro\\gold_Color.jpg
+map_Ns H:\\Mnolo\\2022\\waxskull\\ororojonegro\\gold_Roughness.jpg
+refl H:\\Mnolo\\2022\\waxskull\\ororojonegro\\gold_Metallic.jpg
+
+newmtl Set3
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.030000 0.030000 0.030000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump H:\\Mnolo\\2022\\waxskull\\ororojonegro\\RedGold_Normal.jpg
+map_Kd H:\\Mnolo\\2022\\waxskull\\ororojonegro\\Red_Color.jpg
+map_Ns H:\\Mnolo\\2022\\waxskull\\ororojonegro\\Red_Roughness.jpg
+
+newmtl negro
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.077884 0.077884 0.077884
+Ks 0.030000 0.030000 0.030000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump H:\\Mnolo\\2022\\waxskull\\ororojonegro\\dark_Normal.jpg
+map_Kd H:\\Mnolo\\2022\\waxskull\\ororojonegro\\dark_Color.jpg
+map_Ns H:\\Mnolo\\2022\\waxskull\\ororojonegro\\dark_Roughness.jpg

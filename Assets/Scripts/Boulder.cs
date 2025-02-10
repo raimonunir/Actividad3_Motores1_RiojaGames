@@ -29,7 +29,7 @@ public class Boulder : MonoBehaviour
         // if boulder is moving and collide with player
         if (isKilling && collision.gameObject.CompareTag("Player"))
         {
-            gameManagerSO.Death();
+            gameManagerSO.Damage(GameManagerSO.DamageType.boulder);
         }
     }
 
