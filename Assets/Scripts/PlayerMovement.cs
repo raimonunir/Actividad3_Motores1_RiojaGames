@@ -182,6 +182,14 @@ public class PlayerMovement : MonoBehaviour
                         gameManagerSO.SwitchActivated(doorSwitch.IdDoorSwitch);
                     }
                 }
+                else if (hitInfo.collider.TryGetComponent(out RespawnPoint respawnPoint)) {
+
+                    if ( !respawnPoint.IsActive) {
+                        respawnPoint.Activate();
+                    }
+                }
+
+                
             }
         }
     }
@@ -193,6 +201,15 @@ public class PlayerMovement : MonoBehaviour
             if (hitInfo.collider.TryGetComponent(out DoorSwitch doorSwitch))
             {
                 gameManagerSO.InfoUI(GameManagerSO.InteractuableObjectType.doorSwitch);
+                Debug.DrawRay(cameraPlayer.transform.position, cameraPlayer.transform.forward * maxRaycastDistance, Color.yellow);
+
+            }
+            else if (hitInfo.collider.TryGetComponent(out RespawnPoint respawnPoint))
+            {
+                if ( !respawnPoint.IsActive)
+                {
+                    gameManagerSO.InfoUI(GameManagerSO.InteractuableObjectType.respawnPoint);
+                }
                 Debug.DrawRay(cameraPlayer.transform.position, cameraPlayer.transform.forward * maxRaycastDistance, Color.yellow);
 
             }

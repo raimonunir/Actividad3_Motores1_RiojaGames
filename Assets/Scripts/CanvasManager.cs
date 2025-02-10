@@ -21,7 +21,13 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject panelInjured;
     [SerializeField][Range(1f, 5f)] private float secondsShowingPanelInjured;
     [SerializeField] private GameObject panelSeriouslyInjured;
+    [SerializeField] private GameObject panelGameOver;
     [SerializeField] private GameObject panelDebug;
+    [SerializeField] private GameObject HeartLiveOne;
+    [SerializeField] private GameObject HeartLiveTwo;
+    [SerializeField] private GameObject HeartLiveThree;
+
+
 
 
     [Header("Score UI")]
@@ -53,23 +59,7 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // setting UI panels and animators
-        panelStartUI.SetActive(true);
-        panelCameraTarget.SetActive(false);
-        panelEndGameUI.SetActive(false);
-        panelInjured.SetActive(false);
-        panelSeriouslyInjured.SetActive(false);
-        panelDeath.SetActive(false);
-        panelScore.SetActive(false);
-        CollectableUI.SetActive(false);
-        panelDebug.SetActive(false);
-        panelStartUIanimator = panelStartUI.GetComponent<Animator>();
-        imagePointCameraTarget.enabled = false;
-        textTargetInfo.enabled = false;
-        textTargetInfo.text = "";
-        scoreText.text = "0";
-        //collectibleText.text = "";
-
+        InitialSet();
     }
 
     private void Update()
@@ -119,6 +109,7 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+
     private void OnEnable()
     {
         gameManagerSO.OnInteractuableObjectDetected += GameManagerSO_OnInteractuableObjectDetected;
@@ -129,7 +120,11 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnUpdateHP += GameManagerSO_OnUpdateHP;
         gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
         gameManagerSO.OnInjured += GameManagerSO_OnInjured;
+        gameManagerSO.OnGameOver += GameManagerSO_OnGameOver;
+        gameManagerSO.OnResetLevel += GameManagerSO_OnResetLevel;
+        gameManagerSO.OnUpdateLives += GameManagerSO_OnUpdateLives;
     }
+
     private void OnDisable()
     {
         gameManagerSO.OnInteractuableObjectDetected -= GameManagerSO_OnInteractuableObjectDetected;
@@ -140,6 +135,78 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnUpdateHP -= GameManagerSO_OnUpdateHP;
         gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
         gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
+        gameManagerSO.OnGameOver -= GameManagerSO_OnGameOver;
+        gameManagerSO.OnResetLevel -= GameManagerSO_OnResetLevel;
+        gameManagerSO.OnUpdateLives -= GameManagerSO_OnUpdateLives;
+    }
+
+    private void GameManagerSO_OnUpdateLives(int obj)
+    {
+        if (obj == 0)
+        {
+            HeartLiveOne.SetActive(false);
+            HeartLiveTwo.SetActive(false);
+            HeartLiveThree.SetActive(false);
+        }
+        else if (obj == 1)
+        {
+            HeartLiveOne.SetActive(true);
+            HeartLiveTwo.SetActive(false);
+            HeartLiveThree.SetActive(false);
+        }
+        else if (obj == 2)
+        {
+            HeartLiveOne.SetActive(true);
+            HeartLiveTwo.SetActive(true);
+            HeartLiveThree.SetActive(false);
+        }
+        else if (obj == 3) {
+            HeartLiveOne.SetActive(true);
+            HeartLiveTwo.SetActive(true);
+            HeartLiveThree.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Number of lives don't match");
+        }
+    }
+
+    private void InitialSet()
+    {
+        // setting UI panels and animators
+        panelStartUI.SetActive(true);
+        panelCameraTarget.SetActive(false);
+        panelEndGameUI.SetActive(false);
+        panelInjured.SetActive(false);
+        panelSeriouslyInjured.SetActive(false);
+        panelDeath.SetActive(false);
+        panelScore.SetActive(false);
+        CollectableUI.SetActive(false);
+        panelDebug.SetActive(false);
+        panelGameOver.SetActive(false);
+        panelStartUIanimator = panelStartUI.GetComponent<Animator>();
+        imagePointCameraTarget.enabled = false;
+        textTargetInfo.enabled = false;
+        textTargetInfo.text = "";
+        scoreText.text = "0";
+        //collectibleText.text = "";
+    }
+
+    private void GameManagerSO_OnResetLevel()
+    {
+        InitialSet();
+    }
+
+    private void GameManagerSO_OnGameOver()
+    {
+        panelGameOver.SetActive(true);
+        StartCoroutine(Wait());
+        gameManagerSO.LoadMainMenu();
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3f);
     }
 
     private void GameManagerSO_OnInjured()
@@ -244,9 +311,14 @@ public class CanvasManager : MonoBehaviour
         // get info text
         if (obj == GameManagerSO.InteractuableObjectType.doorSwitch) {
             textTargetInfo.enabled = true;
-            textTargetInfo.text = "Door Switch (Click to activate)";
+            textTargetInfo.text = "Door Switch (Press 'E' to activate)";
             targetUIwasShowingSomething = true;
-        } else if(obj == GameManagerSO.InteractuableObjectType.nothing)
+        } else if (obj == GameManagerSO.InteractuableObjectType.respawnPoint) {
+            textTargetInfo.enabled = true;
+            textTargetInfo.text = "Respawn Point (Press 'E' to activate)";
+            targetUIwasShowingSomething = true;
+        }
+        else if(obj == GameManagerSO.InteractuableObjectType.nothing)
         {
             imagePointCameraTarget.enabled = false;
 

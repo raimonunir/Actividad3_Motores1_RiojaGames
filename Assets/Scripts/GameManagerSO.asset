@@ -25,6 +25,8 @@ MonoBehaviour:
   fireDamage: 40
   boulderDamage: 100
   poisonDamage: 30
+  initialPlayerTransform: {fileID: 6856823948725556428, guid: 5a5aaf47b2fe73041b52fb4ac59c6a09,
+    type: 3}
   secondsToQuitAppAffterWin: 3
   timerToGetDark: 92.9
   pointsPerCollectible: 20

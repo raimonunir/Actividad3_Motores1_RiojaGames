@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu(menuName = "GameManagerSO")]
 public class GameManagerSO : ScriptableObject
 {
-    public enum InteractuableObjectType {doorSwitch, nothing};
+    public enum InteractuableObjectType {doorSwitch, respawnPoint, nothing};
     public enum DamageType {spike, fire, boulder, poison, sabre}
 
     [Header("HP & Lives")]
@@ -14,7 +15,6 @@ public class GameManagerSO : ScriptableObject
     [SerializeField][Range(10f, 100f)] private float initialHP;
     [Tooltip("Act like seriously injured under this HP value")]
     [SerializeField][Range(10f, 50f)] private float seriouslyInjured;
-    [SerializeField][Range(1, 5)] private int initialLives;
     [SerializeField] private Vector3 initialRespawnPosition;
     [SerializeField] private Vector3 currentRespawnPosition;
     [Header("Damage")]
@@ -25,7 +25,9 @@ public class GameManagerSO : ScriptableObject
     [SerializeField][Range(1f, 100f)] private float fireDamage;
     [SerializeField][Range(1f, 100f)] private float boulderDamage;
     [SerializeField][Range(1f, 100f)] private float poisonDamage;
+
     [Header("Other settings")]
+    [SerializeField] private Transform initialPlayerTransform;
     [SerializeField][Range(3f, 6f)] private float secondsToQuitAppAffterWin;
     [SerializeField][Range(5f, 120f)][Tooltip("Seconds to sunset")] private float timerToGetDark;
 
@@ -48,7 +50,25 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private GameObject collectiblePrefab; // Prefab of the collectible
     public GameObject CollectiblePrefab => collectiblePrefab;
 
+    private int collectedCollectibles = 0; // Contador de coleccionables recogidos
+    private int totalCollectibles = 0;
+    private bool isAlive = true;
+    private bool isSeriouslyInjured = false;
+    private float currentHp;
+    private int currentLives = 3;
 
+
+    // General score and individual scores
+    private int generalScore = 0;
+    private int collectibleScore = 0;
+    private int switchScore = 0;
+    private int trapScore = 0;
+    private int enemyDestructionScore = 0;
+    private int enemyDamageScore = 0;
+
+
+    // last respawn position
+    private Transform lastRespawnTransform;
 
     // events
     public event Action<int> OnSwitchActivated;
@@ -58,6 +78,7 @@ public class GameManagerSO : ScriptableObject
     public event Action OnDeath;
     public event Action OnPlayerOnSpikes;
     public event Action <float> OnUpdateHP;
+    public event Action <int> OnUpdateLives;
     public event Action <float, float, float> OnShake;
     // Event to update the score UI (triggered when the general score changes)
     public event Action<int> OnScoreUpdated;
@@ -65,23 +86,10 @@ public class GameManagerSO : ScriptableObject
     public event Action OnInjured;
     public event Action OnSeriouslyInjured;
     public event Action OnResetLevel;
+    public event Action OnGameOver;
     public event Action<Transform> OnSetPlayerPosition;
 
 
-    private int collectedCollectibles = 0; // Contador de coleccionables recogidos
-    private int totalCollectibles = 0;
-    private bool isAlive = true;
-    private bool isSeriouslyInjured = false;
-    private float currentHp;
-    private int currentLives;
-
-    // General score and individual scores
-    private int generalScore = 0;
-    private int collectibleScore = 0;
-    private int switchScore = 0;
-    private int trapScore = 0;
-    private int enemyDestructionScore = 0;
-    private int enemyDamageScore = 0;
 
 
 
@@ -189,11 +197,18 @@ public class GameManagerSO : ScriptableObject
         {
             GameOver();
         }
+
+        ResetLevel();
     }
 
     private void GameOver()
     {
-        throw new NotImplementedException();
+        OnGameOver?.Invoke();
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void Shake(float shakeAmount = 0.7f, float shakeDecreaseFactor = 0.01f, float shakeDuration = 1.5f)
@@ -212,12 +227,20 @@ public class GameManagerSO : ScriptableObject
     {
         isAlive = true;
         isSeriouslyInjured = false;
-        currentLives = initialLives;
 
         // hp
         currentHp = initialHP;
-        // update hp UI
+        // update hp UI & lives
         OnUpdateHP?.Invoke(currentHp);
+        OnUpdateLives?.Invoke(currentLives);
+
+
+        // set player position
+        if (lastRespawnTransform == null)
+        {
+            lastRespawnTransform = initialPlayerTransform;
+        }
+        OnSetPlayerPosition(lastRespawnTransform);
     }
 
     public void SetAlive()
@@ -357,5 +380,10 @@ public class GameManagerSO : ScriptableObject
     public void Play()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void SetLastRespawnPoint(Transform transform)
+    {
+        lastRespawnTransform = transform;
     }
 }
