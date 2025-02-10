@@ -2,25 +2,34 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu(menuName = "GameManagerSO")]
 public class GameManagerSO : ScriptableObject
 {
-    public enum InteractuableObjectType {doorSwitch, nothing};
+    public enum InteractuableObjectType {doorSwitch, respawnPoint, nothing};
     public enum DamageType {spike, fire, boulder, poison, sabre}
 
-
-    [SerializeField][Range(3f, 6f)] private float secondsToQuitAppAffterWin;
-    [Header("HP & Damage")]
+    [Header("HP & Lives")]
     [SerializeField][Range(10f, 100f)] private float maxHP;
     [SerializeField][Range(10f, 100f)] private float initialHP;
-    [SerializeField][Range(1f, 100f)] private float spikeDamage;
+    [Tooltip("Act like seriously injured under this HP value")]
+    [SerializeField][Range(10f, 50f)] private float seriouslyInjured;
+    [SerializeField] private Vector3 initialRespawnPosition;
+    [SerializeField] private Vector3 currentRespawnPosition;
+    [Header("Damage")]
+    [SerializeField][Range(1f, 100f)] private float minSpikeDamage;
+    [SerializeField][Range(1f, 100f)] private float maxSpikeDamage;
+    [SerializeField][Range(1f, 100f)] private float minSabreDamage;
+    [SerializeField][Range(1f, 100f)] private float maxSabreDamage;
     [SerializeField][Range(1f, 100f)] private float fireDamage;
     [SerializeField][Range(1f, 100f)] private float boulderDamage;
     [SerializeField][Range(1f, 100f)] private float poisonDamage;
-    [SerializeField][Range(1f, 100f)] private float minSabreDamage;
-    [SerializeField][Range(1f, 100f)] private float maxSabreDamage;
-    [SerializeField][Range(5f, 120f)][Tooltip("Seconds to sunset")] private float m_timerToGetDark;
+
+    [Header("Other settings")]
+    [SerializeField] private Transform initialPlayerTransform;
+    [SerializeField][Range(3f, 6f)] private float secondsToQuitAppAffterWin;
+    [SerializeField][Range(5f, 120f)][Tooltip("Seconds to sunset")] private float timerToGetDark;
 
     [Header("Scoring Values")]
     [SerializeField] private int pointsPerCollectible = 20;
@@ -41,24 +50,13 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private GameObject collectiblePrefab; // Prefab of the collectible
     public GameObject CollectiblePrefab => collectiblePrefab;
 
-
-
-    // events
-    public event Action<int> OnSwitchActivated;
-    public event Action<int,int> OnDamageEnemy;
-    public event Action<InteractuableObjectType> OnInteractuableObjectDetected;
-    public event Action OnVictory;
-    public event Action OnDeath;
-    public event Action <float> OnUpdateHP;
-    public event Action <float, float, float> OnShake;
-    // Event to update the score UI (triggered when the general score changes)
-    public event Action<int> OnScoreUpdated;
-    public event Action<int,int> OnCollectibleScoring;
     private int collectedCollectibles = 0; // Contador de coleccionables recogidos
     private int totalCollectibles = 0;
-
-    private bool m_isAlive = true;
+    private bool isAlive = true;
+    private bool isSeriouslyInjured = false;
     private float currentHp;
+    private int currentLives = 3;
+
 
     // General score and individual scores
     private int generalScore = 0;
@@ -69,9 +67,34 @@ public class GameManagerSO : ScriptableObject
     private int enemyDamageScore = 0;
 
 
+    // last respawn position
+    private Transform lastRespawnTransform;
 
-    public bool isAlive {  get => m_isAlive;  }
-    public float timerToDark { get => m_timerToGetDark; }
+    // events
+    public event Action<int> OnSwitchActivated;
+    public event Action<int,float> OnDamageEnemy;
+    public event Action<InteractuableObjectType> OnInteractuableObjectDetected;
+    public event Action OnVictory;
+    public event Action OnDeath;
+    public event Action OnPlayerOnSpikes;
+    public event Action <float> OnUpdateHP;
+    public event Action <int> OnUpdateLives;
+    public event Action <float, float, float> OnShake;
+    // Event to update the score UI (triggered when the general score changes)
+    public event Action<int> OnScoreUpdated;
+    public event Action<int,int> OnCollectibleScoring;
+    public event Action OnInjured;
+    public event Action OnSeriouslyInjured;
+    public event Action OnResetLevel;
+    public event Action OnGameOver;
+    public event Action<Transform> OnSetPlayerPosition;
+
+
+
+
+
+    public bool IsAlive {  get => isAlive;  }
+    public float TimerToDark { get => timerToGetDark; }
     // Public properties to access the scores
     public int GeneralScore => CollectibleScore + SwitchScore + TrapScore + EnemyDamageScore + EnemyDestructionScore;
     public int CollectibleScore { get => collectibleScore; }
@@ -79,6 +102,9 @@ public class GameManagerSO : ScriptableObject
     public int TrapScore { get => trapScore; }
     public int EnemyDestructionScore { get => enemyDestructionScore; }
     public int EnemyDamageScore { get => enemyDamageScore; }
+    public float MaxHP { get => maxHP; }
+    public bool IsSeriouslyInjured { get => isSeriouslyInjured; }
+
 
 
     public bool EnableGeneralScoring => enableGeneralScoring;
@@ -87,6 +113,25 @@ public class GameManagerSO : ScriptableObject
     public bool EnableTrapScoring => enableTrapScoring;
     public bool EnableEnemyDamageScoring => enableEnemyDamageScoring;
     public bool EnableEnemyDestructionScoring => enableEnemyDestructionScoring;
+
+    private void OnValidate()
+    {
+        if (maxHP < initialHP)
+        {
+            maxHP = initialHP;
+            Debug.LogWarning($" initialHP={initialHP} shouldn't be greater than maxH={MaxHP}");
+        }
+
+        if (minSpikeDamage > maxSpikeDamage)
+        {
+            maxSpikeDamage = minSpikeDamage;
+        }
+    }
+
+    public void SetPlayerPosition(Transform transform)
+    {
+        OnSetPlayerPosition?.Invoke(transform);
+    }
 
     public void SetTotalCollectibles(int total)
     {
@@ -120,7 +165,7 @@ public class GameManagerSO : ScriptableObject
         Debug.Log($"SwitchActivated called! Score: {generalScore}, Added: {points}, Switch ID: {idSwitch}");
     }
 
-    public void DamageEnemy(int enemyId, int damage)
+    public void DamageEnemy(int enemyId, float damage)
     {
         OnDamageEnemy?.Invoke(enemyId, damage);
     }
@@ -137,10 +182,33 @@ public class GameManagerSO : ScriptableObject
 
     public void Death()
     {
-        if (m_isAlive) {
+        if (isAlive)
+        {
             OnDeath?.Invoke();
-            m_isAlive = false;
+            isAlive = false;
+            // update HP
+            currentHp = 0;
+            OnUpdateHP?.Invoke(currentHp);
         }
+
+        currentLives--;
+
+        if (currentLives == 0)
+        {
+            GameOver();
+        }
+
+        ResetLevel();
+    }
+
+    private void GameOver()
+    {
+        OnGameOver?.Invoke();
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void Shake(float shakeAmount = 0.7f, float shakeDecreaseFactor = 0.01f, float shakeDuration = 1.5f)
@@ -150,23 +218,57 @@ public class GameManagerSO : ScriptableObject
 
     public void ResetLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        OnResetLevel?.Invoke();
+        Start();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Start()
+    {
+        isAlive = true;
+        isSeriouslyInjured = false;
+
+        // hp
+        currentHp = initialHP;
+        // update hp UI & lives
+        OnUpdateHP?.Invoke(currentHp);
+        OnUpdateLives?.Invoke(currentLives);
+
+
+        // set player position
+        if (lastRespawnTransform == null)
+        {
+            lastRespawnTransform = initialPlayerTransform;
+        }
+        OnSetPlayerPosition(lastRespawnTransform);
     }
 
     public void SetAlive()
     {
-        m_isAlive = true;
+        isAlive = true;
         currentHp = initialHP;
-        generalScore = 0; // Asegurar que la puntuación inicia correctamente
+        generalScore = 0; // Asegurar que la puntuaciï¿½n inicia correctamente
         Debug.Log("GameManagerSO initialized, Score: " + generalScore);
+    }
+
+    public void PlayerOnSpikes()
+    {
+        OnPlayerOnSpikes?.Invoke();
     }
 
     public void Damage(DamageType damageType)
     {
+        if (!isAlive) { return; }
+        // XXX exit here if player is death
+
+        // notify player
+        OnInjured?.Invoke();
+
         if (damageType == DamageType.spike)
         {
-            currentHp -= spikeDamage;
-        }else if(damageType == DamageType.boulder)
+            currentHp -= UnityEngine.Random.Range(minSpikeDamage, maxSpikeDamage);
+        }
+        else if(damageType == DamageType.boulder)
         {
             currentHp -= boulderDamage;
         }else if(damageType == DamageType.fire)
@@ -183,9 +285,19 @@ public class GameManagerSO : ScriptableObject
 
         Debug.Log($"currentHp={currentHp}");
 
+        // limit currentHp to 0
+        if (currentHp < 0) currentHp = 0f;
+
 
         // update current live
         OnUpdateHP?.Invoke(currentHp);
+
+        // is player seriously injured?
+        if (!isSeriouslyInjured && currentHp < seriouslyInjured)
+        {
+            isSeriouslyInjured = true;
+            OnSeriouslyInjured?.Invoke();
+        }
 
         // Penalize for trap damage (-pointsPerTrap)
         int penalty = pointsPerTrap;
@@ -252,7 +364,7 @@ public class GameManagerSO : ScriptableObject
         // Incrementar el contador de coleccionables recogidos
         collectedCollectibles++;
 
-        // Invocar el evento pasando el número de recogidos y el total
+        // Invocar el evento pasando el nï¿½mero de recogidos y el total
         OnCollectibleScoring?.Invoke(collectedCollectibles, totalCollectibles);
 
         Debug.Log($"Collected: {collectedCollectibles} / {totalCollectibles}");
@@ -268,5 +380,10 @@ public class GameManagerSO : ScriptableObject
     public void Play()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void SetLastRespawnPoint(Transform transform)
+    {
+        lastRespawnTransform = transform;
     }
 }

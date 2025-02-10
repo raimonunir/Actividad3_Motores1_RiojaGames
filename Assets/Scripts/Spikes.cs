@@ -20,15 +20,10 @@ public class Spikes : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManagerSO.Damage(GameManagerSO.DamageType.spike);
+            gameManagerSO.PlayerOnSpikes();
         }
 
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            gameManagerSO.Damage(GameManagerSO.DamageType.spike);
-        }
-    }
+
 }

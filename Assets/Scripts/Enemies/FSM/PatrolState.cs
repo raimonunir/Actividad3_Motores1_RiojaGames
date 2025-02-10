@@ -47,17 +47,18 @@ public class PatrolState : EnemyState<EnemyController>
         {
             Vector3 directionATarget = (collsDetectados[0].transform.position - transform.position).normalized;
 
+            Debug.DrawRay(transform.position, directionATarget, Color.green);
             if (!Physics.Raycast(transform.position, directionATarget, controller.ViewRange, controller.ObstacleMask))
             {
                 if (Vector3.Angle(transform.forward, directionATarget) <= controller.ViewAngle / 2)
                 {
                     controller.Target = collsDetectados[0].transform;
                     
-                    if(controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
-                    {
+                    /*if(controller.Agent.CalculatePath(controller.Target.position, new NavMeshPath()))
+                    {*/
                         controller.Animator.SetBool("EN01Walking", false);
                         controller.ChangeState(controller.AlertState);
-                    }
+                    //}
                 }
             }
         }

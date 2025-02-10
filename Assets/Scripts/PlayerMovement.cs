@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(CharacterController))] 
 public class PlayerMovement : MonoBehaviour
@@ -26,11 +27,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSourceHeartBeat;
     [SerializeField][Range(0f, 0.1f)][Tooltip("Under this value in input aixis there will be no step sound")] 
     private float soundMovementMaring;
     [SerializeField] private List<AudioClip> stepsAudioClips;
     [SerializeField] private List<AudioClip> jumpStartAudioClips;
     [SerializeField] private List<AudioClip> jumpLandAudioClips;
+    [SerializeField] private List<AudioClip> auchAudioClips;
 
 
     private CharacterController characterController;
@@ -44,11 +47,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSourceHeartBeat.Stop();
         characterController = GetComponent<CharacterController>();
         cameraPlayer = GetComponentInChildren<Camera>();
         //audioSourceWick.Play();
 
-        gameManagerSO.SetAlive();
+        gameManagerSO.Start();
     }
 
     // Update is called once per frame
@@ -66,8 +70,58 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(velocity * Time.deltaTime);
 
         // user input
-        if (gameManagerSO.isAlive) {
+        if (gameManagerSO.IsAlive) {
             CheckInputUser();
+        }
+    }
+
+    private void OnEnable()
+    {
+        gameManagerSO.OnPlayerOnSpikes += GameManagerSO_OnPlayerOnSpikes;
+        gameManagerSO.OnInjured += GameManagerSO_OnInjured;
+        gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnSetPlayerPosition += GameManagerSO_OnSetPlayerPosition;
+    }
+
+    private void OnDisable()
+    {
+        gameManagerSO.OnPlayerOnSpikes -= GameManagerSO_OnPlayerOnSpikes;
+        gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
+        gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnSetPlayerPosition -= GameManagerSO_OnSetPlayerPosition;
+
+    }
+    private void GameManagerSO_OnSetPlayerPosition(Transform newTransform)
+    {
+        characterController.enabled = false;
+        characterController.transform.position = newTransform.position;
+        characterController.transform.rotation = newTransform.rotation;
+        characterController.enabled = true;
+    }
+
+    private void GameManagerSO_OnSeriouslyInjured()
+    {
+        audioSourceHeartBeat.Play();
+    }
+
+    private void GameManagerSO_OnInjured()
+    {
+        audioSource.PlayOneShot(auchAudioClips[Random.Range(0, auchAudioClips.Count)]);
+    }
+
+    private void GameManagerSO_OnPlayerOnSpikes()
+    {
+        StartCoroutine(ReactToSpikes());
+    }
+
+    private IEnumerator ReactToSpikes()
+    {
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        while (true)
+        {
+            characterController.Move(-movementSpeed/3f * Time.deltaTime * transform.forward);
+            yield return null;
+            if (isGrounded) break;
         }
     }
 
@@ -89,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CheckInputUser()
-    {
+    {   
         // walk movement
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -103,11 +157,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = (transform.right * x + transform.forward * z).normalized;
         characterController.Move(movementSpeed * Time.deltaTime * direction);
 
-        #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.K)) {
-            gameManagerSO.Damage(GameManagerSO.DamageType.spike);
-        }
-        #endif
 
         // jump
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -118,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
         //XXX rotation is in cameraPlayer MouseLook component
 
         // raycast
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E)) 
         {
             if (Physics.Raycast(cameraPlayer.transform.position, cameraPlayer.transform.forward, out RaycastHit hitInfo, maxRaycastDistance, layermaskRaycast))
             {
@@ -133,17 +182,34 @@ public class PlayerMovement : MonoBehaviour
                         gameManagerSO.SwitchActivated(doorSwitch.IdDoorSwitch);
                     }
                 }
+                else if (hitInfo.collider.TryGetComponent(out RespawnPoint respawnPoint)) {
+
+                    if ( !respawnPoint.IsActive) {
+                        respawnPoint.Activate();
+                    }
+                }
+
+                
             }
         }
     }
 
     private void FixedUpdate()
     {
-        if (gameManagerSO.isAlive && Physics.Raycast(cameraPlayer.transform.position, cameraPlayer.transform.forward, out RaycastHit hitInfo, maxRaycastDistance, layermaskRaycast))
+        if (gameManagerSO.IsAlive && Physics.Raycast(cameraPlayer.transform.position, cameraPlayer.transform.forward, out RaycastHit hitInfo, maxRaycastDistance, layermaskRaycast))
         {
             if (hitInfo.collider.TryGetComponent(out DoorSwitch doorSwitch))
             {
                 gameManagerSO.InfoUI(GameManagerSO.InteractuableObjectType.doorSwitch);
+                Debug.DrawRay(cameraPlayer.transform.position, cameraPlayer.transform.forward * maxRaycastDistance, Color.yellow);
+
+            }
+            else if (hitInfo.collider.TryGetComponent(out RespawnPoint respawnPoint))
+            {
+                if ( !respawnPoint.IsActive)
+                {
+                    gameManagerSO.InfoUI(GameManagerSO.InteractuableObjectType.respawnPoint);
+                }
                 Debug.DrawRay(cameraPlayer.transform.position, cameraPlayer.transform.forward * maxRaycastDistance, Color.yellow);
 
             }

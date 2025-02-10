@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/HealtBar Texture.meta
+guid: e00d1a01c0b614b44ab2e5ea30efeda0
+folderAsset: yes
+========
 guid: 62ba326b0ddfdae45a74c5027b885dcd
+>>>>>>>> origin/develop:Assets/Scenes/Test_Enemy.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

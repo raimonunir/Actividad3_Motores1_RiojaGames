@@ -16,6 +16,19 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject panelMiniMap;
     [SerializeField] private GameObject panelDeath;
     [SerializeField] private TextMeshProUGUI textRestartIn;
+    [SerializeField] private Image HealthBar;
+    [SerializeField] private Text HealthBarValueText;
+    [SerializeField] private GameObject panelInjured;
+    [SerializeField][Range(1f, 5f)] private float secondsShowingPanelInjured;
+    [SerializeField] private GameObject panelSeriouslyInjured;
+    [SerializeField] private GameObject panelGameOver;
+    [SerializeField] private GameObject panelDebug;
+    [SerializeField] private GameObject HeartLiveOne;
+    [SerializeField] private GameObject HeartLiveTwo;
+    [SerializeField] private GameObject HeartLiveThree;
+
+
+
 
     [Header("Score UI")]
     [SerializeField] private GameObject panelScore;
@@ -30,6 +43,12 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private Image imagePointCameraTarget;
     [SerializeField] private TextMeshProUGUI textTargetInfo;
 
+    [Header("Debug Positions")]
+    [SerializeField] private Transform debugPositionInitial;
+    [SerializeField] private Transform debugPositionMid1;
+    [SerializeField] private Transform debugPositionMid2;
+    [SerializeField] private Transform debugPositionFinal;
+
     private Animator panelStartUIanimator;
     private bool firstClick = false;
     private bool isDesativaeTargetInfoRunning = false;
@@ -40,20 +59,7 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // setting UI panels and animators
-        panelStartUI.SetActive(true);
-        panelCameraTarget.SetActive(false);
-        panelEndGameUI.SetActive(false);
-        panelDeath.SetActive(false);
-        panelScore.SetActive(false);
-        CollectableUI.SetActive(false);
-        panelStartUIanimator = panelStartUI.GetComponent<Animator>();
-        imagePointCameraTarget.enabled = false;
-        textTargetInfo.enabled = false;
-        textTargetInfo.text = "";
-        scoreText.text = "0";
-        //collectibleText.text = "";
-
+        InitialSet();
     }
 
     private void Update()
@@ -69,9 +75,40 @@ public class CanvasManager : MonoBehaviour
         if (!firstClick && Input.GetKeyDown(KeyCode.Mouse0)) {
             firstClick = true;
             StartCoroutine(FadeOutStartPanelUI());
+        }
 
+        // test console
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.C))
+        {
+            panelDebug.SetActive(!panelDebug.activeSelf);
+        }
+
+        if (panelDebug.activeSelf) {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                gameManagerSO.Damage(GameManagerSO.DamageType.spike);
+            }            
+            
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionInitial);
+            }            
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionMid1);
+            }            
+            if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionMid2);
+            }            
+            if (Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                gameManagerSO.SetPlayerPosition(debugPositionFinal);
+            }
+            
         }
     }
+
 
     private void OnEnable()
     {
@@ -80,7 +117,14 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnDeath += GameManagerSO_OnDeath;
         gameManagerSO.OnScoreUpdated += GameManagerSO_OnScoreUpdated;
         gameManagerSO.OnCollectibleScoring += GameManagerSO_OnCollectibleScoring;
+        gameManagerSO.OnUpdateHP += GameManagerSO_OnUpdateHP;
+        gameManagerSO.OnSeriouslyInjured += GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnInjured += GameManagerSO_OnInjured;
+        gameManagerSO.OnGameOver += GameManagerSO_OnGameOver;
+        gameManagerSO.OnResetLevel += GameManagerSO_OnResetLevel;
+        gameManagerSO.OnUpdateLives += GameManagerSO_OnUpdateLives;
     }
+
     private void OnDisable()
     {
         gameManagerSO.OnInteractuableObjectDetected -= GameManagerSO_OnInteractuableObjectDetected;
@@ -88,7 +132,108 @@ public class CanvasManager : MonoBehaviour
         gameManagerSO.OnDeath -= GameManagerSO_OnDeath;
         gameManagerSO.OnScoreUpdated -= GameManagerSO_OnScoreUpdated;
         gameManagerSO.OnCollectibleScoring -= GameManagerSO_OnCollectibleScoring;
+        gameManagerSO.OnUpdateHP -= GameManagerSO_OnUpdateHP;
+        gameManagerSO.OnSeriouslyInjured -= GameManagerSO_OnSeriouslyInjured;
+        gameManagerSO.OnInjured -= GameManagerSO_OnInjured;
+        gameManagerSO.OnGameOver -= GameManagerSO_OnGameOver;
+        gameManagerSO.OnResetLevel -= GameManagerSO_OnResetLevel;
+        gameManagerSO.OnUpdateLives -= GameManagerSO_OnUpdateLives;
     }
+
+    private void GameManagerSO_OnUpdateLives(int obj)
+    {
+        if (obj == 0)
+        {
+            HeartLiveOne.SetActive(false);
+            HeartLiveTwo.SetActive(false);
+            HeartLiveThree.SetActive(false);
+        }
+        else if (obj == 1)
+        {
+            HeartLiveOne.SetActive(true);
+            HeartLiveTwo.SetActive(false);
+            HeartLiveThree.SetActive(false);
+        }
+        else if (obj == 2)
+        {
+            HeartLiveOne.SetActive(true);
+            HeartLiveTwo.SetActive(true);
+            HeartLiveThree.SetActive(false);
+        }
+        else if (obj == 3) {
+            HeartLiveOne.SetActive(true);
+            HeartLiveTwo.SetActive(true);
+            HeartLiveThree.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Number of lives don't match");
+        }
+    }
+
+    private void InitialSet()
+    {
+        // setting UI panels and animators
+        panelStartUI.SetActive(true);
+        panelCameraTarget.SetActive(false);
+        panelEndGameUI.SetActive(false);
+        panelInjured.SetActive(false);
+        panelSeriouslyInjured.SetActive(false);
+        panelDeath.SetActive(false);
+        panelScore.SetActive(false);
+        CollectableUI.SetActive(false);
+        panelDebug.SetActive(false);
+        panelGameOver.SetActive(false);
+        panelStartUIanimator = panelStartUI.GetComponent<Animator>();
+        imagePointCameraTarget.enabled = false;
+        textTargetInfo.enabled = false;
+        textTargetInfo.text = "";
+        scoreText.text = "0";
+        //collectibleText.text = "";
+    }
+
+    private void GameManagerSO_OnResetLevel()
+    {
+        InitialSet();
+    }
+
+    private void GameManagerSO_OnGameOver()
+    {
+        panelGameOver.SetActive(true);
+        StartCoroutine(Wait());
+        gameManagerSO.LoadMainMenu();
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3f);
+    }
+
+    private void GameManagerSO_OnInjured()
+    {
+        if ( !gameManagerSO.IsSeriouslyInjured)
+        {
+            StartCoroutine(showInjuredPanelForSeconds());
+        }   
+    }
+
+    private IEnumerator showInjuredPanelForSeconds()
+    {
+        panelInjured.SetActive(true);
+        yield return new WaitForSeconds(secondsShowingPanelInjured);
+        panelInjured.SetActive(false);
+    }
+    private void GameManagerSO_OnSeriouslyInjured()
+    {
+        panelSeriouslyInjured.SetActive(true);
+    }
+
+    private void GameManagerSO_OnUpdateHP(float hp)
+    {
+        HealthBar.fillAmount = hp / gameManagerSO.MaxHP;
+        HealthBarValueText.text = "" + hp.ToString("f0");
+    }
+
 
     private void GameManagerSO_OnDeath()
     {
@@ -166,9 +311,14 @@ public class CanvasManager : MonoBehaviour
         // get info text
         if (obj == GameManagerSO.InteractuableObjectType.doorSwitch) {
             textTargetInfo.enabled = true;
-            textTargetInfo.text = "Door Switch (Click to activate)";
+            textTargetInfo.text = "Door Switch (Press 'E' to activate)";
             targetUIwasShowingSomething = true;
-        } else if(obj == GameManagerSO.InteractuableObjectType.nothing)
+        } else if (obj == GameManagerSO.InteractuableObjectType.respawnPoint) {
+            textTargetInfo.enabled = true;
+            textTargetInfo.text = "Respawn Point (Press 'E' to activate)";
+            targetUIwasShowingSomething = true;
+        }
+        else if(obj == GameManagerSO.InteractuableObjectType.nothing)
         {
             imagePointCameraTarget.enabled = false;
 

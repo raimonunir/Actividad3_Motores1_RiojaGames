@@ -24,7 +24,7 @@ public class CollectibleSpawner : MonoBehaviour
         SpawnCollectibles();
 
         //int total = collectibleParent.childCount;
-        //gameManagerSO.SetTotalCollectibles(total); // Esto activará el evento y actualizará la UI
+        //gameManagerSO.SetTotalCollectibles(total); // Esto activarï¿½ el evento y actualizarï¿½ la UI
         //SpawnCollectibles();
 
     }
@@ -40,7 +40,7 @@ public class CollectibleSpawner : MonoBehaviour
         foreach (Transform spawnPoint in collectibleParent)
         {
             Vector3 globalPosition = spawnPoint.position; // Use world position
-            Instantiate(gameManagerSO.CollectiblePrefab, globalPosition, Quaternion.identity);
+            Instantiate(gameManagerSO.CollectiblePrefab, globalPosition, Quaternion.Euler(new Vector3(-90f, 0f, 0f)));//Quaternion.identity);
         }
     }
 }

@@ -123,6 +123,7 @@ MonoBehaviour:
   collectSound: {fileID: 8300000, guid: ba16276ec3fcc8441ab84237031902df, type: 3}
   collectParticles: {fileID: 797808240676534867, guid: 876f7e8a04ea54548b1917d28721d491,
     type: 3}
+  rotationSpeed: 100
 --- !u!82 &100345448637291279
 AudioSource:
   m_ObjectHideFlags: 0

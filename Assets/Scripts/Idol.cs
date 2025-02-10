@@ -7,6 +7,7 @@ public class Idol : MonoBehaviour
     [SerializeField] private GameManagerSO gameManagerSO;
     [SerializeField] private AudioClip collectSound; // Sonido opcional al recogerlo
     [SerializeField] private ParticleSystem collectParticles; // Efecto visual opcional
+    [SerializeField][Range(50f, 200f)] private float rotationSpeed;
 
     private AudioSource audioSource;
 
@@ -19,7 +20,7 @@ public class Idol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 100 * Time.deltaTime, 0);
+        transform.Rotate(Time.deltaTime * rotationSpeed *  Vector3.forward);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -53,7 +53,7 @@ public class TNTtrap : MonoBehaviour
         foreach (Collider collider in colliders) {
             if (collider.CompareTag("Player"))
             {
-                gameManagerSO.Death();
+                gameManagerSO.Damage(GameManagerSO.DamageType.fire);
             }
         }
     }
