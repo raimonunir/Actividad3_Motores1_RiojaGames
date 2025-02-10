@@ -13,6 +13,11 @@ public class EnemyAnimatorHandler : MonoBehaviour
         attackState = transform.parent.GetComponent<AttackState>();
     }
 
+    public void OnStartAttackAnimation()
+    {
+        attackState.StartAttack();
+    }
+
     public void OnFinishAttackAnimation()
     {
         attackState.CheckTarget();

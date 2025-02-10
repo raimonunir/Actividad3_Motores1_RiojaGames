@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,14 @@ using UnityEngine;
 public class AttackState : EnemyState<EnemyController>
 {
     private float targetWidth;
+    private bool isAttacking;
 
     public override void OnEnterState(EnemyController controller)
     {
         base.OnEnterState(controller);
 
         controller.Agent.stoppingDistance = (controller.BodyLength / 2);
+        isAttacking = true;
         controller.Animator.SetBool("EN01Attacking", true);
         targetWidth = controller.Target.GetComponent<Renderer>().bounds.size.x;
     }
@@ -31,8 +34,9 @@ public class AttackState : EnemyState<EnemyController>
 
     public void CheckTarget() 
     {
-        if (!controller.GameManagerSO.IsAlive)
+        if (controller.TargetIsDead)
         {
+            isAttacking = false;
             controller.Animator.SetBool("EN01Attacking", false);
             controller.ChangeState(controller.TargetDestroyedState);
         }
@@ -40,8 +44,13 @@ public class AttackState : EnemyState<EnemyController>
         {
             if (Vector3.Distance(transform.position, controller.Target.transform.position) > controller.Agent.stoppingDistance + (targetWidth / 2))
             {
+                isAttacking = false;
                 controller.Animator.SetBool("EN01Attacking", false);
                 controller.ChangeState(controller.ChaseState);
+            }
+            else
+            {
+                isAttacking = true;
             }
         }
     }
@@ -52,5 +61,10 @@ public class AttackState : EnemyState<EnemyController>
         {
             controller.GameManagerSO.Damage(GameManagerSO.DamageType.sabre);
         }
+    }
+
+    internal void StartAttack()
+    {
+        if (isAttacking) controller.FuenteSonido.PlayOneShot(controller.tigerBite);
     }
 }
