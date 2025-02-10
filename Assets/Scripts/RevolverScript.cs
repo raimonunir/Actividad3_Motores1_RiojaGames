@@ -132,7 +132,7 @@ public class RevolverScript : MonoBehaviour
         //gameManagerSO.Shake(0.15f, 1f, 0.15f);
 
         //Llamamos a un método propio para el camera Shake porque el del GameManager me bloquea el movimiento
-        TemblorDeCamara();
+        StartCoroutine(WeaponRecoil());
 
         //reproducimos el sistema de partículas para mostrar el muzzleFlash
         muzzleFlash.Play();
@@ -163,9 +163,55 @@ public class RevolverScript : MonoBehaviour
         }
     }
 
-    public void TemblorDeCamara()
+    IEnumerator WeaponRecoil()
     {
-        //transform.localPosition = 
+        //Tiempo de retroceso
+        float recoilTime = 0.1f;      //Tiempo que tardamos en el retroceso
+        float currentTime = 0f;     //Tiempo actual a efectos de comparar
+        float recoveryTime = 0.1f;    //Tiempo que tardamos en volver a la posición original (porque quizá queramos que vuelva más lento)
+
+        //distancia de retroceso
+        float recoilDistance = -0.05f;
+
+        //Posición original
+        Vector3 originalPosition = transform.localPosition;
+
+        //A dónde lo queremos desplazar?
+        Vector3 recoilPosition = originalPosition + new Vector3(0f,0f,recoilDistance);
+
+        //Mientras que el tiempo sea menor o igual que el tiempo que hemos establecido para el retroceso...
+        while (currentTime <= recoilTime)
+        {
+            //Desplazamos hacia atrás
+            transform.localPosition = Vector3.Lerp(originalPosition, recoilPosition, currentTime);
+
+            currentTime += Time.deltaTime;  //Aumentamos currentTime
+
+            yield return null;
+        }
+
+        //Para garantizar que hemos llegado a la posición final forzamos el transform
+        transform.localPosition = recoilPosition;
+
+        //Y ahora volvemos al punto de partida
+        
+        currentTime = 0f;   //Esto lo reseteamos a cero
+
+        while (currentTime <= recoveryTime)
+        {
+            //Desplazamos hacia atrás
+            transform.localPosition = Vector3.Lerp(recoilPosition, originalPosition, currentTime);
+
+            currentTime += Time.deltaTime;  //Aumentamos currentTime
+
+            yield return null;
+        }
+
+        //Y como en el caso anterior forzamos el localposition
+        transform.localPosition = originalPosition;
+        
+        //Quedamos listos para volver a disparar
+        revolverAnimator.SetBool("RevolverShooting", false);
     }
 
 
@@ -173,7 +219,7 @@ public class RevolverScript : MonoBehaviour
     //por si en el futuro hubiese una mejora de disparo rápido, por ejemplo
     public void FinDisparoRevolver()
     {
-        revolverAnimator.SetBool("RevolverShooting", false);
+        //revolverAnimator.SetBool("RevolverShooting", false);
     }
 
     //Si todo va bien este método debería ser llamado desde los eventos de la animación "revolverRecharging.anim"
